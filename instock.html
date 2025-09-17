@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Glow On · 現貨專區</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="top">
+        <a href="index.html" class="logo">
+          <img src="Archive/logo.png" alt="Glow On logo">
+          <strong data-i18n="brand">Glow On</strong>
+        </a>
+        <div class="nav">
+          <a href="index.html" data-i18n="nav_home">首頁</a>
+          <a href="preorder.html" data-route="preorder" data-i18n="nav_preorder">精選預購</a>
+          <a href="instock.html"  data-route="instock"  data-i18n="nav_instock">現貨專區</a>
+          <a href="buyagent.html" data-route="service"  data-i18n="nav_service">澳洲代購服務</a>
+        </div>
+        <div class="actions">
+          <a class="btn icon whatsapp" href="https://wa.me/" target="_blank" rel="noopener">🟢</a>
+          <a class="btn icon search" href="#">🔍</a>
+          <a class="btn icon login" href="admin.html">👤</a>
+          <a class="btn icon cart" href="checkout.html">🛒</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <!-- Banner：3.png -->
+      <section class="banner">
+        <img src="Archive/Promo_Banner/3.png" alt="In Stock">
+      </section>
+
+      <section>
+        <h1 class="sec-title" data-i18n="section_instock">現貨好物</h1>
+        <div class="grid" id="instock-grid"></div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-box">
+      <div class="copy">2025 © Glow On HK. All Rights Reserved.</div>
+    </div>
+  </footer>
+
+  <script src="site.js"></script>
+  <script>
+    const INSTOCK = [
+      { pid:'1', img:'Archive/Untitled_design/1.png', zh:'PURITI 麥盧卡蜜糖 MGO350 1kg', en:'PURITI Manuka Honey MGO350 1kg', price:'HK$430' },
+      { pid:'2', img:'Archive/Untitled_design/2.png', zh:'Hismile 牙膏 60g – 薄荷朱古力', en:'Hismile Toothpaste 60g – Mint Choc', price:'HK$65' },
+      { pid:'3', img:'Archive/Untitled_design/3.png', zh:'Hismile 牙膏 60g – 士多啤梨奶油', en:'Hismile Toothpaste 60g – Strawberry Cream', price:'HK$65' },
+      { pid:'4', img:'Archive/Untitled_design/4.png', zh:'Hismile 牙膏 60g – 可樂味', en:'Hismile Toothpaste 60g – Cola', price:'HK$65' },
+      { pid:'5', img:'Archive/Untitled_design/5.png', zh:'Skin Control 可愛暗瘡貼 36片', en:'Skin Control Pimple Patch Party Pack 36', price:'HK$65' },
+      { pid:'6', img:'Archive/Untitled_design/6.png', zh:'Dr.PAWPAW 潤唇膏 10ml', en:'Dr.PAWPAW Original Balm 10ml', price:'HK$55' },
+      { pid:'7', img:'Archive/Untitled_design/7.png', zh:'Dr.PAWPAW 豐唇護唇油 8ml', en:'Dr.PAWPAW Plumping Lip Oil 8ml', price:'HK$55' },
+      { pid:'8', img:'Archive/Untitled_design/8.png', zh:'Dr.PAWPAW 有色潤唇膏 粉紅 10ml', en:'Dr.PAWPAW Tinted Hot Pink Balm 10ml', price:'HK$55' },
+      { pid:'9', img:'Archive/Untitled_design/9.png', zh:'Dr.PAWPAW 有色潤唇膏 珊瑚 10ml', en:'Dr.PAWPAW Tinted Coral Balm 10ml', price:'HK$55' }
+    ];
+
+    function cardLinkHTML(item, lc){
+      const title = (lc==='en') ? item.en : item.zh;
+      const href = `product.html?pid=${encodeURIComponent(item.pid)}&lc=${lc}`;
+      return `
+      <a class="card" href="${href}">
+        <div class="thumb"><img src="${item.img}" alt="${title}" loading="lazy"></div>
+        <div class="content"><div class="title">${title}</div><div class="price">${item.price}</div></div>
+      </a>`;
+    }
+
+    function renderInstock(){
+      const lc = getLocale();
+      document.getElementById('instock-grid').innerHTML = INSTOCK.map(x=>cardLinkHTML(x, lc)).join('');
+    }
+
+    renderInstock();
+    window.addEventListener('locale-changed', renderInstock);
+  </script>
+</body>
+</html>

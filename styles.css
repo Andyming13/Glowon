@@ -1,0 +1,78 @@
+/* ===== Reset ===== */
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+img{max-width:100%;display:block}
+
+/* ===== Global (force light) ===== */
+html{color-scheme:only light}
+:root{
+  --text:#111;
+  --muted:#555;
+  --border:#e5e7eb;
+  --brand:#111;
+}
+body{
+  background:#fff !important;
+  color:var(--text);
+  line-height:1.6;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"PingFang HK","Microsoft JhengHei",sans-serif;
+}
+
+/* ===== Container ===== */
+.container{max-width:1100px;margin:0 auto;padding:0 16px}
+
+/* ===== Header / Nav ===== */
+.site-header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--border);z-index:10}
+nav.top{display:flex;gap:16px;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text)}
+.logo img{height:28px;width:auto}
+.nav{display:flex;gap:18px;flex-wrap:wrap}
+.nav a{color:#000;text-decoration:none;font-weight:700;padding:8px 6px;border-radius:8px}
+.nav a:hover{background:#f5f5f5}
+
+/* Header actions: whatsapp / search / login / cart */
+.actions{display:flex;gap:10px;align-items:center}
+.btn.icon{display:inline-flex;align-items:center;justify-content:center;height:40px;width:40px;border:1px solid var(--border);border-radius:10px;background:#fff;color:#000;cursor:pointer;text-decoration:none}
+.btn.icon:hover{box-shadow:0 2px 8px rgba(0,0,0,.06)}
+/* 简易 emoji 图标占位；后续可换 SVG */
+.btn.icon.whatsapp{color:#25D366}
+.btn.icon.search{color:#000}
+.btn.icon.login{color:#000}
+.btn.icon.cart{color:#000}
+
+/* Language dropdown (🌐 繁體中文 ▾) */
+.lang{position:relative}
+.lang-btn{display:inline-flex;align-items:center;gap:6px;height:40px;border:1px solid var(--border);border-radius:10px;background:#fff;color:var(--text);padding:0 10px;cursor:pointer}
+.lang-btn:hover{box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.lang-menu{position:absolute;right:0;top:46px;background:#fff;border:1px solid var(--border);border-radius:10px;box-shadow:0 10px 24px rgba(0,0,0,.1);padding:6px;min-width:140px;z-index:20}
+.lang-menu[hidden]{display:none}
+.lang-menu button{display:block;width:100%;text-align:left;background:none;border:none;padding:8px 10px;cursor:pointer;border-radius:8px}
+.lang-menu button:hover{background:#f5f5f5}
+
+/* ===== Banner ===== */
+.banner{margin:12px 0}
+.banner img{
+  width:100%;
+  height:320px;          /* 关键1：限制高度 */
+  object-fit:cover;      /* 关键2：裁切填充，不会巨幅 */
+  border-radius:12px;
+}
+
+/* ===== Sections / Grid / Cards ===== */
+.sec-title{font-weight:800;font-size:22px;margin:16px 0 8px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media (max-width:920px){.grid{grid-template-columns:repeat(2,1fr)}}
+.card{border:1px solid var(--border);border-radius:12px;overflow:hidden;background:#fff}
+.card .thumb{aspect-ratio:1/1;background:#fafafa;overflow:hidden}
+.card .thumb img{width:100%;height:100%;object-fit:cover}
+.card .content{display:flex;align-items:flex-end;justify-content:space-between;padding:10px}
+.card .title{font-size:16px;font-weight:800;line-height:1.35}
+.card .price{font-size:16px;font-weight:800;color:#b91c1c}
+.iconbtn{display:none} /* 首页不显示“加入” */
+
+/* ===== Footer (与你截图一致：中文一行 + 英文一行 + 版权) ===== */
+.footer-box{border-top:2px solid #111;padding-top:14px;margin-top:18px}
+.foot-row{display:flex;gap:48px;justify-content:center;flex-wrap:wrap;margin:6px 0}
+.foot-row a{color:#000;text-decoration:none}
+.foot-row a b{font-weight:800}
+.copy{font-weight:800;text-align:center;margin-top:10px;color:#666}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Glow On · Home</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="top">
+        <!-- 左：LOGO -->
+        <a href="index.html" class="logo">
+          <img src="Archive/logo.png" alt="Glow On logo">
+          <strong data-i18n="brand">Glow On</strong>
+        </a>
+
+        <!-- 中：导航 -->
+        <div class="nav">
+          <a href="index.html">首頁</a>
+          <a href="preorder.html" data-route="preorder" data-i18n="nav_preorder">精選預購</a>
+          <a href="instock.html"  data-route="instock"  data-i18n="nav_instock">現貨專區</a>
+          <a href="buyagent.html" data-route="service"  data-i18n="nav_service">澳洲代購服務</a>
+        </div>
+
+        <!-- 右：动作 + 语言 -->
+        <div class="actions">
+          <a class="btn icon whatsapp" href="https://wa.me/" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp">🟢</a>
+          <a class="btn icon search"   href="#" title="Search" aria-label="Search">🔍</a>
+          <a class="btn icon login"    href="admin.html" title="Login" aria-label="Login">👤</a>
+          <a class="btn icon cart"     href="checkout.html" title="Cart" aria-label="Cart">🛒</a>
+
+          <!-- 自定义语言切换 -->
+          <div class="lang">
+            <button id="langBtn" class="lang-btn" type="button" aria-haspopup="menu" aria-expanded="false">
+              <span aria-hidden="true">🌐</span>
+              <span id="langLabel">繁體中文</span>
+              <span class="caret" aria-hidden="true">▾</span>
+            </button>
+            <div class="lang-menu" id="langMenu" role="menu" hidden>
+              <button role="menuitem" data-lc="zh-HK">繁體中文</button>
+              <button role="menuitem" data-lc="en">English</button>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="home">
+    <div class="container">
+
+      <!-- Banner（限高，已在 CSS 处理） -->
+      <section class="banner">
+        <img src="Archive/Promo_Banner/1.png" alt="Promo">
+      </section>
+
+      <!-- 精選預購 -->
+      <section>
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <h2 class="sec-title" data-i18n="section_preorder">精選預購</h2>
+          <a href="preorder.html" data-route="preorder"><span data-i18n="view_all">查看全部</span> →</a>
+        </div>
+        <div class="grid" id="home-preorder"></div>
+      </section>
+
+      <!-- 現貨好物 -->
+      <section>
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <h2 class="sec-title" data-i18n="section_instock">現貨好物</h2>
+          <a href="instock.html" data-route="instock"><span data-i18n="view_all">查看全部</span> →</a>
+        </div>
+        <div class="grid" id="home-instock"></div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer（与你的截图一致） -->
+  <footer class="site-footer">
+    <div class="container footer-box">
+      <nav class="foot-row zh">
+        <a href="terms.html"><b>條款及細則</b></a>
+        <a href="privacy.html"><b>私隱政策</b></a>
+        <a href="returns.html"><b>退換貨政策</b></a>
+        <a href="process.html"><b>購買流程</b></a>
+        <a href="contact.html"><b>聯絡我們</b></a>
+      </nav>
+      <nav class="foot-row en">
+        <a href="terms.html"><b>Terms &amp; Conditions</b></a>
+        <a href="privacy.html"><b>Privacy Policy</b></a>
+        <a href="returns.html"><b>Return &amp; Exchange Policy</b></a>
+        <a href="process.html"><b>Shopping Process</b></a>
+        <a href="contact.html"><b>Contact Us</b></a>
+      </nav>
+      <div class="copy">2025 © Glow On HK. <span data-i18n="rights">All Rights Reserved.</span></div>
+    </div>
+  </footer>
+
+  <script src="site.js"></script>
+  <script>
+    // 首页8个卡片（图片在 Archive/Untitled_design/）
+    const HOME_PREORDER = [
+      { img:'Archive/Untitled_design/14.png',
+        zh:'Caruso\'s Total Beauty® 膠原蛋白（100g粉裝）', en:"Caruso’s Total Beauty® Collagen (100g powder)", price:'HK$210' },
+      { img:'Archive/Untitled_design/15.png',
+        zh:'Caruso\'s Total Beauty® 膠原蛋白（60片裝）',     en:"Caruso’s Total Beauty® Collagen (60 tablets)", price:'HK$210' },
+      { img:'Archive/Untitled_design/18.png',
+        zh:'Life-Space 雙倍強度益生菌（30粒膠囊）',         en:"Life-Space Double Strength Probiotic (30 caps)", price:'待定' },
+      { img:'Archive/Untitled_design/19.png',
+        zh:'Life-Space 兒童益生菌粉（60g）',                en:"Life-Space Children Probiotic Powder (60g)",     price:'待定' }
+    ];
+    const HOME_INSTOCK = [
+      { img:'Archive/Untitled_design/1.png',
+        zh:'PURITI 麥盧卡蜜糖 MGO 350 (1kg)', en:"PURITI Manuka Honey MGO 350 (1kg)", price:'HK$430' },
+      { img:'Archive/Untitled_design/2.png',
+        zh:'Hismile 薄荷朱古力味牙膏 60g',    en:"Hismile Mint Chocolate Toothpaste 60g", price:'HK$65' },
+      { img:'Archive/Untitled_design/6.png',
+        zh:'Dr. PAWPAW 潤唇膏 10ml',         en:"Dr. PAWPAW Original Balm 10ml",       price:'HK$55' },
+      { img:'Archive/Untitled_design/10.png',
+        zh:'T2 French Earl Grey 茶包（10包）', en:"T2 French Earl Grey Teabags (10)",     price:'HK$70' }
+    ];
+    function cardHTMLSimple(item, lc){
+      const title = (lc==='en') ? item.en : item.zh;
+      return `
+      <div class="card">
+        <div class="thumb"><img src="${item.img}" alt="${title}" loading="lazy"></div>
+        <div class="content">
+          <div>
+            <div class="title">${title}</div>
+            <div class="price">${item.price}</div>
+          </div>
+        </div>
+      </div>`;
+    }
+    function renderHome(){
+      const lc = getLocale();
+      document.getElementById('home-preorder').innerHTML = HOME_PREORDER.map(x=>cardHTMLSimple(x, lc)).join('');
+      document.getElementById('home-instock').innerHTML  = HOME_INSTOCK.map(x=>cardHTMLSimple(x, lc)).join('');
+    }
+    renderHome();
+    window.addEventListener('locale-changed', renderHome);
+  </script>
+</body>
+</html>

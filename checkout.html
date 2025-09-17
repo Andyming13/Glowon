@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Glow On · 購物車</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    .container{max-width:1100px;margin:0 auto;padding:16px}
+    table{width:100%;border-collapse:collapse;margin-top:20px}
+    th,td{padding:12px;border-bottom:1px solid #e5e7eb;text-align:left}
+    th{background:#f9fafb}
+    td img{width:60px;height:60px;object-fit:contain;border:1px solid #eee;border-radius:8px}
+    .qty-input{width:60px;padding:6px;text-align:center}
+    .total{text-align:right;font-weight:800;font-size:18px;margin-top:20px}
+    .empty{padding:30px;text-align:center;color:#666}
+    .btn{padding:10px 14px;border:1px solid #e5e7eb;border-radius:10px;cursor:pointer}
+    .btn.primary{background:#111;color:#fff;border-color:#111}
+  </style>
+</head>
+<body>
+  <!-- Header（与首页一致） -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="top">
+        <a href="index.html" class="logo">
+          <img src="Archive/logo.png" alt="Glow On logo">
+          <strong data-i18n="brand">Glow On</strong>
+        </a>
+        <div class="nav">
+          <a href="index.html">首頁</a>
+          <a href="preorder.html">精選預購</a>
+          <a href="instock.html">現貨專區</a>
+          <a href="buyagent.html">澳洲代購服務</a>
+        </div>
+        <div class="actions">
+          <a class="btn icon whatsapp" href="https://wa.me/" target="_blank">🟢</a>
+          <a class="btn icon search" href="#">🔍</a>
+          <a class="btn icon login" href="admin.html">👤</a>
+          <a class="btn icon cart" href="checkout.html">🛒<span id="cartBadge">0</span></a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>🛒 購物車</h1>
+    <div id="cart-container"></div>
+    <div class="total" id="cart-total"></div>
+    <div style="text-align:right;margin-top:20px">
+      <button class="btn primary" id="checkoutBtn">去結算</button>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-box">
+      <div class="copy">2025 © Glow On HK. All Rights Reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    const CART_KEY='glowon-cart';
+    const getCart=()=>{ try{ return JSON.parse(localStorage.getItem(CART_KEY))||[] }catch{ return [] } };
+    const setCart=(c)=> localStorage.setItem(CART_KEY, JSON.stringify(c));
+
+    function renderCart(){
+      const cart = getCart();
+      const container = document.getElementById('cart-container');
+      const totalEl = document.getElementById('cart-total');
+
+      if(cart.length===0){
+        container.innerHTML = `<div class="empty">購物車是空的</div>`;
+        totalEl.textContent='';
+        return;
+      }
+
+      let rows = cart.map((item,i)=>{
+        const priceNum = parseFloat(item.price.replace(/[^0-9.]/g,'')) || 0;
+        const subtotal = priceNum * item.qty;
+        return `
+        <tr>
+          <td><img src="${item.img}" alt="${item.title}"></td>
+          <td>${item.title}</td>
+          <td>${item.price}</td>
+          <td>
+            <input type="number" class="qty-input" min="1" value="${item.qty}" 
+                   onchange="updateQty(${i}, this.value)">
+          </td>
+          <td>HK$${subtotal.toFixed(2)}</td>
+          <td><button class="btn" onclick="removeItem(${i})">移除</button></td>
+        </tr>`;
+      }).join('');
+
+      container.innerHTML = `
+        <table>
+          <thead>
+            <tr>
+              <th>商品</th><th>名稱</th><th>單價</th><th>數量</th><th>小計</th><th></th>
+            </tr>
+          </thead>
+          <tbody>${rows}</tbody>
+        </table>
+      `;
+
+      const total = cart.reduce((s,item)=>{
+        const priceNum = parseFloat(item.price.replace(/[^0-9.]/g,'')) || 0;
+        return s + priceNum*item.qty;
+      },0);
+
+      totalEl.textContent = "總計：HK$" + total.toFixed(2);
+      document.getElementById('cartBadge').textContent = cart.reduce((s,x)=>s+x.qty,0);
+    }
+
+    function updateQty(index, value){
+      let cart = getCart();
+      cart[index].qty = Math.max(1, parseInt(value)||1);
+      setCart(cart);
+      renderCart();
+    }
+
+    function removeItem(index){
+      let cart = getCart();
+      cart.splice(index,1);
+      setCart(cart);
+      renderCart();
+    }
+
+    document.getElementById('checkoutBtn').onclick=()=>{
+      alert("🧾 結算流程稍後開發，目前只是展示購物車。");
+    };
+
+    renderCart();
+  </script>
+</body>
+</html>
