@@ -29,10 +29,10 @@
         <div class="actions">
           <a class="btn icon whatsapp" href="https://wa.me/" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp">🟢</a>
           <a class="btn icon search"   href="#" title="Search" aria-label="Search">🔍</a>
-          <a class="btn icon login"    href="admin.html" title="Login" aria-label="Login">👤</a>
+          <a class="btn icon login"    href="login.html" title="Login" aria-label="Login">👤</a>
           <a class="btn icon cart"     href="checkout.html" title="Cart" aria-label="Cart">🛒</a>
 
-          <!-- 自定义语言切换 -->
+          <!-- 语言切换（桌面端显示） -->
           <div class="lang">
             <button id="langBtn" class="lang-btn" type="button" aria-haspopup="menu" aria-expanded="false">
               <span aria-hidden="true">🌐</span>
@@ -44,6 +44,18 @@
               <button role="menuitem" data-lc="en">English</button>
             </div>
           </div>
+
+          <!-- 👇 新增：手机端“更多”按钮 + 菜单（与 styles.css / site.js 配套） -->
+          <button class="btn icon" id="moreBtn" aria-haspopup="menu" aria-expanded="false" title="更多">⋯</button>
+          <div class="more-menu" id="moreMenu" hidden>
+            <a class="item" href="https://wa.me/" target="_blank" rel="noopener">🟢 WhatsApp</a>
+            <a class="item" href="#" id="moreSearch">🔍 Search</a>
+            <a class="item" href="login.html">👤 Login</a>
+            <a class="item" href="checkout.html">🛒 Cart</a>
+            <div class="sep"></div>
+            <button class="item" type="button" data-set-lc="zh-HK">繁體中文</button>
+            <button class="item" type="button" data-set-lc="en">English</button>
+          </div>
         </div>
       </nav>
     </div>
@@ -51,7 +63,6 @@
 
   <main class="home">
     <div class="container">
-
       <!-- Banner（限高，已在 CSS 处理） -->
       <section class="banner">
         <img src="Archive/Promo_Banner/1.png" alt="Promo">
@@ -74,11 +85,10 @@
         </div>
         <div class="grid" id="home-instock"></div>
       </section>
-
     </div>
   </main>
 
-  <!-- Footer（与你的截图一致） -->
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container footer-box">
       <nav class="foot-row zh">
@@ -101,12 +111,12 @@
 
   <script src="site.js"></script>
   <script>
-    // 首页8个卡片（图片在 Archive/Untitled_design/）
+    // 首页卡片（图片在 Archive/Untitled_design/）
     const HOME_PREORDER = [
       { img:'Archive/Untitled_design/14.png',
-        zh:'Caruso\'s Total Beauty® 膠原蛋白（100g粉裝）', en:"Caruso’s Total Beauty® Collagen (100g powder)", price:'HK$210' },
+        zh:"Caruso's Total Beauty® 膠原蛋白（100g粉裝）", en:"Caruso’s Total Beauty® Collagen (100g powder)", price:'HK$210' },
       { img:'Archive/Untitled_design/15.png',
-        zh:'Caruso\'s Total Beauty® 膠原蛋白（60片裝）',     en:"Caruso’s Total Beauty® Collagen (60 tablets)", price:'HK$210' },
+        zh:"Caruso's Total Beauty® 膠原蛋白（60片裝）",     en:"Caruso’s Total Beauty® Collagen (60 tablets)", price:'HK$210' },
       { img:'Archive/Untitled_design/18.png',
         zh:'Life-Space 雙倍強度益生菌（30粒膠囊）',         en:"Life-Space Double Strength Probiotic (30 caps)", price:'待定' },
       { img:'Archive/Untitled_design/19.png',

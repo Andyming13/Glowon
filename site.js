@@ -110,3 +110,48 @@ document.addEventListener('DOMContentLoaded', ()=>{
   applyI18N();
   setupLangDropdown();
 });
+
+/* ======= 手机端『更多』菜单逻辑 ======= */
+(function () {
+  const moreBtn  = document.getElementById('moreBtn');
+  const moreMenu = document.getElementById('moreMenu');
+  if (!moreBtn || !moreMenu) return;
+
+  // 打开/关闭
+  function openMenu() {
+    moreMenu.hidden = false;
+    moreBtn.setAttribute('aria-expanded', 'true');
+  }
+  function closeMenu() {
+    moreMenu.hidden = true;
+    moreBtn.setAttribute('aria-expanded', 'false');
+  }
+  moreBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (moreMenu.hidden) openMenu(); else closeMenu();
+  });
+  document.addEventListener('click', (e) => {
+    if (!moreMenu.hidden && !moreMenu.contains(e.target) && e.target !== moreBtn) closeMenu();
+  });
+
+  // 小菜单内的语言切换（不依赖原先 langBtn 的 id）
+  moreMenu.querySelectorAll('[data-set-lc]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lc = btn.getAttribute('data-set-lc');
+      try { localStorage.setItem('dordor-locale', lc); } catch {}
+      document.documentElement.lang = lc;
+      window.dispatchEvent(new CustomEvent('locale-changed'));
+      closeMenu();
+    });
+  });
+
+  // （可选）小菜单里的 Search 行为：滚到页面顶部或触发你已有的搜索逻辑
+  const ms = document.getElementById('moreSearch');
+  if (ms) ms.addEventListener('click', (e) => {
+    e.preventDefault();
+    closeMenu();
+    // 这里可替换成你的搜索浮层逻辑
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // TODO: 打开搜索框...
+  });
+})();

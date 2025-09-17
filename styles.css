@@ -76,3 +76,112 @@ nav.top{display:flex;gap:16px;align-items:center;justify-content:space-between;h
 .foot-row a{color:#000;text-decoration:none}
 .foot-row a b{font-weight:800}
 .copy{font-weight:800;text-align:center;margin-top:10px;color:#666}
+
+
+
+/* 顶部导航：禁止换行 + 横向滚动 */
+.nav {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: nowrap;            /* 不换行 */
+  overflow-x: auto;             /* 窄屏可横向滚动 */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;        /* 隐藏滚动条（Firefox）*/
+}
+.nav::-webkit-scrollbar { display: none; } /* 隐藏滚动条（WebKit）*/
+.nav a {
+  white-space: nowrap;          /* 不按字换行 */
+  word-break: keep-all;         /* 中英文都不要拆字 */
+  flex: 0 0 auto;               /* 保持自身宽度 */
+}
+
+/* 顶部区域在移动端收紧布局 */
+.logo img { height: 24px; width: auto; }
+.logo strong { margin-left: 6px; }
+.actions .btn.icon { height: 36px; width: 36px; }
+
+/* Banner 在手机上限制高度，避免过高 */
+.banner img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+@media (max-width: 540px) {
+  .banner img { max-height: 220px; object-fit: cover; } /* 也可改 180-240 之间 */
+}
+
+/* 产品网格（没有就加，有的话以下为更友好的兜底） */
+.grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+@media (max-width: 920px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .grid { grid-template-columns: 1fr; } }
+
+/* 标题字号在手机上略缩小，避免挤压 */
+.sec-title { font-weight: 800; font-size: 20px; }
+@media (max-width: 520px) { .sec-title { font-size: 18px; } }
+
+/* 卡片内文略微优化排版（防止过窄折行难看） */
+.card .title { font-size: 16px; font-weight: 800; line-height: 1.35; }
+.card .price { font-size: 16px; font-weight: 800; }
+
+/* 页脚行在小屏可换行居中 */
+.footer-box { border-top: 2px solid #111; padding-top: 14px; }
+.foot-row { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; }
+.foot-row a { white-space: nowrap; }
+.copy { text-align: center; margin-top: 10px; font-weight: 800; }
+
+/* 容器两侧留白更贴合手机 */
+.container { padding-left: 12px; padding-right: 12px; }
+@media (max-width: 520px) {
+  .site-header .top { gap: 8px; }
+  .logo strong { display: none; } /* 手机上只保留图标，更省空间（需要可注释掉） */
+}
+
+
+/* ======= 手机端『更多』菜单 ======= */
+.actions #moreBtn { display: none; }  /* 默认隐藏，<520px 才显示 */
+.more-menu {
+  position: absolute;
+  right: 12px;
+  top: 56px;
+  min-width: 180px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.12);
+  padding: 6px;
+  z-index: 50;
+}
+.more-menu[hidden] { display: none; }
+.more-menu .item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  text-decoration: none;
+  color: #111;
+}
+.more-menu .item:hover { background: #f5f5f5; }
+.more-menu .sep { height: 1px; background: #eee; margin: 6px 0; }
+
+/* 手机端：隐藏图标按钮 & 语言切换；只显示“更多” */
+@media (max-width:520px){
+  .actions { position: relative; }
+  .actions .whatsapp,
+  .actions .search,
+  .actions .login,
+  .actions .cart,
+  .actions .lang { display: none; }
+  .actions #moreBtn { 
+    display: inline-flex; 
+    align-items:center; justify-content:center;
+    height: 36px; width: 36px; 
+    border: 1px solid #e5e7eb; border-radius: 10px; 
+    background:#fff; cursor:pointer;
+  }
+}

@@ -14,24 +14,55 @@
 </head>
 <body>
   <!-- Header -->
-  <header class="site-header">
+  <!-- 统一头部导航（复制到每个页面，替换原来的 header） -->
+<header class="site-header">
     <div class="container">
       <nav class="top">
+        <!-- 左：LOGO -->
         <a href="index.html" class="logo">
           <img src="Archive/logo.png" alt="Glow On logo">
-          <strong>Glow On</strong>
+          <strong data-i18n="brand">Glow On</strong>
         </a>
+  
+        <!-- 中：导航 -->
         <div class="nav">
-          <a href="index.html">首頁</a>
-          <a href="preorder.html">精選預購</a>
-          <a href="instock.html">現貨專區</a>
-          <a href="buyagent.html">澳洲代購服務</a>
+          <a href="index.html" data-i18n="nav_home">首頁</a>
+          <a href="preorder.html" data-route="preorder" data-i18n="nav_preorder">精選預購</a>
+          <a href="instock.html"  data-route="instock"  data-i18n="nav_instock">現貨專區</a>
+          <a href="buyagent.html" data-route="service"  data-i18n="nav_service">澳洲代購服務</a>
         </div>
+  
+        <!-- 右：动作 + 语言（桌面端显示） -->
         <div class="actions">
-          <a class="btn icon whatsapp" href="https://wa.me/" target="_blank" rel="noopener">🟢</a>
-          <a class="btn icon search" href="#">🔍</a>
-          <a class="btn icon login" href="login.html">👤</a>
-          <a class="btn icon cart" href="checkout.html">🛒</a>
+          <a class="btn icon whatsapp" href="https://wa.me/" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp">🟢</a>
+          <a class="btn icon search"   href="#" title="Search" aria-label="Search">🔍</a>
+          <a class="btn icon login"    href="login.html" title="Login" aria-label="Login">👤</a>
+          <a class="btn icon cart"     href="checkout.html" title="Cart" aria-label="Cart">🛒</a>
+  
+          <!-- 语言切换（桌面端） -->
+          <div class="lang">
+            <button id="langBtn" class="lang-btn" type="button" aria-haspopup="menu" aria-expanded="false">
+              <span aria-hidden="true">🌐</span>
+              <span id="langLabel">繁體中文</span>
+              <span class="caret" aria-hidden="true">▾</span>
+            </button>
+            <div class="lang-menu" id="langMenu" role="menu" hidden>
+              <button role="menuitem" data-lc="zh-HK">繁體中文</button>
+              <button role="menuitem" data-lc="en">English</button>
+            </div>
+          </div>
+  
+          <!-- 手机端：更多(⋯) 菜单（<520px 时显示） -->
+          <button class="btn icon" id="moreBtn" aria-haspopup="menu" aria-expanded="false" title="更多">⋯</button>
+          <div class="more-menu" id="moreMenu" hidden>
+            <a class="item" href="https://wa.me/" target="_blank" rel="noopener">🟢 WhatsApp</a>
+            <a class="item" href="#" id="moreSearch">🔍 Search</a>
+            <a class="item" href="login.html">👤 Login</a>
+            <a class="item" href="checkout.html">🛒 Cart</a>
+            <div class="sep"></div>
+            <button class="item" type="button" data-set-lc="zh-HK">繁體中文</button>
+            <button class="item" type="button" data-set-lc="en">English</button>
+          </div>
         </div>
       </nav>
     </div>
