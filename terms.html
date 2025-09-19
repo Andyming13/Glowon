@@ -35,36 +35,46 @@
   
         <!-- 右：动作 + 语言（桌面端显示） -->
         <div class="actions">
-          <a class="btn icon whatsapp" href="https://wa.me/" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp">🟢</a>
-          <a class="btn icon search"   href="#" title="Search" aria-label="Search">🔍</a>
-          <a class="btn icon login"    href="login.html" title="Login" aria-label="Login">👤</a>
-          <a class="btn icon cart"     href="checkout.html" title="Cart" aria-label="Cart">🛒</a>
-  
-          <!-- 语言切换（桌面端） -->
-          <div class="lang">
-            <button id="langBtn" class="lang-btn" type="button" aria-haspopup="menu" aria-expanded="false">
-              <span aria-hidden="true">🌐</span>
-              <span id="langLabel">繁體中文</span>
-              <span class="caret" aria-hidden="true">▾</span>
-            </button>
-            <div class="lang-menu" id="langMenu" role="menu" hidden>
-              <button role="menuitem" data-lc="zh-HK">繁體中文</button>
-              <button role="menuitem" data-lc="en">English</button>
+            <a class="btn icon whatsapp" 
+               href="https://wa.me/85200000000" 
+               target="_blank" 
+               rel="noopener" 
+               title="WhatsApp" 
+               aria-label="WhatsApp">
+              <img src="Archive/whats.png" alt="WhatsApp" style="height:24px;width:24px;">
+            </a>
+            
+            <a class="btn icon search" href="#" title="Search" aria-label="Search">🔍</a>
+            <a class="btn icon login"  href="login.html" title="Login" aria-label="Login">👤</a>
+            <a class="btn icon cart"   href="checkout.html" title="Cart" aria-label="Cart">🛒</a>
+          
+            <!-- 语言切换 -->
+            <div class="lang">
+              <button id="langBtn" class="lang-btn" type="button" aria-haspopup="menu" aria-expanded="false">
+                <span aria-hidden="true">🌐</span>
+                <span id="langLabel">繁體中文</span>
+                <span class="caret" aria-hidden="true">▾</span>
+              </button>
+              <div class="lang-menu" id="langMenu" role="menu" hidden>
+                <button role="menuitem" data-lc="zh-HK">繁體中文</button>
+                <button role="menuitem" data-lc="en">English</button>
+              </div>
+            </div>
+          
+            <!-- 更多按钮（手机端） -->
+            <button class="btn icon" id="moreBtn" aria-haspopup="menu" aria-expanded="false" title="更多">⋯</button>
+            <div class="more-menu" id="moreMenu" hidden>
+              <a class="item" href="https://wa.me/85200000000" target="_blank" rel="noopener">
+                <img src="Archive/whats.png" alt="WhatsApp" style="height:18px;width:18px;vertical-align:middle;"> WhatsApp
+              </a>
+              <a class="item" href="#" id="moreSearch">🔍 Search</a>
+              <a class="item" href="login.html">👤 Login</a>
+              <a class="item" href="checkout.html">🛒 Cart</a>
+              <div class="sep"></div>
+              <button class="item" type="button" data-set-lc="zh-HK">繁體中文</button>
+              <button class="item" type="button" data-set-lc="en">English</button>
             </div>
           </div>
-  
-          <!-- 手机端：更多(⋯) 菜单（<520px 时显示） -->
-          <button class="btn icon" id="moreBtn" aria-haspopup="menu" aria-expanded="false" title="更多">⋯</button>
-          <div class="more-menu" id="moreMenu" hidden>
-            <a class="item" href="https://wa.me/" target="_blank" rel="noopener">🟢 WhatsApp</a>
-            <a class="item" href="#" id="moreSearch">🔍 Search</a>
-            <a class="item" href="login.html">👤 Login</a>
-            <a class="item" href="checkout.html">🛒 Cart</a>
-            <div class="sep"></div>
-            <button class="item" type="button" data-set-lc="zh-HK">繁體中文</button>
-            <button class="item" type="button" data-set-lc="en">English</button>
-          </div>
-        </div>
       </nav>
     </div>
   </header>
@@ -82,37 +92,37 @@
         <!-- 重要健康資訊與免責聲明 -->
         <section id="health">
           <h2>【重要健康資訊與免責聲明】</h2>
-          <p>本網站銷售之產品多屬食品或營養補充品；網站內容僅作一般營養及生理作用資訊參考，並非醫療建議、診斷或治療方案。使用任何產品前，或對自身健康狀況有疑問時，請務必先諮詢醫生或其他合資格醫療專業人士。 [oai_citation:0‡Website flow.docx](file-service://file-NrmesCSUC4ZKxMCrJNAjvH)</p>
+          <p>本網站銷售之產品多屬食品或營養補充品；網站內容僅作一般營養及生理作用資訊參考，並非醫療建議、診斷或治療方案。使用任何產品前，或對自身健康狀況有疑問時，請務必先諮詢醫生或其他合資格醫療專業人士。</p>
         </section>
 
         <!-- 產品資料 -->
         <section id="product-info">
           <h2>【產品資料】</h2>
-          <p>我們致力確保網站上的圖片、描述、價錢及優惠準確；惟因顯示器差異、光線或拍攝角度等原因，貨品顏色或與實物略有不同；尺寸亦可能因物料與量度方式而出現 1–3cm 誤差。倘若網站資訊（包括價錢、描述、優惠）出現錯誤，將盡快更正並與顧客確認後續（繼續或取消訂單）。 [oai_citation:1‡Website flow.docx](file-service://file-NrmesCSUC4ZKxMCrJNAjvH)</p>
+          <p>我們致力確保網站上的圖片、描述、價錢及優惠準確；惟因顯示器差異、光線或拍攝角度等原因，貨品顏色或與實物略有不同；尺寸亦可能因物料與量度方式而出現 1–3cm 誤差。倘若網站資訊（包括價錢、描述、優惠）出現錯誤，將盡快更正並與顧客確認後續（繼續或取消訂單）。</p>
         </section>
 
         <!-- 存貨 -->
         <section id="stock">
           <h2>【存貨】</h2>
-          <p>如遇供應商缺貨或系統誤差導致無法供貨，我們會儘快通知並安排退款。 [oai_citation:2‡Website flow.docx](file-service://file-NrmesCSUC4ZKxMCrJNAjvH)</p>
+          <p>如遇供應商缺貨或系統誤差導致無法供貨，我們會儘快通知並安排退款。 </p>
         </section>
 
         <!-- 訂單確認 -->
         <section id="order">
           <h2>【訂單確認】</h2>
-          <p>下單前請務必核對資料無誤。提交訂單後，系統會發送確認電郵（如未收到，請檢查垃圾郵件匣）；該電郵代表我們已接收訂單。 [oai_citation:3‡Website flow.docx](file-service://file-NrmesCSUC4ZKxMCrJNAjvH)</p>
+          <p>下單前請務必核對資料無誤。提交訂單後，系統會發送確認電郵（如未收到，請檢查垃圾郵件匣）；該電郵代表我們已接收訂單。</p>
         </section>
 
         <!-- 送貨安排 -->
         <section id="shipping">
           <h2>【送貨安排】</h2>
-          <p>我們將盡力盡快出貨；實際派送由第三方物流（如順豐）處理，或因天氣、交通、假期、智能櫃容量等因素延誤。會協助跟進，但不承擔因延誤導致之損失。 [oai_citation:4‡Website flow.docx](file-service://file-NrmesCSUC4ZKxMCrJNAjvH)</p>
+          <p>我們將盡力盡快出貨；實際派送由第三方物流（如順豐）處理，或因天氣、交通、假期、智能櫃容量等因素延誤。會協助跟進，但不承擔因延誤導致之損失。</p>
         </section>
 
         <!-- 價格及資訊更新 -->
         <section id="pricing">
           <h2>【價格及資訊更新】</h2>
-          <p>網站資訊會不時更新，價格可能因匯率或供應變動而調整；我們保留更改或取消優惠、更正任何錯誤或遺漏，以及不經通知更新價錢、產品描述與推廣等資訊之權利。 [oai_citation:5‡Website flow.docx](file-service://file-NrmesCSUC4ZKxMCrJNAjvH)</p>
+          <p>網站資訊會不時更新，價格可能因匯率或供應變動而調整；我們保留更改或取消優惠、更正任何錯誤或遺漏，以及不經通知更新價錢、產品描述與推廣等資訊之權利。</p>
         </section>
 
         <p class="muted">（如需加入更多條款或法律語句，告訴我即可補全。）</p>

@@ -28,12 +28,20 @@
 
       <!-- 右：动作 + 语言（桌面端显示） -->
       <div class="actions">
-        <a class="btn icon whatsapp" href="https://wa.me/" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp">🟢</a>
-        <a class="btn icon search"   href="#" title="Search" aria-label="Search">🔍</a>
-        <a class="btn icon login"    href="login.html" title="Login" aria-label="Login">👤</a>
-        <a class="btn icon cart"     href="checkout.html" title="Cart" aria-label="Cart">🛒</a>
-
-        <!-- 语言切换（桌面端） -->
+        <a class="btn icon whatsapp" 
+           href="https://wa.me/85200000000" 
+           target="_blank" 
+           rel="noopener" 
+           title="WhatsApp" 
+           aria-label="WhatsApp">
+          <img src="Archive/whats.png" alt="WhatsApp" style="height:24px;width:24px;">
+        </a>
+        
+        <a class="btn icon search" href="#" title="Search" aria-label="Search">🔍</a>
+        <a class="btn icon login"  href="login.html" title="Login" aria-label="Login">👤</a>
+        <a class="btn icon cart"   href="checkout.html" title="Cart" aria-label="Cart">🛒</a>
+      
+        <!-- 语言切换 -->
         <div class="lang">
           <button id="langBtn" class="lang-btn" type="button" aria-haspopup="menu" aria-expanded="false">
             <span aria-hidden="true">🌐</span>
@@ -45,11 +53,13 @@
             <button role="menuitem" data-lc="en">English</button>
           </div>
         </div>
-
-        <!-- 手机端：更多(⋯) 菜单（<520px 时显示） -->
+      
+        <!-- 更多按钮（手机端） -->
         <button class="btn icon" id="moreBtn" aria-haspopup="menu" aria-expanded="false" title="更多">⋯</button>
         <div class="more-menu" id="moreMenu" hidden>
-          <a class="item" href="https://wa.me/" target="_blank" rel="noopener">🟢 WhatsApp</a>
+          <a class="item" href="https://wa.me/85200000000" target="_blank" rel="noopener">
+            <img src="Archive/whats.png" alt="WhatsApp" style="height:18px;width:18px;vertical-align:middle;"> WhatsApp
+          </a>
           <a class="item" href="#" id="moreSearch">🔍 Search</a>
           <a class="item" href="login.html">👤 Login</a>
           <a class="item" href="checkout.html">🛒 Cart</a>
