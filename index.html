@@ -111,14 +111,19 @@
   <main class="home">
     <div class="container">
 
-      <!-- Banner：5 张自动轮播 -->
+      <!-- Banner：仅保留第1张与第6张；第6张不可点击 -->
       <section class="banner carousel" aria-label="Promotions">
         <div class="track" id="carouselTrack">
-          <div class="slide"><a href="preorder.html"><img src="Archive/Promo_Banner/1.png" alt="Promo 1"></a></div>
-          <div class="slide"><a href="instock.html"><img src="Archive/Promo_Banner/2.png" alt="Promo 2"></a></div>
-          <div class="slide"><a href="buyagent.html"><img src="Archive/Promo_Banner/3.png" alt="Promo 3"></a></div>
-          <div class="slide"><a href="contact.html"><img src="Archive/Promo_Banner/4.png" alt="Promo 4"></a></div>
-          <div class="slide"><a href="preorder.html"><img src="Archive/Promo_Banner/6.png" alt="Promo 5"></a></div>
+          <!-- 第1张：可点击 -->
+          <div class="slide">
+            <a href="preorder.html">
+              <img src="Archive/Promo_Banner/1.png" alt="Promo 1">
+            </a>
+          </div>
+          <!-- 第6张：不可点击 -->
+          <div class="slide">
+            <img src="Archive/Promo_Banner/6.png" alt="Promo 6">
+          </div>
         </div>
         <div class="ctrl" id="carouselDots" aria-label="Carousel Dots"></div>
       </section>
