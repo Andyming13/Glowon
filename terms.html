@@ -4,133 +4,167 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Glow On · 條款及細則 Terms & Conditions</title>
+  <title>Glow On · 條款及細則</title>
   <link rel="stylesheet" href="styles.css"/>
   <style>
     .container{max-width:1100px;margin:0 auto;padding:16px}
     .prose h1,.prose h2{margin:16px 0 8px}
     .prose p{margin:8px 0;line-height:1.8}
-    .hero{margin:6px 0 10px}
+    /* 默认只显示中文块；切英文时由脚本切换 */
+    .zh{display:block}
+    .en{display:none}
+    /* 头部与其它页一致的小样式（若已在 styles.css 定好可忽略） */
+    .site-header .top { display:flex; align-items:center; justify-content:space-between; }
+    .site-header .left { display:flex; align-items:center; gap:14px; }
+    .site-header .logo strong { display:none; } /* 仅保留图标 */
+    .site-header .logo img { height:26px; width:auto; display:block; }
+    .site-header .nav { display:flex; gap:14px; flex-wrap:wrap; }
+    .site-header .nav a { text-decoration:none; }
+    /* 页脚英文行默认隐藏 */
+    .foot-row.en{display:none;}
   </style>
 </head>
 <body>
-  <!-- Header（与首页一致，含 logo.png） -->
-  <!-- 统一头部导航（复制到每个页面，替换原来的 header） -->
-<header class="site-header">
+  <!-- Header（与其它页面一致） -->
+  <header class="site-header">
     <div class="container">
       <nav class="top">
-        <!-- 左：LOGO -->
-        <a href="index.html" class="logo">
-          <img src="Archive/logo.png" alt="Glow On logo">
-          <strong data-i18n="brand">Glow On</strong>
-        </a>
-  
-        <!-- 中：导航 -->
-        <div class="nav">
-          <a href="index.html" data-i18n="nav_home">首頁</a>
-          <a href="preorder.html" data-route="preorder" data-i18n="nav_preorder">精選預購</a>
-          <a href="instock.html"  data-route="instock"  data-i18n="nav_instock">現貨專區</a>
-          <a href="buyagent.html" data-route="service"  data-i18n="nav_service">澳洲代購服務</a>
+        <!-- 左：LOGO + 导航 -->
+        <div class="left">
+          <a href="index.html" class="logo">
+            <img src="Archive/logo.png" alt="Glow On logo">
+            <strong data-i18n="brand">Glow On</strong><!-- 已隐藏 -->
+          </a>
+          <div class="nav">
+            <a href="index.html" data-i18n="nav_home">首頁</a>
+            <a href="preorder.html" data-route="preorder" data-i18n="nav_preorder">精選預購</a>
+            <a href="instock.html"  data-route="instock"  data-i18n="nav_instock">現貨專區</a>
+            <a href="buyagent.html" data-route="service"  data-i18n="nav_service">澳洲代購服務</a>
+          </div>
         </div>
-  
-        <!-- 右：动作 + 语言（桌面端显示） -->
+
+        <!-- 右：动作 + 语言 -->
         <div class="actions">
-            <a class="btn icon whatsapp" 
-               href="https://wa.me/85200000000" 
-               target="_blank" 
-               rel="noopener" 
-               title="WhatsApp" 
-               aria-label="WhatsApp">
-              <img src="Archive/whats.png" alt="WhatsApp" style="height:24px;width:24px;">
-            </a>
-            
-            <a class="btn icon search" href="#" title="Search" aria-label="Search">🔍</a>
-            <a class="btn icon login"  href="login.html" title="Login" aria-label="Login">👤</a>
-            <a class="btn icon cart"   href="checkout.html" title="Cart" aria-label="Cart">🛒</a>
-          
-            <!-- 语言切换 -->
-            <div class="lang">
-              <button id="langBtn" class="lang-btn" type="button" aria-haspopup="menu" aria-expanded="false">
-                <span aria-hidden="true">🌐</span>
-                <span id="langLabel">繁體中文</span>
-                <span class="caret" aria-hidden="true">▾</span>
-              </button>
-              <div class="lang-menu" id="langMenu" role="menu" hidden>
-                <button role="menuitem" data-lc="zh-HK">繁體中文</button>
-                <button role="menuitem" data-lc="en">English</button>
-              </div>
-            </div>
-          
-            <!-- 更多按钮（手机端） -->
-            <button class="btn icon" id="moreBtn" aria-haspopup="menu" aria-expanded="false" title="更多">⋯</button>
-            <div class="more-menu" id="moreMenu" hidden>
-              <a class="item" href="https://wa.me/85200000000" target="_blank" rel="noopener">
-                <img src="Archive/whats.png" alt="WhatsApp" style="height:18px;width:18px;vertical-align:middle;"> WhatsApp
-              </a>
-              <a class="item" href="#" id="moreSearch">🔍 Search</a>
-              <a class="item" href="login.html">👤 Login</a>
-              <a class="item" href="checkout.html">🛒 Cart</a>
-              <div class="sep"></div>
-              <button class="item" type="button" data-set-lc="zh-HK">繁體中文</button>
-              <button class="item" type="button" data-set-lc="en">English</button>
+          <a class="btn icon whatsapp" 
+             href="https://wa.me/85297436663" 
+             target="_blank" 
+             rel="noopener" 
+             title="WhatsApp" 
+             aria-label="WhatsApp">
+            <img src="Archive/whats.png" alt="WhatsApp" style="height:24px;width:24px;">
+          </a>
+          <a class="btn icon search" href="#" title="Search" aria-label="Search">🔍</a>
+          <a class="btn icon login"  href="login.html" title="Login" aria-label="Login">👤</a>
+          <a class="btn icon cart"   href="checkout.html" title="Cart" aria-label="Cart">🛒</a>
+
+          <!-- 语言切换 -->
+          <div class="lang">
+            <button id="langBtn" class="lang-btn" type="button" aria-haspopup="menu" aria-expanded="false">
+              <span aria-hidden="true">🌐</span>
+              <span id="langLabel">繁體中文</span>
+              <span class="caret" aria-hidden="true">▾</span>
+            </button>
+            <div class="lang-menu" id="langMenu" role="menu" hidden>
+              <button role="menuitem" data-lc="zh-HK">繁體中文</button>
+              <button role="menuitem" data-lc="en">English</button>
             </div>
           </div>
+
+          <!-- 更多按钮（手机端） -->
+          <button class="btn icon" id="moreBtn" aria-haspopup="menu" aria-expanded="false" title="更多">⋯</button>
+          <div class="more-menu" id="moreMenu" hidden>
+            <a class="item" href="https://wa.me/85297436663" target="_blank" rel="noopener">
+              <img src="Archive/whats.png" alt="WhatsApp" style="height:18px;width:18px;vertical-align:middle;"> WhatsApp
+            </a>
+            <a class="item" href="#" id="moreSearch">🔍 Search</a>
+            <a class="item" href="login.html">👤 Login</a>
+            <a class="item" href="checkout.html">🛒 Cart</a>
+            <div class="sep"></div>
+            <button class="item" type="button" data-set-lc="zh-HK">繁體中文</button>
+            <button class="item" type="button" data-set-lc="en">English</button>
+          </div>
+        </div>
       </nav>
     </div>
   </header>
 
   <main>
     <div class="container">
-      <!-- 可选横幅（有需要可替换图片） -->
-      <div class="hero banner">
-        <img src="Archive/Promo_Banner/1.png" alt="Terms Banner">
-      </div>
+      <!-- 没有 Banner（按你的要求已删除图片） -->
 
-      <article class="prose">
-        <h1>條款及細則 <small style="font-weight:700">Terms &amp; Conditions</small></h1>
+      <!-- 繁體中文內容（默认显示） -->
+      <article class="prose zh" id="terms-zh">
+        <h1>條款及細則</h1>
 
-        <!-- 重要健康資訊與免責聲明 -->
         <section id="health">
           <h2>【重要健康資訊與免責聲明】</h2>
           <p>本網站銷售之產品多屬食品或營養補充品；網站內容僅作一般營養及生理作用資訊參考，並非醫療建議、診斷或治療方案。使用任何產品前，或對自身健康狀況有疑問時，請務必先諮詢醫生或其他合資格醫療專業人士。</p>
         </section>
 
-        <!-- 產品資料 -->
         <section id="product-info">
           <h2>【產品資料】</h2>
           <p>我們致力確保網站上的圖片、描述、價錢及優惠準確；惟因顯示器差異、光線或拍攝角度等原因，貨品顏色或與實物略有不同；尺寸亦可能因物料與量度方式而出現 1–3cm 誤差。倘若網站資訊（包括價錢、描述、優惠）出現錯誤，將盡快更正並與顧客確認後續（繼續或取消訂單）。</p>
         </section>
 
-        <!-- 存貨 -->
         <section id="stock">
           <h2>【存貨】</h2>
-          <p>如遇供應商缺貨或系統誤差導致無法供貨，我們會儘快通知並安排退款。 </p>
+          <p>如遇供應商缺貨或系統誤差導致無法供貨，我們會儘快通知並安排退款。</p>
         </section>
 
-        <!-- 訂單確認 -->
         <section id="order">
           <h2>【訂單確認】</h2>
           <p>下單前請務必核對資料無誤。提交訂單後，系統會發送確認電郵（如未收到，請檢查垃圾郵件匣）；該電郵代表我們已接收訂單。</p>
         </section>
 
-        <!-- 送貨安排 -->
         <section id="shipping">
           <h2>【送貨安排】</h2>
           <p>我們將盡力盡快出貨；實際派送由第三方物流（如順豐）處理，或因天氣、交通、假期、智能櫃容量等因素延誤。會協助跟進，但不承擔因延誤導致之損失。</p>
         </section>
 
-        <!-- 價格及資訊更新 -->
         <section id="pricing">
           <h2>【價格及資訊更新】</h2>
           <p>網站資訊會不時更新，價格可能因匯率或供應變動而調整；我們保留更改或取消優惠、更正任何錯誤或遺漏，以及不經通知更新價錢、產品描述與推廣等資訊之權利。</p>
         </section>
+      </article>
 
-        <p class="muted">（如需加入更多條款或法律語句，告訴我即可補全。）</p>
+      <!-- English content（默认隐藏；切到英文时显示） -->
+      <article class="prose en" id="terms-en">
+        <h1>Terms &amp; Conditions</h1>
+
+        <section id="health-en">
+          <h2>Important Health Information & Disclaimer</h2>
+          <p>Products sold on this website are mainly foods or dietary supplements. All content is for general informational purposes only and does not constitute medical advice, diagnosis, or treatment. Please consult a qualified medical professional before using any product or if you have questions about your health.</p>
+        </section>
+
+        <section id="product-info-en">
+          <h2>Product Information</h2>
+          <p>We strive for accuracy in images, descriptions, prices, and offers on the site. However, actual colors may vary due to display differences and lighting; size may vary by 1–3cm due to material and measurement methods. If any information (including prices, descriptions, promotions) is incorrect, we will correct it promptly and confirm with you on how to proceed (continue or cancel the order).</p>
+        </section>
+
+        <section id="stock-en">
+          <h2>Stock</h2>
+          <p>If a supplier is out of stock or a system error prevents fulfillment, we will notify you as soon as possible and arrange a refund.</p>
+        </section>
+
+        <section id="order-en">
+          <h2>Order Confirmation</h2>
+          <p>Please verify details before submitting your order. After submission, a confirmation email will be sent (check your spam folder if not received); this email indicates your order has been received.</p>
+        </section>
+
+        <section id="shipping-en">
+          <h2>Shipping</h2>
+          <p>We will dispatch orders as quickly as possible. Delivery is handled by third-party couriers (e.g., SF Express) and may be delayed due to weather, traffic, holidays, or locker capacity. We will help follow up but are not liable for losses caused by delays.</p>
+        </section>
+
+        <section id="pricing-en">
+          <h2>Pricing & Updates</h2>
+          <p>Information on the website is updated from time to time. Prices may change due to exchange rates or supply. We reserve the right to change or cancel promotions, correct errors or omissions, and update prices, product descriptions, and marketing information without prior notice.</p>
+        </section>
       </article>
     </div>
   </main>
 
-  <!-- Footer（与首页一致，可点击跳转） -->
+  <!-- Footer（新增付款方式；随语言切换） -->
   <footer class="site-footer">
     <div class="container footer-box">
       <nav class="foot-row zh">
@@ -138,6 +172,7 @@
         <a href="privacy.html"><b>私隱政策</b></a>
         <a href="returns.html"><b>退換貨政策</b></a>
         <a href="process.html"><b>購買流程</b></a>
+        <a href="payment.html"><b>付款方式</b></a>
         <a href="contact.html"><b>聯絡我們</b></a>
       </nav>
       <nav class="foot-row en">
@@ -145,10 +180,38 @@
         <a href="privacy.html"><b>Privacy Policy</b></a>
         <a href="returns.html"><b>Return &amp; Exchange Policy</b></a>
         <a href="process.html"><b>Shopping Process</b></a>
+        <a href="payment.html"><b>Payment Methods</b></a>
         <a href="contact.html"><b>Contact Us</b></a>
       </nav>
-      <div class="copy">2025 © Glow On HK. All Rights Reserved.</div>
+      <div class="copy">2025 © Glow On HK. <span data-i18n="rights">All Rights Reserved.</span></div>
     </div>
   </footer>
+
+  <script src="site.js"></script>
+  <script>
+    // 切换语言：正文与页脚联动显示中/英
+    function renderLocaleBlocks(){
+      const lc = getLocale ? getLocale() : (localStorage.getItem('dordor-locale') || 'zh-HK');
+      document.documentElement.lang = lc;
+
+      // 正文
+      const zh = document.querySelector('.prose.zh');
+      const en = document.querySelector('.prose.en');
+      if (zh && en){
+        if (lc === 'en'){ zh.style.display='none'; en.style.display='block'; }
+        else { zh.style.display='block'; en.style.display='none'; }
+      }
+
+      // 页脚
+      const zhRow = document.querySelector('.foot-row.zh');
+      const enRow = document.querySelector('.foot-row.en');
+      if (zhRow && enRow){
+        if (lc === 'en'){ zhRow.style.display='none'; enRow.style.display='flex'; }
+        else { zhRow.style.display='flex'; enRow.style.display='none'; }
+      }
+    }
+    renderLocaleBlocks();
+    window.addEventListener('locale-changed', renderLocaleBlocks);
+  </script>
 </body>
 </html>

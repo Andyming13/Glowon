@@ -6,92 +6,102 @@
   <title>Glow On · 澳洲代購服務</title>
   <link rel="stylesheet" href="styles.css"/>
   <style>
-    /* 仅此页的小样式：让中部流程图居中且自适应 */
+    /* 仅此页的小样式：让流程图居中并限制大小 */
     .intro-img{display:flex;justify-content:center;margin:12px 0 24px}
-    .intro-img img{max-width:900px;width:100%;height:auto;border-radius:12px}
+    .intro-img img{max-width:600px;width:100%;height:auto;border-radius:12px}
+    /* Banner */
+    .banner img{width:100%;height:300px;object-fit:cover;border-radius:12px}
+    @media(max-width:600px){ .banner img{height:200px} }
+    /* 页脚：英文行默认隐藏，由脚本在切英文时显示 */
+    .foot-row.en{display:none;}
+    /* 头部（与其它页面一致的布局） */
+    .site-header .top { display:flex; align-items:center; justify-content:space-between; }
+    .site-header .left { display:flex; align-items:center; gap:14px; }
+    .site-header .logo strong { display:none; } /* 仅保留图标 */
+    .site-header .logo img { height:26px; width:auto; display:block; }
+    .site-header .nav { display:flex; gap:14px; flex-wrap:wrap; }
+    .site-header .nav a { text-decoration:none; }
   </style>
 </head>
 <body>
-  <!-- Header（与首页一致） -->
-  <!-- 统一头部导航（复制到每个页面，替换原来的 header） -->
-<header class="site-header">
-  <div class="container">
-    <nav class="top">
-      <!-- 左：LOGO -->
-      <a href="index.html" class="logo">
-        <img src="Archive/logo.png" alt="Glow On logo">
-        <strong data-i18n="brand">Glow On</strong>
-      </a>
-
-      <!-- 中：导航 -->
-      <div class="nav">
-        <a href="index.html" data-i18n="nav_home">首頁</a>
-        <a href="preorder.html" data-route="preorder" data-i18n="nav_preorder">精選預購</a>
-        <a href="instock.html"  data-route="instock"  data-i18n="nav_instock">現貨專區</a>
-        <a href="buyagent.html" data-route="service"  data-i18n="nav_service">澳洲代購服務</a>
-      </div>
-
-      <!-- 右：动作 + 语言（桌面端显示） -->
-      <div class="actions">
-        <a class="btn icon whatsapp" 
-           href="https://wa.me/85200000000" 
-           target="_blank" 
-           rel="noopener" 
-           title="WhatsApp" 
-           aria-label="WhatsApp">
-          <img src="Archive/whats.png" alt="WhatsApp" style="height:24px;width:24px;">
-        </a>
-        
-        <a class="btn icon search" href="#" title="Search" aria-label="Search">🔍</a>
-        <a class="btn icon login"  href="login.html" title="Login" aria-label="Login">👤</a>
-        <a class="btn icon cart"   href="checkout.html" title="Cart" aria-label="Cart">🛒</a>
-      
-        <!-- 语言切换 -->
-        <div class="lang">
-          <button id="langBtn" class="lang-btn" type="button" aria-haspopup="menu" aria-expanded="false">
-            <span aria-hidden="true">🌐</span>
-            <span id="langLabel">繁體中文</span>
-            <span class="caret" aria-hidden="true">▾</span>
-          </button>
-          <div class="lang-menu" id="langMenu" role="menu" hidden>
-            <button role="menuitem" data-lc="zh-HK">繁體中文</button>
-            <button role="menuitem" data-lc="en">English</button>
+  <!-- Header（与其它页面一致） -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="top">
+        <!-- 左：LOGO + 导航 -->
+        <div class="left">
+          <a href="index.html" class="logo">
+            <img src="Archive/logo.png" alt="Glow On logo">
+            <strong data-i18n="brand">Glow On</strong><!-- 已隐藏 -->
+          </a>
+          <div class="nav">
+            <a href="index.html" data-i18n="nav_home">首頁</a>
+            <a href="preorder.html" data-route="preorder" data-i18n="nav_preorder">精選預購</a>
+            <a href="instock.html"  data-route="instock"  data-i18n="nav_instock">現貨專區</a>
+            <a href="buyagent.html" data-route="service"  data-i18n="nav_service">澳洲代購服務</a>
           </div>
         </div>
-      
-        <!-- 更多按钮（手机端） -->
-        <button class="btn icon" id="moreBtn" aria-haspopup="menu" aria-expanded="false" title="更多">⋯</button>
-        <div class="more-menu" id="moreMenu" hidden>
-          <a class="item" href="https://wa.me/85200000000" target="_blank" rel="noopener">
-            <img src="Archive/whats.png" alt="WhatsApp" style="height:18px;width:18px;vertical-align:middle;"> WhatsApp
+
+        <!-- 右：动作 + 语言 -->
+        <div class="actions">
+          <a class="btn icon whatsapp" 
+             href="https://wa.me/85297436663" 
+             target="_blank" 
+             rel="noopener" 
+             title="WhatsApp" 
+             aria-label="WhatsApp">
+            <img src="Archive/whats.png" alt="WhatsApp" style="height:24px;width:24px;">
           </a>
-          <a class="item" href="#" id="moreSearch">🔍 Search</a>
-          <a class="item" href="login.html">👤 Login</a>
-          <a class="item" href="checkout.html">🛒 Cart</a>
-          <div class="sep"></div>
-          <button class="item" type="button" data-set-lc="zh-HK">繁體中文</button>
-          <button class="item" type="button" data-set-lc="en">English</button>
+          <a class="btn icon search" href="#" title="Search" aria-label="Search">🔍</a>
+          <a class="btn icon login"  href="login.html" title="Login" aria-label="Login">👤</a>
+          <a class="btn icon cart"   href="checkout.html" title="Cart" aria-label="Cart">🛒</a>
+
+          <!-- 语言切换 -->
+          <div class="lang">
+            <button id="langBtn" class="lang-btn" type="button" aria-haspopup="menu" aria-expanded="false">
+              <span aria-hidden="true">🌐</span>
+              <span id="langLabel">繁體中文</span>
+              <span class="caret" aria-hidden="true">▾</span>
+            </button>
+            <div class="lang-menu" id="langMenu" role="menu" hidden>
+              <button role="menuitem" data-lc="zh-HK">繁體中文</button>
+              <button role="menuitem" data-lc="en">English</button>
+            </div>
+          </div>
+
+          <!-- 更多按钮（手机端） -->
+          <button class="btn icon" id="moreBtn" aria-haspopup="menu" aria-expanded="false" title="更多">⋯</button>
+          <div class="more-menu" id="moreMenu" hidden>
+            <a class="item" href="https://wa.me/85297436663" target="_blank" rel="noopener">
+              <img src="Archive/whats.png" alt="WhatsApp" style="height:18px;width:18px;vertical-align:middle;"> WhatsApp
+            </a>
+            <a class="item" href="#" id="moreSearch">🔍 Search</a>
+            <a class="item" href="login.html">👤 Login</a>
+            <a class="item" href="checkout.html">🛒 Cart</a>
+            <div class="sep"></div>
+            <button class="item" type="button" data-set-lc="zh-HK">繁體中文</button>
+            <button class="item" type="button" data-set-lc="en">English</button>
+          </div>
         </div>
-      </div>
-    </nav>
-  </div>
-</header>
+      </nav>
+    </div>
+  </header>
 
   <main>
     <div class="container">
       <!-- 顶部 Banner：4.png -->
-      <section class="banner">
+      <section class="banner" aria-label="AUS Shopping Agent">
         <img src="Archive/Promo_Banner/4.png" alt="AUS Shopping Agent">
       </section>
 
-      <!-- 中部流程图：5.png（仅展示图片，无产品） -->
+      <!-- 中部流程图：5.png（更小，max-width:600px） -->
       <section class="intro-img">
         <img src="Archive/Promo_Banner/5.png" alt="澳洲代購流程 Introduction">
       </section>
     </div>
   </main>
 
-  <!-- Footer（与首页一致） -->
+  <!-- Footer（含付款方式/Payment Methods，并随语言切换） -->
   <footer class="site-footer">
     <div class="container footer-box">
       <nav class="foot-row zh">
@@ -99,6 +109,7 @@
         <a href="privacy.html"><b>私隱政策</b></a>
         <a href="returns.html"><b>退換貨政策</b></a>
         <a href="process.html"><b>購買流程</b></a>
+        <a href="payment.html"><b>付款方式</b></a>
         <a href="contact.html"><b>聯絡我們</b></a>
       </nav>
       <nav class="foot-row en">
@@ -106,6 +117,7 @@
         <a href="privacy.html"><b>Privacy Policy</b></a>
         <a href="returns.html"><b>Return &amp; Exchange Policy</b></a>
         <a href="process.html"><b>Shopping Process</b></a>
+        <a href="payment.html"><b>Payment Methods</b></a>
         <a href="contact.html"><b>Contact Us</b></a>
       </nav>
       <div class="copy">2025 © Glow On HK. <span data-i18n="rights">All Rights Reserved.</span></div>
@@ -113,5 +125,19 @@
   </footer>
 
   <script src="site.js"></script>
+  <script>
+    // 切换语言时页脚中英文行显示
+    function renderFooter(){
+      const lc = getLocale();
+      const zhRow = document.querySelector('.foot-row.zh');
+      const enRow = document.querySelector('.foot-row.en');
+      if (zhRow && enRow){
+        if (lc === 'en'){ zhRow.style.display='none'; enRow.style.display='flex'; }
+        else { zhRow.style.display='flex'; enRow.style.display='none'; }
+      }
+    }
+    renderFooter();
+    window.addEventListener('locale-changed', renderFooter);
+  </script>
 </body>
 </html>

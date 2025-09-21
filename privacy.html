@@ -1,117 +1,128 @@
+<!-- privacy.html -->
 <!DOCTYPE html>
 <html lang="zh-HK">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Glow On · 私隱政策 Privacy Policy</title>
+  <title>Glow On · 私隱政策</title>
   <link rel="stylesheet" href="styles.css"/>
   <style>
     .container{max-width:1100px;margin:0 auto;padding:16px}
     .prose h1,.prose h2{margin:16px 0 8px}
     .prose p{margin:8px 0;line-height:1.8}
-    .hero{margin:6px 0 10px}
+    .zh{display:block}
+    .en{display:none}
+    .site-header .top { display:flex; align-items:center; justify-content:space-between; }
+    .site-header .left { display:flex; align-items:center; gap:14px; }
+    .site-header .logo strong { display:none; }
+    .site-header .logo img { height:26px; width:auto; display:block; }
+    .site-header .nav { display:flex; gap:14px; flex-wrap:wrap; }
+    .foot-row.en{display:none;}
   </style>
 </head>
 <body>
   <!-- Header -->
-  <!-- 统一头部导航（复制到每个页面，替换原来的 header） -->
-<header class="site-header">
+  <header class="site-header">
     <div class="container">
       <nav class="top">
-        <!-- 左：LOGO -->
-        <a href="index.html" class="logo">
-          <img src="Archive/logo.png" alt="Glow On logo">
-          <strong data-i18n="brand">Glow On</strong>
-        </a>
-  
-        <!-- 中：导航 -->
-        <div class="nav">
-          <a href="index.html" data-i18n="nav_home">首頁</a>
-          <a href="preorder.html" data-route="preorder" data-i18n="nav_preorder">精選預購</a>
-          <a href="instock.html"  data-route="instock"  data-i18n="nav_instock">現貨專區</a>
-          <a href="buyagent.html" data-route="service"  data-i18n="nav_service">澳洲代購服務</a>
+        <div class="left">
+          <a href="index.html" class="logo">
+            <img src="Archive/logo.png" alt="Glow On logo">
+            <strong data-i18n="brand">Glow On</strong>
+          </a>
+          <div class="nav">
+            <a href="index.html" data-i18n="nav_home">首頁</a>
+            <a href="preorder.html" data-i18n="nav_preorder">精選預購</a>
+            <a href="instock.html"  data-i18n="nav_instock">現貨專區</a>
+            <a href="buyagent.html" data-i18n="nav_service">澳洲代購服務</a>
+          </div>
         </div>
-  
-        <!-- 右：动作 + 语言（桌面端显示） -->
         <div class="actions">
-            <a class="btn icon whatsapp" 
-               href="https://wa.me/85200000000" 
-               target="_blank" 
-               rel="noopener" 
-               title="WhatsApp" 
-               aria-label="WhatsApp">
-              <img src="Archive/whats.png" alt="WhatsApp" style="height:24px;width:24px;">
-            </a>
-            
-            <a class="btn icon search" href="#" title="Search" aria-label="Search">🔍</a>
-            <a class="btn icon login"  href="login.html" title="Login" aria-label="Login">👤</a>
-            <a class="btn icon cart"   href="checkout.html" title="Cart" aria-label="Cart">🛒</a>
-          
-            <!-- 语言切换 -->
-            <div class="lang">
-              <button id="langBtn" class="lang-btn" type="button" aria-haspopup="menu" aria-expanded="false">
-                <span aria-hidden="true">🌐</span>
-                <span id="langLabel">繁體中文</span>
-                <span class="caret" aria-hidden="true">▾</span>
-              </button>
-              <div class="lang-menu" id="langMenu" role="menu" hidden>
-                <button role="menuitem" data-lc="zh-HK">繁體中文</button>
-                <button role="menuitem" data-lc="en">English</button>
-              </div>
-            </div>
-          
-            <!-- 更多按钮（手机端） -->
-            <button class="btn icon" id="moreBtn" aria-haspopup="menu" aria-expanded="false" title="更多">⋯</button>
-            <div class="more-menu" id="moreMenu" hidden>
-              <a class="item" href="https://wa.me/85200000000" target="_blank" rel="noopener">
-                <img src="Archive/whats.png" alt="WhatsApp" style="height:18px;width:18px;vertical-align:middle;"> WhatsApp
-              </a>
-              <a class="item" href="#" id="moreSearch">🔍 Search</a>
-              <a class="item" href="login.html">👤 Login</a>
-              <a class="item" href="checkout.html">🛒 Cart</a>
-              <div class="sep"></div>
-              <button class="item" type="button" data-set-lc="zh-HK">繁體中文</button>
-              <button class="item" type="button" data-set-lc="en">English</button>
+          <a class="btn icon whatsapp" href="https://wa.me/85297436663" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp">
+            <img src="Archive/whats.png" alt="WhatsApp" style="height:24px;width:24px;">
+          </a>
+          <a class="btn icon search" href="#">🔍</a>
+          <a class="btn icon login" href="login.html">👤</a>
+          <a class="btn icon cart" href="checkout.html">🛒</a>
+          <div class="lang">
+            <button id="langBtn" class="lang-btn" type="button">
+              🌐 <span id="langLabel">繁體中文</span> ▾
+            </button>
+            <div class="lang-menu" id="langMenu" hidden>
+              <button data-lc="zh-HK">繁體中文</button>
+              <button data-lc="en">English</button>
             </div>
           </div>
+          <button class="btn icon" id="moreBtn" title="更多">⋯</button>
+          <div class="more-menu" id="moreMenu" hidden>
+            <a class="item" href="https://wa.me/85297436663" target="_blank"><img src="Archive/whats.png" alt="WhatsApp" style="height:18px;width:18px;"> WhatsApp</a>
+            <a class="item" href="login.html">👤 Login</a>
+            <a class="item" href="checkout.html">🛒 Cart</a>
+            <div class="sep"></div>
+            <button class="item" data-set-lc="zh-HK">繁體中文</button>
+            <button class="item" data-set-lc="en">English</button>
+          </div>
+        </div>
       </nav>
     </div>
   </header>
 
   <main>
     <div class="container">
-      <div class="hero banner">
-        <img src="Archive/Promo_Banner/1.png" alt="Privacy Banner">
-      </div>
-
-      <article class="prose">
-        <h1>私隱政策 <small style="font-weight:700">Privacy Policy</small></h1>
-
-        <h2>1. 我們收集甚麼資料</h2>
+      <!-- 中文版 -->
+      <article class="prose zh">
+        <h1>私隱政策</h1>
+        <h2>我們收集甚麼資料</h2>
         <p>為處理訂單及提供客戶服務，我們可能收集：姓名、聯絡電話、電郵地址、送貨地址、WhatsApp 聯絡方式、訂單及付款相關資訊（不保存完整信用卡資料）。</p>
 
-        <h2>2. 使用目的</h2>
-        <p>用於建立及處理訂單、安排送貨、提供售後及支援、改善網站體驗、推廣及市場通訊（如你已同意）。</p>
+        <h2>使用目的</h2>
+        <p>用於建立及處理訂單、安排送貨、提供售後支援、改善網站體驗、推廣及市場通訊（如你已同意）。</p>
 
-        <h2>3. 第三方服務</h2>
+        <h2>第三方服務</h2>
         <p>我們可能與物流公司、付款服務供應商等第三方合作，僅為完成訂單及履行法定要求之目的分享必要資料。</p>
 
-        <h2>4. 資料保安</h2>
-        <p>我們採取合理技術與管理措施保障個人資料安全；惟互聯網傳輸存在風險，無法保證百分百安全。</p>
+        <h2>資料保安</h2>
+        <p>我們採取合理措施保障個人資料安全；惟互聯網傳輸存在風險，無法保證百分百安全。</p>
 
-        <h2>5. 你的權利</h2>
-        <p>你可要求查閱、更正或刪除個人資料，及撤回市場通訊同意。請以 <a href="mailto:info@glowon.hk">info@glowon.hk</a> 聯絡我們。</p>
+        <h2>你的權利</h2>
+        <p>你可要求查閱、更正或刪除個人資料，及撤回市場通訊同意。請聯絡：<a href="mailto:info@glowon.hk">info@glowon.hk</a></p>
 
-        <h2>6. 保留期限</h2>
-        <p>個人資料只會在達成收集目的或遵守法定要求所需期間內保留，期滿後將安全刪除或匿名化。</p>
+        <h2>保留期限</h2>
+        <p>個人資料只會在達成目的或遵守法定要求所需期間內保留，期滿後將安全刪除或匿名化。</p>
 
-        <h2>7. Cookies 與分析</h2>
-        <p>我們或使用 Cookies/分析工具改善瀏覽體驗與內容；你可在瀏覽器設定管理或停用 Cookies。</p>
+        <h2>Cookies 與分析</h2>
+        <p>我們或使用 Cookies/分析工具改善瀏覽體驗與內容；你可在瀏覽器設定中管理或停用。</p>
 
-        <h2>8. 政策更新</h2>
+        <h2>政策更新</h2>
         <p>我們可能不時更新本政策；重大變更會於網站公佈並標註生效日期。</p>
+      </article>
 
-        <p class="muted">如對私隱政策有任何疑問，歡迎隨時與我們聯絡。</p>
+      <!-- English (hidden by default) -->
+      <article class="prose en">
+        <h1>Privacy Policy</h1>
+        <h2>What We Collect</h2>
+        <p>We may collect: name, phone number, email, shipping address, WhatsApp, and order/payment info (no full card numbers stored).</p>
+
+        <h2>Purpose</h2>
+        <p>Used for order processing, delivery, after-sales, site improvement, and marketing communications (with consent).</p>
+
+        <h2>Third-Party Services</h2>
+        <p>We may share data with logistics or payment providers only for order fulfillment and compliance.</p>
+
+        <h2>Data Security</h2>
+        <p>We use reasonable measures, but internet transmission is not 100% secure.</p>
+
+        <h2>Your Rights</h2>
+        <p>You can request access, correction, or deletion, and withdraw consent. Contact: <a href="mailto:info@glowon.hk">info@glowon.hk</a></p>
+
+        <h2>Retention</h2>
+        <p>Data kept only as long as needed or legally required, then deleted or anonymized.</p>
+
+        <h2>Cookies & Analytics</h2>
+        <p>We may use cookies/analytics; you can manage them in your browser settings.</p>
+
+        <h2>Updates</h2>
+        <p>We may update this policy; major changes will be announced with an effective date.</p>
       </article>
     </div>
   </main>
@@ -124,17 +135,37 @@
         <a href="privacy.html"><b>私隱政策</b></a>
         <a href="returns.html"><b>退換貨政策</b></a>
         <a href="process.html"><b>購買流程</b></a>
+        <a href="payment.html"><b>付款方式</b></a>
         <a href="contact.html"><b>聯絡我們</b></a>
       </nav>
       <nav class="foot-row en">
         <a href="terms.html"><b>Terms &amp; Conditions</b></a>
         <a href="privacy.html"><b>Privacy Policy</b></a>
-        <a href="returns.html"><b>Return &amp; Exchange Policy</b></a>
+        <a href="returns.html"><b>Return Policy</b></a>
         <a href="process.html"><b>Shopping Process</b></a>
+        <a href="payment.html"><b>Payment Methods</b></a>
         <a href="contact.html"><b>Contact Us</b></a>
       </nav>
       <div class="copy">2025 © Glow On HK. All Rights Reserved.</div>
     </div>
   </footer>
+
+  <script src="site.js"></script>
+  <script>
+    function renderLocaleBlocks(){
+      const lc = getLocale ? getLocale() : (localStorage.getItem('dordor-locale') || 'zh-HK');
+      document.documentElement.lang = lc;
+      const zh = document.querySelector('.prose.zh');
+      const en = document.querySelector('.prose.en');
+      if (lc==='en'){ zh.style.display='none'; en.style.display='block'; }
+      else { zh.style.display='block'; en.style.display='none'; }
+      const zhRow=document.querySelector('.foot-row.zh');
+      const enRow=document.querySelector('.foot-row.en');
+      if (lc==='en'){ zhRow.style.display='none'; enRow.style.display='flex'; }
+      else { zhRow.style.display='flex'; enRow.style.display='none'; }
+    }
+    renderLocaleBlocks();
+    window.addEventListener('locale-changed', renderLocaleBlocks);
+  </script>
 </body>
 </html>

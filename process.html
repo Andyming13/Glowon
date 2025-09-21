@@ -3,128 +3,216 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Glow On · 購買流程 Shopping Process</title>
+  <title>Glow On · 購買流程</title>
   <link rel="stylesheet" href="styles.css"/>
   <style>
     .container{max-width:1100px;margin:0 auto;padding:16px}
+
+    /* 页面内容 */
     .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:10px}
     .card{border:1px solid #e5e7eb;border-radius:12px;padding:16px;background:#fff}
     h1,h2{margin:16px 0 8px}
     p{margin:8px 0;line-height:1.8}
+
+    /* 语言区块：默认中文显示，英文隐藏 */
+    .zh{display:block}
+    .en{display:none}
+
+    /* 与站点统一头部的小样式（若 styles.css 已有可忽略，它们不会冲突） */
+    .site-header .top{display:flex;align-items:center;justify-content:space-between}
+    .site-header .left{display:flex;align-items:center;gap:14px}
+    .site-header .logo strong{display:none} /* 仅保留图标 */
+    .site-header .logo img{height:26px;width:auto;display:block}
+    .site-header .nav{display:flex;gap:14px;flex-wrap:wrap}
+    .site-header .nav a{text-decoration:none}
+
+    /* 页脚英文行默认隐藏，由脚本随语言切换 */
+    .foot-row.en,.pay-row.en{display:none}
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <!-- 统一头部导航（复制到每个页面，替换原来的 header） -->
-<header class="site-header">
+  <!-- 统一头部导航（与其它页面一致） -->
+  <header class="site-header">
     <div class="container">
       <nav class="top">
-        <!-- 左：LOGO -->
-        <a href="index.html" class="logo">
-          <img src="Archive/logo.png" alt="Glow On logo">
-          <strong data-i18n="brand">Glow On</strong>
-        </a>
-  
-        <!-- 中：导航 -->
-        <div class="nav">
-          <a href="index.html" data-i18n="nav_home">首頁</a>
-          <a href="preorder.html" data-route="preorder" data-i18n="nav_preorder">精選預購</a>
-          <a href="instock.html"  data-route="instock"  data-i18n="nav_instock">現貨專區</a>
-          <a href="buyagent.html" data-route="service"  data-i18n="nav_service">澳洲代購服務</a>
+        <!-- 左：LOGO + 导航 -->
+        <div class="left">
+          <a href="index.html" class="logo">
+            <img src="Archive/logo.png" alt="Glow On logo">
+            <strong data-i18n="brand">Glow On</strong>
+          </a>
+          <div class="nav">
+            <a href="index.html" data-i18n="nav_home">首頁</a>
+            <a href="preorder.html" data-route="preorder" data-i18n="nav_preorder">精選預購</a>
+            <a href="instock.html"  data-route="instock"  data-i18n="nav_instock">現貨專區</a>
+            <a href="buyagent.html" data-route="service"  data-i18n="nav_service">澳洲代購服務</a>
+          </div>
         </div>
-  
-        <!-- 右：动作 + 语言（桌面端显示） -->
+
+        <!-- 右：动作 + 语言 -->
         <div class="actions">
-            <a class="btn icon whatsapp" 
-               href="https://wa.me/85200000000" 
-               target="_blank" 
-               rel="noopener" 
-               title="WhatsApp" 
-               aria-label="WhatsApp">
-              <img src="Archive/whats.png" alt="WhatsApp" style="height:24px;width:24px;">
-            </a>
-            
-            <a class="btn icon search" href="#" title="Search" aria-label="Search">🔍</a>
-            <a class="btn icon login"  href="login.html" title="Login" aria-label="Login">👤</a>
-            <a class="btn icon cart"   href="checkout.html" title="Cart" aria-label="Cart">🛒</a>
-          
-            <!-- 语言切换 -->
-            <div class="lang">
-              <button id="langBtn" class="lang-btn" type="button" aria-haspopup="menu" aria-expanded="false">
-                <span aria-hidden="true">🌐</span>
-                <span id="langLabel">繁體中文</span>
-                <span class="caret" aria-hidden="true">▾</span>
-              </button>
-              <div class="lang-menu" id="langMenu" role="menu" hidden>
-                <button role="menuitem" data-lc="zh-HK">繁體中文</button>
-                <button role="menuitem" data-lc="en">English</button>
-              </div>
-            </div>
-          
-            <!-- 更多按钮（手机端） -->
-            <button class="btn icon" id="moreBtn" aria-haspopup="menu" aria-expanded="false" title="更多">⋯</button>
-            <div class="more-menu" id="moreMenu" hidden>
-              <a class="item" href="https://wa.me/85200000000" target="_blank" rel="noopener">
-                <img src="Archive/whats.png" alt="WhatsApp" style="height:18px;width:18px;vertical-align:middle;"> WhatsApp
-              </a>
-              <a class="item" href="#" id="moreSearch">🔍 Search</a>
-              <a class="item" href="login.html">👤 Login</a>
-              <a class="item" href="checkout.html">🛒 Cart</a>
-              <div class="sep"></div>
-              <button class="item" type="button" data-set-lc="zh-HK">繁體中文</button>
-              <button class="item" type="button" data-set-lc="en">English</button>
+          <a class="btn icon whatsapp"
+             href="https://wa.me/85297436663"
+             target="_blank"
+             rel="noopener"
+             title="WhatsApp"
+             aria-label="WhatsApp">
+            <img src="Archive/whats.png" alt="WhatsApp" style="height:24px;width:24px;">
+          </a>
+          <a class="btn icon search" href="#" title="Search" aria-label="Search">🔍</a>
+          <a class="btn icon login"  href="login.html" title="Login" aria-label="Login">👤</a>
+          <a class="btn icon cart"   href="checkout.html" title="Cart" aria-label="Cart">🛒</a>
+
+          <!-- 语言切换 -->
+          <div class="lang">
+            <button id="langBtn" class="lang-btn" type="button" aria-haspopup="menu" aria-expanded="false">
+              <span aria-hidden="true">🌐</span>
+              <span id="langLabel">繁體中文</span>
+              <span class="caret" aria-hidden="true">▾</span>
+            </button>
+            <div class="lang-menu" id="langMenu" role="menu" hidden>
+              <button role="menuitem" data-lc="zh-HK">繁體中文</button>
+              <button role="menuitem" data-lc="en">English</button>
             </div>
           </div>
+
+          <!-- 更多按钮（手机端） -->
+          <button class="btn icon" id="moreBtn" aria-haspopup="menu" aria-expanded="false" title="更多">⋯</button>
+          <div class="more-menu" id="moreMenu" hidden>
+            <a class="item" href="https://wa.me/85297436663" target="_blank" rel="noopener">
+              <img src="Archive/whats.png" alt="WhatsApp" style="height:18px;width:18px;vertical-align:middle;"> WhatsApp
+            </a>
+            <a class="item" href="#" id="moreSearch">🔍 Search</a>
+            <a class="item" href="login.html">👤 Login</a>
+            <a class="item" href="checkout.html">🛒 Cart</a>
+            <div class="sep"></div>
+            <button class="item" type="button" data-set-lc="zh-HK">繁體中文</button>
+            <button class="item" type="button" data-set-lc="en">English</button>
+          </div>
+        </div>
       </nav>
     </div>
   </header>
 
   <main>
     <div class="container">
-      <h1>購買流程 <small style="font-weight:700">Shopping Process</small></h1>
+      <!-- 中文正文（默认显示） -->
+      <article class="zh">
+        <h1>購買流程</h1>
 
-      <div class="steps">
-        <div class="card">
-          <h2>Step 1｜瀏覽與加入購物車</h2>
-          <p>於「精選預購 / 現貨專區」選購，點擊商品進入詳情頁，選擇數量後按「加入購物車」。</p>
+        <div class="steps">
+          <div class="card">
+            <h2>步驟一｜瀏覽與加入購物車</h2>
+            <p>於「精選預購 / 現貨專區」選購，點擊商品進入詳情頁，選擇數量後按「加入購物車」。</p>
+          </div>
+          <div class="card">
+            <h2>步驟二｜查看購物車</h2>
+            <p>點擊右上角 🛒 進入購物車，可調整商品數量或刪除項目，系統會即時計算總額。</p>
+          </div>
+          <div class="card">
+            <h2>步驟三｜填寫資料與送貨方式</h2>
+            <p>暫以 WhatsApp / Email 與我們確認送貨地址、運費與到貨時間；未來將開啟站內表單與線上結帳。</p>
+          </div>
+          <div class="card">
+            <h2>步驟四｜付款與出貨</h2>
+            <p>確認訂單後安排付款（轉數快 / 銀行轉帳 / 其他方式），我們收到款項即安排出貨。</p>
+          </div>
         </div>
-        <div class="card">
-          <h2>Step 2｜查看購物車</h2>
-          <p>點擊右上角🛒進入購物車，可調整商品數量或刪除項目，系統會即時計算總額。</p>
-        </div>
-        <div class="card">
-          <h2>Step 3｜填寫資料與送貨方式</h2>
-          <p>暫以 WhatsApp / Email 與我們確認送貨地址、運費與時間；未來將開啟站內表單與線上結帳。</p>
-        </div>
-        <div class="card">
-          <h2>Step 4｜付款與出貨</h2>
-          <p>確認訂單後安排付款（轉數快/銀行轉帳/其他方式），我們收到款項即安排出貨。</p>
-        </div>
-      </div>
 
-      <p class="muted" style="margin-top:10px">提示：如需澳洲代購服務，請前往「澳洲代購服務」頁查看流程與聯絡方式。</p>
+        <p class="muted" style="margin-top:10px">提示：如需澳洲代購服務，請前往「澳洲代購服務」頁查看流程與聯絡方式。</p>
+      </article>
+
+      <!-- English content（默认隐藏，切到英文时显示） -->
+      <article class="en">
+        <h1>Shopping Process</h1>
+
+        <div class="steps">
+          <div class="card">
+            <h2>Step 1 · Browse & Add to Cart</h2>
+            <p>Browse “Pre-Order / In-Stock”, open a product page, select quantity, then click “Add to Cart”.</p>
+          </div>
+          <div class="card">
+            <h2>Step 2 · Review Cart</h2>
+            <p>Click the 🛒 icon to view your cart, adjust quantities or remove items. The total updates instantly.</p>
+          </div>
+          <div class="card">
+            <h2>Step 3 · Shipping Details</h2>
+            <p>For now, confirm your shipping address, fee and ETA with us via WhatsApp / Email. Online checkout is coming soon.</p>
+          </div>
+          <div class="card">
+            <h2>Step 4 · Payment & Dispatch</h2>
+            <p>After confirming the order, pay via FPS / bank transfer / other methods. We’ll ship once the payment is received.</p>
+          </div>
+        </div>
+
+        <p class="muted" style="margin-top:10px">Tip: For sourcing from Australia, see the “AUS Shopping Agent” page.</p>
+      </article>
     </div>
   </main>
 
-  <!-- Footer -->
+  <!-- 页脚（含付款方式；随语言切换） -->
   <footer class="site-footer">
     <div class="container footer-box">
+      <!-- 中文行 -->
       <nav class="foot-row zh">
         <a href="terms.html"><b>條款及細則</b></a>
         <a href="privacy.html"><b>私隱政策</b></a>
         <a href="returns.html"><b>退換貨政策</b></a>
         <a href="process.html"><b>購買流程</b></a>
+        <a href="payment.html"><b>付款方式</b></a>
         <a href="contact.html"><b>聯絡我們</b></a>
       </nav>
+      </div>
+
+      <!-- 英文行 -->
       <nav class="foot-row en">
         <a href="terms.html"><b>Terms &amp; Conditions</b></a>
         <a href="privacy.html"><b>Privacy Policy</b></a>
         <a href="returns.html"><b>Return &amp; Exchange Policy</b></a>
         <a href="process.html"><b>Shopping Process</b></a>
+        <a href="payment.html"><b>Payment Methods</b></a>
         <a href="contact.html"><b>Contact Us</b></a>
       </nav>
-      <div class="copy">2025 © Glow On HK. All Rights Reserved.</div>
+      </div>
+
+      <div class="copy">2025 © Glow On HK. <span data-i18n="rights">All Rights Reserved.</span></div>
     </div>
   </footer>
+
+  <script src="site.js"></script>
+  <script>
+    // 跟随站点语言切换：正文块 + 页脚中/英 & 付款方式联动
+    function renderLocaleBlocks(){
+      const lc = (window.getLocale ? window.getLocale() : (localStorage.getItem('dordor-locale') || 'zh-HK'));
+      document.documentElement.lang = lc;
+
+      // 正文
+      const zh = document.querySelector('article.zh');
+      const en = document.querySelector('article.en');
+      if (zh && en){
+        if (lc === 'en'){ zh.style.display='none'; en.style.display='block'; }
+        else { zh.style.display='block'; en.style.display='none'; }
+      }
+
+      // 页脚
+      const zhRow = document.querySelector('.foot-row.zh');
+      const enRow = document.querySelector('.foot-row.en');
+      const zhPay = document.querySelector('.pay-row.zh');
+      const enPay = document.querySelector('.pay-row.en');
+      if (zhRow && enRow){
+        if (lc === 'en'){
+          zhRow.style.display='none'; enRow.style.display='flex';
+          if (zhPay) zhPay.style.display='none';
+          if (enPay) enPay.style.display='block';
+        } else {
+          zhRow.style.display='flex'; enRow.style.display='none';
+          if (zhPay) zhPay.style.display='block';
+          if (enPay) enPay.style.display='none';
+        }
+      }
+    }
+    renderLocaleBlocks();
+    window.addEventListener('locale-changed', renderLocaleBlocks);
+  </script>
 </body>
 </html>

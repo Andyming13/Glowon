@@ -1,9 +1,10 @@
+<!-- contact.html -->
 <!DOCTYPE html>
 <html lang="zh-HK">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Glow On · 聯絡我們 Contact Us</title>
+  <title>Glow On · 聯絡我們</title>
   <link rel="stylesheet" href="styles.css"/>
   <style>
     .container{max-width:900px;margin:0 auto;padding:16px}
@@ -11,97 +12,118 @@
     h1,h2{margin:16px 0 8px}
     p{margin:6px 0;line-height:1.8}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+    .zh{display:block}
+    .en{display:none}
+    .foot-row.en{display:none}
+    .site-header .left{display:flex;align-items:center;gap:24px}
+    .site-header .nav{display:flex;align-items:center;gap:28px;justify-content:flex-start;flex:unset}
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <!-- 统一头部导航（复制到每个页面，替换原来的 header） -->
-<header class="site-header">
+  <!-- Header（與其它頁一致） -->
+  <header class="site-header">
     <div class="container">
       <nav class="top">
-        <!-- 左：LOGO -->
-        <a href="index.html" class="logo">
-          <img src="Archive/logo.png" alt="Glow On logo">
-          <strong data-i18n="brand">Glow On</strong>
-        </a>
-  
-        <!-- 中：导航 -->
-        <div class="nav">
-          <a href="index.html" data-i18n="nav_home">首頁</a>
-          <a href="preorder.html" data-route="preorder" data-i18n="nav_preorder">精選預購</a>
-          <a href="instock.html"  data-route="instock"  data-i18n="nav_instock">現貨專區</a>
-          <a href="buyagent.html" data-route="service"  data-i18n="nav_service">澳洲代購服務</a>
+        <div class="left">
+          <a href="index.html" class="logo">
+            <img src="Archive/logo.png" alt="Glow On logo">
+            <strong data-i18n="brand">Glow On</strong>
+          </a>
+          <div class="nav">
+            <a href="index.html" data-i18n="nav_home">首頁</a>
+            <a href="preorder.html" data-route="preorder" data-i18n="nav_preorder">精選預購</a>
+            <a href="instock.html"  data-route="instock"  data-i18n="nav_instock">現貨專區</a>
+            <a href="buyagent.html" data-route="service"  data-i18n="nav_service">澳洲代購服務</a>
+          </div>
         </div>
-  
-        <!-- 右：动作 + 语言（桌面端显示） -->
+
         <div class="actions">
-            <a class="btn icon whatsapp" 
-               href="https://wa.me/85200000000" 
-               target="_blank" 
-               rel="noopener" 
-               title="WhatsApp" 
-               aria-label="WhatsApp">
-              <img src="Archive/whats.png" alt="WhatsApp" style="height:24px;width:24px;">
-            </a>
-            
-            <a class="btn icon search" href="#" title="Search" aria-label="Search">🔍</a>
-            <a class="btn icon login"  href="login.html" title="Login" aria-label="Login">👤</a>
-            <a class="btn icon cart"   href="checkout.html" title="Cart" aria-label="Cart">🛒</a>
-          
-            <!-- 语言切换 -->
-            <div class="lang">
-              <button id="langBtn" class="lang-btn" type="button" aria-haspopup="menu" aria-expanded="false">
-                <span aria-hidden="true">🌐</span>
-                <span id="langLabel">繁體中文</span>
-                <span class="caret" aria-hidden="true">▾</span>
-              </button>
-              <div class="lang-menu" id="langMenu" role="menu" hidden>
-                <button role="menuitem" data-lc="zh-HK">繁體中文</button>
-                <button role="menuitem" data-lc="en">English</button>
-              </div>
-            </div>
-          
-            <!-- 更多按钮（手机端） -->
-            <button class="btn icon" id="moreBtn" aria-haspopup="menu" aria-expanded="false" title="更多">⋯</button>
-            <div class="more-menu" id="moreMenu" hidden>
-              <a class="item" href="https://wa.me/85200000000" target="_blank" rel="noopener">
-                <img src="Archive/whats.png" alt="WhatsApp" style="height:18px;width:18px;vertical-align:middle;"> WhatsApp
-              </a>
-              <a class="item" href="#" id="moreSearch">🔍 Search</a>
-              <a class="item" href="login.html">👤 Login</a>
-              <a class="item" href="checkout.html">🛒 Cart</a>
-              <div class="sep"></div>
-              <button class="item" type="button" data-set-lc="zh-HK">繁體中文</button>
-              <button class="item" type="button" data-set-lc="en">English</button>
+          <a class="btn icon whatsapp" 
+             href="https://wa.me/85297436663" 
+             target="_blank" 
+             rel="noopener" 
+             title="WhatsApp" 
+             aria-label="WhatsApp">
+            <img src="Archive/whats.png" alt="WhatsApp" style="height:24px;width:24px;">
+          </a>
+          <a class="btn icon search" href="#" title="Search" aria-label="Search">🔍</a>
+          <a class="btn icon login"  href="login.html" title="Login" aria-label="Login">👤</a>
+          <a class="btn icon cart"   href="checkout.html" title="Cart" aria-label="Cart">🛒</a>
+
+          <div class="lang">
+            <button id="langBtn" class="lang-btn" type="button" aria-haspopup="menu" aria-expanded="false">
+              <span aria-hidden="true">🌐</span>
+              <span id="langLabel">繁體中文</span>
+              <span class="caret" aria-hidden="true">▾</span>
+            </button>
+            <div class="lang-menu" id="langMenu" role="menu" hidden>
+              <button role="menuitem" data-lc="zh-HK">繁體中文</button>
+              <button role="menuitem" data-lc="en">English</button>
             </div>
           </div>
+
+          <button class="btn icon" id="moreBtn" aria-haspopup="menu" aria-expanded="false" title="更多">⋯</button>
+          <div class="more-menu" id="moreMenu" hidden>
+            <a class="item" href="https://wa.me/85297436663" target="_blank" rel="noopener">
+              <img src="Archive/whats.png" alt="WhatsApp" style="height:18px;width:18px;vertical-align:middle;"> WhatsApp
+            </a>
+            <a class="item" href="#" id="moreSearch">🔍 Search</a>
+            <a class="item" href="login.html">👤 Login</a>
+            <a class="item" href="checkout.html">🛒 Cart</a>
+            <div class="sep"></div>
+            <button class="item" type="button" data-set-lc="zh-HK">繁體中文</button>
+            <button class="item" type="button" data-set-lc="en">English</button>
+          </div>
+        </div>
       </nav>
     </div>
   </header>
 
   <main>
     <div class="container">
-      <h1>聯絡我們 <small style="font-weight:700">Contact Us</small></h1>
+      <!-- 中文內容 -->
+      <article class="zh">
+        <h1>聯絡我們</h1>
+        <div class="grid">
+          <div class="card">
+            <h2>WhatsApp</h2>
+            <p>點擊開始對話：</p>
+            <p><a href="https://wa.me/85297436663" target="_blank" rel="noopener">https://wa.me/85297436663</a></p>
+          </div>
+          <div class="card">
+            <h2>Email</h2>
+            <p><a href="mailto:info@glowon.hk">info@glowon.hk</a></p>
+          </div>
+          <div class="card">
+            <h2>服務時間</h2>
+            <p>週一至週五 10:00–18:00<br>（公眾假期除外）</p>
+          </div>
+        </div>
+        <h2 style="margin-top:16px">常見問題</h2>
+        <p>關於預購 / 現貨、運費與配送、退換貨步驟、澳洲代購流程等，請參考頁面底部的相關政策連結。</p>
+      </article>
 
-      <div class="grid">
-        <div class="card">
-          <h2>WhatsApp</h2>
-          <p>點擊開始對話：<br>
-            <a href="https://wa.me/" target="_blank" rel="noopener">https://wa.me/（待填）</a></p>
-          <p class="muted">* 你確定最終號碼後，直接把上面連結改成 <code>https://wa.me/852XXXXXXXX</code> 即可。</p>
+      <!-- English -->
+      <article class="en">
+        <h1>Contact Us</h1>
+        <div class="grid">
+          <div class="card">
+            <h2>WhatsApp</h2>
+            <p>Start a chat:</p>
+            <p><a href="https://wa.me/85297436663" target="_blank" rel="noopener">https://wa.me/85297436663</a></p>
+          </div>
+          <div class="card">
+            <h2>Email</h2>
+            <p><a href="mailto:info@glowon.hk">info@glowon.hk</a></p>
+          </div>
+          <div class="card">
+            <h2>Service Hours</h2>
+            <p>Mon–Fri 10:00–18:00<br>(Public holidays excluded)</p>
+          </div>
         </div>
-        <div class="card">
-          <h2>Email</h2>
-          <p><a href="mailto:info@glowon.hk">info@glowon.hk</a></p>
-        </div>
-        <div class="card">
-          <h2>服務時間</h2>
-          <p>Mon–Fri 10:00–18:00（公眾假期除外）</p>
-        </div>
-      </div>
-
-      <h2 style="margin-top:16px">常見問題</h2>
-      <p>關於預購與現貨、運費與配送、退換貨步驟、澳洲代購流程等，請參考頁面底部的相關政策連結。</p>
+        <h2 style="margin-top:16px">FAQ</h2>
+        <p>For pre-order / in-stock, shipping, returns, and personal shopping, please see the links in the footer.</p>
+      </article>
     </div>
   </main>
 
@@ -113,17 +135,42 @@
         <a href="privacy.html"><b>私隱政策</b></a>
         <a href="returns.html"><b>退換貨政策</b></a>
         <a href="process.html"><b>購買流程</b></a>
+        <a href="payment.html"><b>付款方式</b></a>
         <a href="contact.html"><b>聯絡我們</b></a>
       </nav>
       <nav class="foot-row en">
         <a href="terms.html"><b>Terms &amp; Conditions</b></a>
         <a href="privacy.html"><b>Privacy Policy</b></a>
-        <a href="returns.html"><b>Return &amp; Exchange Policy</b></a>
+        <a href="returns.html"><b>Return Policy</b></a>
         <a href="process.html"><b>Shopping Process</b></a>
+        <a href="payment.html"><b>Payment Methods</b></a>
         <a href="contact.html"><b>Contact Us</b></a>
       </nav>
       <div class="copy">2025 © Glow On HK. All Rights Reserved.</div>
     </div>
   </footer>
+
+  <script src="site.js"></script>
+  <script>
+    function renderLocaleBlocks(){
+      const lc = (typeof getLocale === 'function') ? getLocale() : (localStorage.getItem('dordor-locale') || 'zh-HK');
+      document.documentElement.lang = lc;
+      const zh = document.querySelector('article.zh');
+      const en = document.querySelector('article.en');
+      const zhRow = document.querySelector('.foot-row.zh');
+      const enRow = document.querySelector('.foot-row.en');
+      if (lc === 'en'){
+        zh.style.display='none'; en.style.display='block';
+        zhRow.style.display='none'; enRow.style.display='flex';
+        document.title = 'Glow On · Contact Us';
+      } else {
+        zh.style.display='block'; en.style.display='none';
+        zhRow.style.display='flex'; enRow.style.display='none';
+        document.title = 'Glow On · 聯絡我們';
+      }
+    }
+    renderLocaleBlocks();
+    window.addEventListener('locale-changed', renderLocaleBlocks);
+  </script>
 </body>
 </html>

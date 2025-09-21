@@ -1,0 +1,200 @@
+<!-- payment.html -->
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Glow On · 付款方式</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    .container{max-width:1100px;margin:0 auto;padding:16px}
+    .prose h1,.prose h2{margin:16px 0 8px}
+    .prose p,.prose li{margin:8px 0;line-height:1.8}
+    ul{margin:6px 0 12px 18px}
+    .cta{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:10px 14px;border:1px solid #e5e7eb;border-radius:10px;
+      text-decoration:none;color:#111;background:#fff
+    }
+    .cta:hover{box-shadow:0 2px 10px rgba(0,0,0,.08)}
+    /* 语言块：默认中文；切到英文时由脚本切换 */
+    .zh{display:block}
+    .en{display:none}
+    /* 页脚英文行默认隐藏，切英文时再显示 */
+    .foot-row.en{display:none}
+  </style>
+</head>
+<body>
+  <!-- Header（与其它页面一致） -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="top">
+        <!-- 左：LOGO + 导航 -->
+        <div class="left">
+          <a href="index.html" class="logo">
+            <img src="Archive/logo.png" alt="Glow On logo">
+            <strong data-i18n="brand">Glow On</strong><!-- 隐藏由 styles.css 控制 -->
+          </a>
+          <div class="nav">
+            <a href="index.html" data-i18n="nav_home">首頁</a>
+            <a href="preorder.html" data-route="preorder" data-i18n="nav_preorder">精選預購</a>
+            <a href="instock.html"  data-route="instock"  data-i18n="nav_instock">現貨專區</a>
+            <a href="buyagent.html" data-route="service"  data-i18n="nav_service">澳洲代購服務</a>
+          </div>
+        </div>
+
+        <!-- 右：动作 + 语言 -->
+        <div class="actions">
+          <a class="btn icon whatsapp" 
+             href="https://wa.me/85297436663" 
+             target="_blank" 
+             rel="noopener" 
+             title="WhatsApp" 
+             aria-label="WhatsApp">
+            <img src="Archive/whats.png" alt="WhatsApp" style="height:24px;width:24px;">
+          </a>
+          <a class="btn icon search" href="#" title="Search" aria-label="Search">🔍</a>
+          <a class="btn icon login"  href="login.html" title="Login" aria-label="Login">👤</a>
+          <a class="btn icon cart"   href="checkout.html" title="Cart" aria-label="Cart">🛒</a>
+
+          <!-- 语言切换 -->
+          <div class="lang">
+            <button id="langBtn" class="lang-btn" type="button" aria-haspopup="menu" aria-expanded="false">
+              <span aria-hidden="true">🌐</span>
+              <span id="langLabel">繁體中文</span>
+              <span class="caret" aria-hidden="true">▾</span>
+            </button>
+            <div class="lang-menu" id="langMenu" role="menu" hidden>
+              <button role="menuitem" data-lc="zh-HK">繁體中文</button>
+              <button role="menuitem" data-lc="en">English</button>
+            </div>
+          </div>
+
+          <!-- 更多按钮（手机端） -->
+          <button class="btn icon" id="moreBtn" aria-haspopup="menu" aria-expanded="false" title="更多">⋯</button>
+          <div class="more-menu" id="moreMenu" hidden>
+            <a class="item" href="https://wa.me/85297436663" target="_blank" rel="noopener">
+              <img src="Archive/whats.png" alt="WhatsApp" style="height:18px;width:18px;vertical-align:middle;"> WhatsApp
+            </a>
+            <a class="item" href="#" id="moreSearch">🔍 Search</a>
+            <a class="item" href="login.html">👤 Login</a>
+            <a class="item" href="checkout.html">🛒 Cart</a>
+            <div class="sep"></div>
+            <button class="item" type="button" data-set-lc="zh-HK">繁體中文</button>
+            <button class="item" type="button" data-set-lc="en">English</button>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <!-- 中文版 -->
+      <article class="prose zh">
+        <h1>付款方式</h1>
+        <p>目前我們<strong>僅支援透過 WhatsApp 與我們聯絡以安排付款</strong>。你可先將商品加入購物車，然後在 WhatsApp 告知我們訂單內容與送貨資料，我們會回覆報價與付款指引。</p>
+
+        <a class="cta" href="https://wa.me/85297436663" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+          <img src="Archive/whats.png" alt="" style="height:18px;width:18px"> 立即 WhatsApp 聯絡我們
+        </a>
+
+        <h2>流程</h2>
+        <ul>
+          <li>在網站挑選商品並記下數量／規格。</li>
+          <li>透過 WhatsApp 傳送訂單內容與送貨資料。</li>
+          <li>我們確認存貨與運費後，回覆報價與<strong>付款指引</strong>。</li>
+          <li>完成付款並回傳截圖／參考編號，即安排出貨。</li>
+        </ul>
+
+        <h2>付款渠道（以回覆為準）</h2>
+        <p>現階段以 WhatsApp 回覆為準，常見方式可能包括：轉數快（FPS）／銀行轉帳／PayMe 等；如有更新會以 WhatsApp 通知。</p>
+
+        <h2>收據與退款</h2>
+        <p>付款後可索取收據；如因缺貨無法出貨，我們會按原路退款（時間視第三方處理而定）。</p>
+
+        <p class="muted">提示：為保障安全，請只使用我們於 WhatsApp 提供的收款賬戶／連結。</p>
+      </article>
+
+      <!-- English（默认隐藏） -->
+      <article class="prose en">
+        <h1>Payment Methods</h1>
+        <p>We currently <strong>arrange payments via WhatsApp only</strong>. Please add items to cart, then message us on WhatsApp with your order details and delivery info. We’ll reply with a quote and payment instructions.</p>
+
+        <a class="cta" href="https://wa.me/85297436663" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+          <img src="Archive/whats.png" alt="" style="height:18px;width:18px"> Chat with us on WhatsApp
+        </a>
+
+        <h2>Flow</h2>
+        <ul>
+          <li>Select products and note quantities/specs.</li>
+          <li>Send your order and delivery info via WhatsApp.</li>
+          <li>We confirm stock & shipping and reply with the <strong>payment instructions</strong>.</li>
+          <li>Complete payment and share a proof/transaction ref; we will arrange dispatch.</li>
+        </ul>
+
+        <h2>Channels (subject to our reply)</h2>
+        <p>Payment methods may include FPS/bank transfer/PayMe, etc. The final method will be confirmed in WhatsApp.</p>
+
+        <h2>Receipt & Refund</h2>
+        <p>Receipt is available upon request. If an order cannot be fulfilled due to stock issues, a refund will be processed to the original method (timing depends on the payment provider).</p>
+
+        <p class="muted">Tip: For security, please use only the account/links we provide over WhatsApp.</p>
+      </article>
+    </div>
+  </main>
+
+  <!-- Footer（与 terms.html 一致，含「付款方式」，并随语言切换） -->
+  <footer class="site-footer">
+    <div class="container footer-box">
+      <nav class="foot-row zh">
+        <a href="terms.html"><b>條款及細則</b></a>
+        <a href="privacy.html"><b>私隱政策</b></a>
+        <a href="returns.html"><b>退換貨政策</b></a>
+        <a href="process.html"><b>購買流程</b></a>
+        <a href="payment.html"><b>付款方式</b></a>
+        <a href="contact.html"><b>聯絡我們</b></a>
+      </nav>
+      <nav class="foot-row en">
+        <a href="terms.html"><b>Terms &amp; Conditions</b></a>
+        <a href="privacy.html"><b>Privacy Policy</b></a>
+        <a href="returns.html"><b>Return &amp; Exchange Policy</b></a>
+        <a href="process.html"><b>Shopping Process</b></a>
+        <a href="payment.html"><b>Payment Methods</b></a>
+        <a href="contact.html"><b>Contact Us</b></a>
+      </nav>
+      <div class="copy">2025 © Glow On HK. <span data-i18n="rights">All Rights Reserved.</span></div>
+    </div>
+  </footer>
+
+  <script src="site.js"></script>
+  <script>
+    // 与其它页面一致：根据语言切换正文与脚注
+    function renderLocaleBlocks(){
+      const lc = (typeof getLocale === 'function') ? getLocale() : (localStorage.getItem('dordor-locale') || 'zh-HK');
+      document.documentElement.lang = lc;
+
+      const zh = document.querySelector('.prose.zh');
+      const en = document.querySelector('.prose.en');
+      const zhRow = document.querySelector('.foot-row.zh');
+      const enRow = document.querySelector('.foot-row.en');
+
+      if (lc === 'en'){
+        if (zh) zh.style.display = 'none';
+        if (en) en.style.display = 'block';
+        if (zhRow) zhRow.style.display = 'none';
+        if (enRow) enRow.style.display = 'flex';
+        document.title = 'Glow On · Payment Methods';
+      } else {
+        if (zh) zh.style.display = 'block';
+        if (en) en.style.display = 'none';
+        if (zhRow) zhRow.style.display = 'flex';
+        if (enRow) enRow.style.display = 'none';
+        document.title = 'Glow On · 付款方式';
+      }
+    }
+    renderLocaleBlocks();
+    window.addEventListener('locale-changed', renderLocaleBlocks);
+  </script>
+</body>
+</html>

@@ -1,132 +1,166 @@
+<!-- returns.html -->
 <!DOCTYPE html>
 <html lang="zh-HK">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Glow On · 退換貨政策 Return & Exchange Policy</title>
+  <title>Glow On · 退換貨政策</title>
   <link rel="stylesheet" href="styles.css"/>
   <style>
     .container{max-width:1100px;margin:0 auto;padding:16px}
     .prose h1,.prose h2{margin:16px 0 8px}
-    .prose p{margin:8px 0;line-height:1.8}
+    .prose p, .prose li{margin:8px 0;line-height:1.8}
     ul{margin:6px 0 12px 18px}
+    /* 语言块：默认只显示中文 */
+    .zh{display:block}
+    .en{display:none}
+    /* 页脚英文行默认隐藏；切英文时显示 */
+    .foot-row.en{display:none}
+    .site-header .left{display:flex;align-items:center;gap:24px}
+    .site-header .nav{display:flex;align-items:center;gap:28px;justify-content:flex-start;flex:unset}
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <!-- 统一头部导航（复制到每个页面，替换原来的 header） -->
-<header class="site-header">
+  <!-- Header（与其它页面一致） -->
+  <header class="site-header">
     <div class="container">
       <nav class="top">
-        <!-- 左：LOGO -->
-        <a href="index.html" class="logo">
-          <img src="Archive/logo.png" alt="Glow On logo">
-          <strong data-i18n="brand">Glow On</strong>
-        </a>
-  
-        <!-- 中：导航 -->
-        <div class="nav">
-          <a href="index.html" data-i18n="nav_home">首頁</a>
-          <a href="preorder.html" data-route="preorder" data-i18n="nav_preorder">精選預購</a>
-          <a href="instock.html"  data-route="instock"  data-i18n="nav_instock">現貨專區</a>
-          <a href="buyagent.html" data-route="service"  data-i18n="nav_service">澳洲代購服務</a>
-        </div>
-  
-        <!-- 右：动作 + 语言（桌面端显示） -->
-        <div class="actions">
-            <a class="btn icon whatsapp" 
-               href="https://wa.me/85200000000" 
-               target="_blank" 
-               rel="noopener" 
-               title="WhatsApp" 
-               aria-label="WhatsApp">
-              <img src="Archive/whats.png" alt="WhatsApp" style="height:24px;width:24px;">
-            </a>
-            
-            <a class="btn icon search" href="#" title="Search" aria-label="Search">🔍</a>
-            <a class="btn icon login"  href="login.html" title="Login" aria-label="Login">👤</a>
-            <a class="btn icon cart"   href="checkout.html" title="Cart" aria-label="Cart">🛒</a>
-          
-            <!-- 语言切换 -->
-            <div class="lang">
-              <button id="langBtn" class="lang-btn" type="button" aria-haspopup="menu" aria-expanded="false">
-                <span aria-hidden="true">🌐</span>
-                <span id="langLabel">繁體中文</span>
-                <span class="caret" aria-hidden="true">▾</span>
-              </button>
-              <div class="lang-menu" id="langMenu" role="menu" hidden>
-                <button role="menuitem" data-lc="zh-HK">繁體中文</button>
-                <button role="menuitem" data-lc="en">English</button>
-              </div>
-            </div>
-          
-            <!-- 更多按钮（手机端） -->
-            <button class="btn icon" id="moreBtn" aria-haspopup="menu" aria-expanded="false" title="更多">⋯</button>
-            <div class="more-menu" id="moreMenu" hidden>
-              <a class="item" href="https://wa.me/85200000000" target="_blank" rel="noopener">
-                <img src="Archive/whats.png" alt="WhatsApp" style="height:18px;width:18px;vertical-align:middle;"> WhatsApp
-              </a>
-              <a class="item" href="#" id="moreSearch">🔍 Search</a>
-              <a class="item" href="login.html">👤 Login</a>
-              <a class="item" href="checkout.html">🛒 Cart</a>
-              <div class="sep"></div>
-              <button class="item" type="button" data-set-lc="zh-HK">繁體中文</button>
-              <button class="item" type="button" data-set-lc="en">English</button>
-            </div>
+        <div class="left">
+          <a href="index.html" class="logo">
+            <img src="Archive/logo.png" alt="Glow On logo">
+            <strong data-i18n="brand">Glow On</strong>
+          </a>
+          <div class="nav">
+            <a href="index.html" data-i18n="nav_home">首頁</a>
+            <a href="preorder.html" data-i18n="nav_preorder">精選預購</a>
+            <a href="instock.html"  data-i18n="nav_instock">現貨專區</a>
+            <a href="buyagent.html" data-i18n="nav_service">澳洲代購服務</a>
           </div>
+        </div>
+        <div class="actions">
+          <a class="btn icon whatsapp" href="https://wa.me/85297436663" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp">
+            <img src="Archive/whats.png" alt="WhatsApp" style="height:24px;width:24px;">
+          </a>
+          <a class="btn icon search" href="#" aria-label="Search">🔍</a>
+          <a class="btn icon login"  href="login.html" aria-label="Login">👤</a>
+          <a class="btn icon cart"   href="checkout.html" aria-label="Cart">🛒</a>
+          <!-- 语言下拉 + 更多菜单（保持你现有的） -->
+        </div>
       </nav>
     </div>
   </header>
 
   <main>
     <div class="container">
-      <article class="prose">
-        <h1>退換貨政策 <small style="font-weight:700">Return &amp; Exchange Policy</small></h1>
+      <!-- 中文版 -->
+      <article class="prose zh">
+        <h1>退換貨政策</h1>
 
-        <h2>1. 可申請情況</h2>
+        <h2>可申請情況</h2>
         <ul>
-          <li>收到貨品 48 小時內，如發現嚴重破損、錯貨、缺件，請立即拍照留證並與我們聯絡。</li>
-          <li>須保持商品未使用、包裝完整（含贈品/配件/標籤）。</li>
+          <li>收到貨品 48 小時內，如發現嚴重破損、錯貨或缺件，請立即拍照留證並與我們聯絡。</li>
+          <li>須保持商品未使用、包裝完整（含贈品／配件／標籤）。</li>
         </ul>
 
-        <h2>2. 不接受退換</h2>
+        <h2>不接受退換</h2>
         <ul>
-          <li>非質量問題（例如個人口味/顏色/大小偏好）。</li>
-          <li>食品、營養補充品等易變質或衛生考量之商品一經開封。</li>
-          <li>超過時限或未能提供完整證明／收據。</li>
+          <li>非質量問題（例如個人口味／顏色／大小偏好）。</li>
+          <li>食品、營養補充品等因衛生考量，一經開封恕不退換。</li>
+          <li>超過時限或無法提供完整證明／收據。</li>
         </ul>
 
-        <h2>3. 申請流程</h2>
-        <p>請透過 WhatsApp 或電郵提供：訂單號、問題描述與清晰照片。我們確認後會安排補發、退貨或退款。退款方式一般按原路退回，時間視第三方處理為準。</p>
+        <h2>申請流程</h2>
+        <p>請透過 WhatsApp 或電郵提供：訂單號、問題描述與清晰照片。我們確認後會安排補發、退貨或退款。退款一般按原路退回，時間以第三方處理為準。</p>
 
-        <h2>4. 運費</h2>
-        <p>如屬本店責任（如錯貨/破損），退換所產生之運費由我們承擔；其他情況恕難承擔運費。</p>
+        <h2>運費</h2>
+        <p>如屬本店責任（如錯貨／破損），退換所產生之運費由我們承擔；其他情況恕難承擔運費。</p>
 
-        <h2>5. 其他</h2>
+        <h2>其他</h2>
         <p>本政策如有更新，恕不另行通知；以網站最新版本為準。</p>
+      </article>
+
+      <!-- English（默认隐藏；切到英文时显示） -->
+      <article class="prose en">
+        <h1>Return &amp; Exchange Policy</h1>
+
+        <h2>Eligible Cases</h2>
+        <ul>
+          <li>Within 48 hours of receipt, if items are severely damaged, incorrect, or missing, please take photos and contact us promptly.</li>
+          <li>Items must be unused and in original packaging (including gifts/accessories/tags).</li>
+        </ul>
+
+        <h2>Not Accepted</h2>
+        <ul>
+          <li>Non-quality issues (e.g., personal preference for taste/color/size).</li>
+          <li>Food or supplements once opened (for hygiene reasons).</li>
+          <li>Overdue requests or without valid proof/receipt.</li>
+        </ul>
+
+        <h2>How to Request</h2>
+        <p>Contact us via WhatsApp or email with your order number, description, and clear photos. After verification, we will arrange reshipment, return, or refund. Refunds are typically made to the original payment method and depend on third-party processing time.</p>
+
+        <h2>Shipping Fees</h2>
+        <p>If the issue is on our side (e.g., wrong item/damage), we cover the shipping cost; otherwise, shipping is not covered.</p>
+
+        <h2>Others</h2>
+        <p>Subject to change without prior notice; the latest version on the website prevails.</p>
       </article>
     </div>
   </main>
 
-  <!-- Footer -->
+  <!-- Footer（含付款方式；按语言切换） -->
   <footer class="site-footer">
     <div class="container footer-box">
+      <!-- 中文 -->
       <nav class="foot-row zh">
         <a href="terms.html"><b>條款及細則</b></a>
         <a href="privacy.html"><b>私隱政策</b></a>
         <a href="returns.html"><b>退換貨政策</b></a>
         <a href="process.html"><b>購買流程</b></a>
+        <a href="payment.html"><b>付款方式</b></a>
         <a href="contact.html"><b>聯絡我們</b></a>
       </nav>
+      <!-- 英文（默认隐藏） -->
       <nav class="foot-row en">
         <a href="terms.html"><b>Terms &amp; Conditions</b></a>
         <a href="privacy.html"><b>Privacy Policy</b></a>
-        <a href="returns.html"><b>Return &amp; Exchange Policy</b></a>
+        <a href="returns.html"><b>Return Policy</b></a>
         <a href="process.html"><b>Shopping Process</b></a>
+        <a href="payment.html"><b>Payment Methods</b></a>
         <a href="contact.html"><b>Contact Us</b></a>
       </nav>
-      <div class="copy">2025 © Glow On HK. All Rights Reserved.</div>
+      <div class="copy">2025 © Glow On HK. <span data-i18n="rights">All Rights Reserved.</span></div>
     </div>
   </footer>
+
+  <script src="site.js"></script>
+  <script>
+    // 根据当前语言显示对应内容与脚注
+    function renderLocaleBlocks(){
+      const lc = (typeof getLocale === 'function') ? getLocale() : (localStorage.getItem('dordor-locale') || 'zh-HK');
+      document.documentElement.lang = lc;
+
+      const zh = document.querySelector('.prose.zh');
+      const en = document.querySelector('.prose.en');
+      const zhRow = document.querySelector('.foot-row.zh');
+      const enRow = document.querySelector('.foot-row.en');
+
+      if (lc === 'en'){
+        if (zh) zh.style.display = 'none';
+        if (en) en.style.display = 'block';
+        if (zhRow) zhRow.style.display = 'none';
+        if (enRow) enRow.style.display = 'flex';
+        document.title = 'Glow On · Return Policy';
+      } else {
+        if (zh) zh.style.display = 'block';
+        if (en) en.style.display = 'none';
+        if (zhRow) zhRow.style.display = 'flex';
+        if (enRow) enRow.style.display = 'none';
+        document.title = 'Glow On · 退換貨政策';
+      }
+    }
+    renderLocaleBlocks();
+    window.addEventListener('locale-changed', renderLocaleBlocks);
+  </script>
 </body>
 </html>

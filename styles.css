@@ -1,3 +1,8 @@
+/* =========================
+   Glow On - styles.css
+   统一导航 / 轮播 / 栅格 / 页脚
+   ========================= */
+
 /* ===== Reset ===== */
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
@@ -21,47 +26,145 @@ body{
 /* ===== Container ===== */
 .container{max-width:1100px;margin:0 auto;padding:0 16px}
 
-/* ===== Header / Nav ===== */
+/* =========================
+   Header / Nav（全站统一）
+   ========================= */
 .site-header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--border);z-index:10}
-nav.top{display:flex;gap:16px;align-items:center;justify-content:space-between;height:64px}
+.site-header .top{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+
+/* 左侧：LOGO + 导航（两者紧挨着） */
+.site-header .left{display:flex;align-items:center;gap:28px}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text)}
-.logo img{height:28px;width:auto}
-.nav{display:flex;gap:18px;flex-wrap:wrap}
-.nav a{color:#000;text-decoration:none;font-weight:700;padding:8px 6px;border-radius:8px}
-.nav a:hover{background:#f5f5f5}
+.site-header .logo img{height:32px;width:auto;display:block}
+.site-header .logo strong{display:none !important} /* 只保留图片LOGO */
 
-/* Header actions: whatsapp / search / login / cart */
-.actions{display:flex;gap:10px;align-items:center}
-.btn.icon{display:inline-flex;align-items:center;justify-content:center;height:40px;width:40px;border:1px solid var(--border);border-radius:10px;background:#fff;color:#000;cursor:pointer;text-decoration:none}
-.btn.icon:hover{box-shadow:0 2px 8px rgba(0,0,0,.06)}
-/* 简易 emoji 图标占位；后续可换 SVG */
-.btn.icon.whatsapp{color:#25D366}
-.btn.icon.search{color:#000}
-.btn.icon.login{color:#000}
-.btn.icon.cart{color:#000}
-
-/* Language dropdown (🌐 繁體中文 ▾) */
-.lang{position:relative}
-.lang-btn{display:inline-flex;align-items:center;gap:6px;height:40px;border:1px solid var(--border);border-radius:10px;background:#fff;color:var(--text);padding:0 10px;cursor:pointer}
-.lang-btn:hover{box-shadow:0 2px 8px rgba(0,0,0,.06)}
-.lang-menu{position:absolute;right:0;top:46px;background:#fff;border:1px solid var(--border);border-radius:10px;box-shadow:0 10px 24px rgba(0,0,0,.1);padding:6px;min-width:140px;z-index:20}
-.lang-menu[hidden]{display:none}
-.lang-menu button{display:block;width:100%;text-align:left;background:none;border:none;padding:8px 10px;cursor:pointer;border-radius:8px}
-.lang-menu button:hover{background:#f5f5f5}
-
-/* ===== Banner ===== */
-.banner{margin:12px 0}
-.banner img{
-  width:100%;
-  height:320px;          /* 关键1：限制高度 */
-  object-fit:cover;      /* 关键2：裁切填充，不会巨幅 */
-  border-radius:12px;
+/* 导航：固定间距，不铺满 */
+.site-header .nav{
+  display:flex;
+  align-items:center;
+  gap:64px;               /* 桌面导航的固定间距 */
+  white-space:nowrap;
+  flex-wrap:nowrap;
+}
+.site-header .nav a{
+  color:#000;
+  text-decoration:none;
+  font-weight:800;
+  line-height:1;
+  padding:0 !important;           /* 去掉胶囊底色 */
+  background:none !important;
+  border:none !important;
+  box-shadow:none !important;
+  border-radius:0 !important;
+}
+.site-header .nav a:is(:hover,:focus){
+  text-decoration:none;
+  background:none !important;
+  box-shadow:none !important;
 }
 
-/* ===== Sections / Grid / Cards ===== */
+/* 右侧：动作按钮 */
+.actions{display:flex;gap:10px;align-items:center}
+.btn.icon{
+  display:inline-flex;align-items:center;justify-content:center;
+  height:40px;width:40px;
+  border:1px solid var(--border);border-radius:10px;
+  background:#fff;color:#000;cursor:pointer;text-decoration:none
+}
+.btn.icon:hover{box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.btn.icon.whatsapp{color:#25D366}
+.btn.icon.search,.btn.icon.login,.btn.icon.cart{color:#000}
+
+/* 语言切换 */
+.lang{position:relative}
+.lang-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  height:40px;border:1px solid var(--border);border-radius:10px;
+  background:#fff;color:var(--text);padding:0 10px;cursor:pointer
+}
+.lang-btn:hover{box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.lang-menu{
+  position:absolute;right:0;top:46px;background:#fff;
+  border:1px solid var(--border);border-radius:10px;
+  box-shadow:0 10px 24px rgba(0,0,0,.1);padding:6px;min-width:140px;z-index:20
+}
+.lang-menu[hidden]{display:none}
+.lang-menu button{
+  display:block;width:100%;text-align:left;background:none;border:none;
+  padding:8px 10px;cursor:pointer;border-radius:8px
+}
+.lang-menu button:hover{background:#f5f5f5}
+
+/* ===== 手机端 More 菜单 ===== */
+.actions #moreBtn{display:none} /* 默认隐藏，<520px 才显示 */
+.more-menu{
+  position:absolute;right:12px;top:56px;min-width:180px;background:#fff;
+  border:1px solid #e5e7eb;border-radius:12px;box-shadow:0 10px 24px rgba(0,0,0,.12);
+  padding:6px;z-index:50
+}
+.more-menu[hidden]{display:none}
+.more-menu .item{
+  display:block;width:100%;text-align:left;background:none;border:0;
+  padding:10px 12px;border-radius:10px;cursor:pointer;font-size:15px;
+  text-decoration:none;color:#111
+}
+.more-menu .item:hover{background:#f5f5f5}
+.more-menu .sep{height:1px;background:#eee;margin:6px 0}
+
+/* ===== 顶部在小屏的紧凑处理 ===== */
+@media (max-width:640px){
+  .site-header .left{gap:16px}
+  .site-header .nav{gap:28px}
+}
+@media (max-width:520px){
+  .actions{position:relative}
+  .actions .whatsapp,
+  .actions .search,
+  .actions .login,
+  .actions .cart,
+  .actions .lang{display:none}
+  .actions #moreBtn{
+    display:inline-flex;align-items:center;justify-content:center;
+    height:36px;width:36px;border:1px solid #e5e7eb;border-radius:10px;background:#fff
+  }
+  .site-header .logo img{height:24px}
+}
+
+/* =========================
+   Banner / Carousel（通用）
+   ========================= */
+.banner{margin:12px 0}
+.banner img{width:100%;height:320px;object-fit:cover;border-radius:12px}
+@media (max-width:540px){
+  .banner img{max-height:220px;height:auto}
+}
+
+/* 简易轮播容器（首页用） */
+.banner.carousel{position:relative;overflow:hidden;border-radius:12px}
+.banner.carousel .track{display:flex;width:100%;transition:transform .5s ease}
+.banner.carousel .slide{flex:0 0 100%}
+.banner.carousel .slide img{width:100%;height:320px;object-fit:cover}
+.banner.carousel .ctrl{
+  position:absolute;inset:auto 8px 8px 8px;
+  display:flex;gap:8px;justify-content:center
+}
+.banner.carousel .dot{
+  width:8px;height:8px;border-radius:999px;border:1px solid #111;background:#fff;opacity:.7
+}
+.banner.carousel .dot[aria-current="true"]{background:#111;opacity:1}
+@media (max-width:600px){
+  .banner.carousel .slide img{height:220px}
+}
+
+/* =========================
+   Sections / Grid / Cards
+   ========================= */
 .sec-title{font-weight:800;font-size:22px;margin:16px 0 8px}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 @media (max-width:920px){.grid{grid-template-columns:repeat(2,1fr)}}
+/* 修改：手机端（520px 以下）也保持两列 */
+@media (max-width:520px){.grid{grid-template-columns:repeat(2,1fr)}}
+
 .card{border:1px solid var(--border);border-radius:12px;overflow:hidden;background:#fff}
 .card .thumb{aspect-ratio:1/1;background:#fafafa;overflow:hidden}
 .card .thumb img{width:100%;height:100%;object-fit:cover}
@@ -70,118 +173,16 @@ nav.top{display:flex;gap:16px;align-items:center;justify-content:space-between;h
 .card .price{font-size:16px;font-weight:800;color:#b91c1c}
 .iconbtn{display:none} /* 首页不显示“加入” */
 
-/* ===== Footer (与你截图一致：中文一行 + 英文一行 + 版权) ===== */
+/* =========================
+   Footer
+   ========================= */
 .footer-box{border-top:2px solid #111;padding-top:14px;margin-top:18px}
-.foot-row{display:flex;gap:48px;justify-content:center;flex-wrap:wrap;margin:6px 0}
-.foot-row a{color:#000;text-decoration:none}
+.foot-row{display:flex;gap:32px;justify-content:center;flex-wrap:wrap;margin:6px 0}
+.foot-row a{color:#000;text-decoration:none;white-space:nowrap}
 .foot-row a b{font-weight:800}
 .copy{font-weight:800;text-align:center;margin-top:10px;color:#666}
 
-
-
-/* 顶部导航：禁止换行 + 横向滚动 */
-.nav {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  flex-wrap: nowrap;            /* 不换行 */
-  overflow-x: auto;             /* 窄屏可横向滚动 */
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;        /* 隐藏滚动条（Firefox）*/
-}
-.nav::-webkit-scrollbar { display: none; } /* 隐藏滚动条（WebKit）*/
-.nav a {
-  white-space: nowrap;          /* 不按字换行 */
-  word-break: keep-all;         /* 中英文都不要拆字 */
-  flex: 0 0 auto;               /* 保持自身宽度 */
-}
-
-/* 顶部区域在移动端收紧布局 */
-.logo img { height: 24px; width: auto; }
-.logo strong { margin-left: 6px; }
-.actions .btn.icon { height: 36px; width: 36px; }
-
-/* Banner 在手机上限制高度，避免过高 */
-.banner img {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-}
-@media (max-width: 540px) {
-  .banner img { max-height: 220px; object-fit: cover; } /* 也可改 180-240 之间 */
-}
-
-/* 产品网格（没有就加，有的话以下为更友好的兜底） */
-.grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-@media (max-width: 920px) { .grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 520px) { .grid { grid-template-columns: 1fr; } }
-
-/* 标题字号在手机上略缩小，避免挤压 */
-.sec-title { font-weight: 800; font-size: 20px; }
-@media (max-width: 520px) { .sec-title { font-size: 18px; } }
-
-/* 卡片内文略微优化排版（防止过窄折行难看） */
-.card .title { font-size: 16px; font-weight: 800; line-height: 1.35; }
-.card .price { font-size: 16px; font-weight: 800; }
-
-/* 页脚行在小屏可换行居中 */
-.footer-box { border-top: 2px solid #111; padding-top: 14px; }
-.foot-row { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; }
-.foot-row a { white-space: nowrap; }
-.copy { text-align: center; margin-top: 10px; font-weight: 800; }
-
-/* 容器两侧留白更贴合手机 */
-.container { padding-left: 12px; padding-right: 12px; }
-@media (max-width: 520px) {
-  .site-header .top { gap: 8px; }
-  .logo strong { display: none; } /* 手机上只保留图标，更省空间（需要可注释掉） */
-}
-
-
-/* ======= 手机端『更多』菜单 ======= */
-.actions #moreBtn { display: none; }  /* 默认隐藏，<520px 才显示 */
-.more-menu {
-  position: absolute;
-  right: 12px;
-  top: 56px;
-  min-width: 180px;
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  box-shadow: 0 10px 24px rgba(0,0,0,.12);
-  padding: 6px;
-  z-index: 50;
-}
-.more-menu[hidden] { display: none; }
-.more-menu .item {
-  display: block;
-  width: 100%;
-  text-align: left;
-  background: none;
-  border: 0;
-  padding: 10px 12px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 15px;
-  text-decoration: none;
-  color: #111;
-}
-.more-menu .item:hover { background: #f5f5f5; }
-.more-menu .sep { height: 1px; background: #eee; margin: 6px 0; }
-
-/* 手机端：隐藏图标按钮 & 语言切换；只显示“更多” */
-@media (max-width:520px){
-  .actions { position: relative; }
-  .actions .whatsapp,
-  .actions .search,
-  .actions .login,
-  .actions .cart,
-  .actions .lang { display: none; }
-  .actions #moreBtn { 
-    display: inline-flex; 
-    align-items:center; justify-content:center;
-    height: 36px; width: 36px; 
-    border: 1px solid #e5e7eb; border-radius: 10px; 
-    background:#fff; cursor:pointer;
-  }
-}
+/* 语言区块的默认显示（脚本会切换） */
+.zh{display:block}
+.en{display:none}
+.foot-row.en{display:none} /* 英文行默认隐藏，切英文时在脚本里改为 flex */
