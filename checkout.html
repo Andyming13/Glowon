@@ -8,92 +8,52 @@
   <style>
     .container{max-width:1100px;margin:0 auto;padding:16px}
     table{width:100%;border-collapse:collapse;margin-top:20px}
-    th,td{padding:12px;border-bottom:1px solid #e5e7eb;text-align:left}
+    th,td{padding:12px;border-bottom:1px solid #e5e7eb;text-align:left;vertical-align:middle}
     th{background:#f9fafb}
-    td img{width:60px;height:60px;object-fit:contain;border:1px solid #eee;border-radius:8px}
-    .qty-input{width:60px;padding:6px;text-align:center}
+    td img{width:60px;height:60px;object-fit:contain;border:1px solid #eee;border-radius:8px;background:#fff}
+    .qty-input{width:70px;padding:6px;text-align:center;border:1px solid #e5e7eb;border-radius:8px}
     .total{text-align:right;font-weight:800;font-size:18px;margin-top:20px}
     .empty{padding:30px;text-align:center;color:#666}
-    .btn{padding:10px 14px;border:1px solid #e5e7eb;border-radius:10px;cursor:pointer}
+    .btn{padding:10px 14px;border:1px solid #e5e7eb;border-radius:10px;cursor:pointer;background:#fff}
     .btn.primary{background:#111;color:#fff;border-color:#111}
+    .toolrow{display:flex;gap:10px;justify-content:flex-end;margin-top:16px;flex-wrap:wrap}
+    .badge{display:inline-flex;min-width:18px;height:18px;padding:0 6px;align-items:center;justify-content:center;background:#111;color:#fff;border-radius:999px;font-size:12px;margin-left:4px}
   </style>
 </head>
 <body>
-  <!-- Header（与首页一致） -->
-  <!-- 统一头部导航（复制到每个页面，替换原来的 header） -->
-<header class="site-header">
-  <div class="container">
-    <nav class="top">
-      <!-- 左：LOGO -->
-      <a href="index.html" class="logo">
-        <img src="Archive/logo.png" alt="Glow On logo">
-        <strong data-i18n="brand">Glow On</strong>
-      </a>
-
-      <!-- 中：导航 -->
-      <div class="nav">
-        <a href="index.html" data-i18n="nav_home">首頁</a>
-        <a href="preorder.html" data-route="preorder" data-i18n="nav_preorder">精選預購</a>
-        <a href="instock.html"  data-route="instock"  data-i18n="nav_instock">現貨專區</a>
-        <a href="buyagent.html" data-route="service"  data-i18n="nav_service">澳洲代購服務</a>
-      </div>
-
-      <!-- 右：动作 + 语言（桌面端显示） -->
-      <div class="actions">
-        <a class="btn icon whatsapp" 
-           href="https://wa.me/85200000000" 
-           target="_blank" 
-           rel="noopener" 
-           title="WhatsApp" 
-           aria-label="WhatsApp">
-          <img src="Archive/whats.png" alt="WhatsApp" style="height:24px;width:24px;">
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="top">
+        <a href="index.html" class="logo">
+          <img src="Archive/logo.png" alt="Glow On logo">
+          <strong data-i18n="brand">Glow On</strong>
         </a>
-        
-        <a class="btn icon search" href="#" title="Search" aria-label="Search">🔍</a>
-        <a class="btn icon login"  href="login.html" title="Login" aria-label="Login">👤</a>
-        <a class="btn icon cart"   href="checkout.html" title="Cart" aria-label="Cart">🛒</a>
-      
-        <!-- 语言切换 -->
-        <div class="lang">
-          <button id="langBtn" class="lang-btn" type="button" aria-haspopup="menu" aria-expanded="false">
-            <span aria-hidden="true">🌐</span>
-            <span id="langLabel">繁體中文</span>
-            <span class="caret" aria-hidden="true">▾</span>
-          </button>
-          <div class="lang-menu" id="langMenu" role="menu" hidden>
-            <button role="menuitem" data-lc="zh-HK">繁體中文</button>
-            <button role="menuitem" data-lc="en">English</button>
-          </div>
+        <div class="nav">
+          <a href="index.html" data-i18n="nav_home">首頁</a>
+          <a href="preorder.html" data-route="preorder" data-i18n="nav_preorder">精選預購</a>
+          <a href="instock.html"  data-route="instock"  data-i18n="nav_instock">現貨專區</a>
+          <a href="buyagent.html" data-route="service"  data-i18n="nav_service">澳洲代購服務</a>
         </div>
-      
-        <!-- 更多按钮（手机端） -->
-        <button class="btn icon" id="moreBtn" aria-haspopup="menu" aria-expanded="false" title="更多">⋯</button>
-        <div class="more-menu" id="moreMenu" hidden>
-          <a class="item" href="https://wa.me/85200000000" target="_blank" rel="noopener">
-            <img src="Archive/whats.png" alt="WhatsApp" style="height:18px;width:18px;vertical-align:middle;"> WhatsApp
-          </a>
-          <a class="item" href="#" id="moreSearch">🔍 Search</a>
-          <a class="item" href="login.html">👤 Login</a>
-          <a class="item" href="checkout.html">🛒 Cart</a>
-          <div class="sep"></div>
-          <button class="item" type="button" data-set-lc="zh-HK">繁體中文</button>
-          <button class="item" type="button" data-set-lc="en">English</button>
+        <div class="actions">
+          <a class="btn icon cart" href="checkout.html" title="Cart" aria-label="Cart">🛒 <span id="cartBadge" class="badge">0</span></a>
         </div>
-      </div>
-    </nav>
-  </div>
-</header>
+      </nav>
+    </div>
+  </header>
 
   <main class="container">
     <h1>🛒 購物車</h1>
     <div id="cart-container"></div>
     <div class="total" id="cart-total"></div>
-    <div style="text-align:right;margin-top:20px">
-      <button class="btn primary" id="checkoutBtn">去結算</button>
+
+    <div class="toolrow">
+      <a class="btn" href="index.html">繼續購物</a>
+      <button class="btn" id="clearBtn">清空購物車</button>
+      <button class="btn primary" id="checkoutBtn">去結算（WhatsApp）</button>
     </div>
   </main>
 
-  <!-- Footer -->
   <footer class="site-footer">
     <div class="container footer-box">
       <div class="copy">2025 © Glow On HK. All Rights Reserved.</div>
@@ -102,8 +62,22 @@
 
   <script>
     const CART_KEY='glowon-cart';
+    const WHATSAPP_NUMBER = '85297436663'; // 你的客服號
+
     const getCart=()=>{ try{ return JSON.parse(localStorage.getItem(CART_KEY))||[] }catch{ return [] } };
     const setCart=(c)=> localStorage.setItem(CART_KEY, JSON.stringify(c));
+
+    function updateBadge(){
+      const el=document.getElementById('cartBadge');
+      if(!el) return;
+      el.textContent = getCart().reduce((s,x)=>s+Number(x.qty||0),0);
+    }
+
+    function priceToNumber(priceText){
+      // 把 "HK$430" -> 430
+      const n = parseFloat(String(priceText||'').replace(/[^0-9.]/g,''));
+      return isNaN(n)?0:n;
+    }
 
     function renderCart(){
       const cart = getCart();
@@ -113,19 +87,21 @@
       if(cart.length===0){
         container.innerHTML = `<div class="empty">購物車是空的</div>`;
         totalEl.textContent='';
+        updateBadge();
         return;
       }
 
       let rows = cart.map((item,i)=>{
-        const priceNum = parseFloat(item.price.replace(/[^0-9.]/g,'')) || 0;
-        const subtotal = priceNum * item.qty;
+        const unit = priceToNumber(item.price);
+        const subtotal = unit * (item.qty||1);
+        const safeTitle = (item.title||'').replace(/</g,'&lt;').replace(/>/g,'&gt;');
         return `
         <tr>
-          <td><img src="${item.img}" alt="${item.title}"></td>
-          <td>${item.title}</td>
+          <td><img src="${item.img}" alt="${safeTitle}" onerror="this.src='Archive/placeholder.png'"></td>
+          <td>${safeTitle}</td>
           <td>${item.price}</td>
           <td>
-            <input type="number" class="qty-input" min="1" value="${item.qty}" 
+            <input type="number" class="qty-input" min="1" value="${item.qty||1}" 
                    onchange="updateQty(${i}, this.value)">
           </td>
           <td>HK$${subtotal.toFixed(2)}</td>
@@ -144,31 +120,55 @@
         </table>
       `;
 
-      const total = cart.reduce((s,item)=>{
-        const priceNum = parseFloat(item.price.replace(/[^0-9.]/g,'')) || 0;
-        return s + priceNum*item.qty;
-      },0);
-
+      const total = cart.reduce((s,item)=> s + priceToNumber(item.price) * (item.qty||1), 0);
       totalEl.textContent = "總計：HK$" + total.toFixed(2);
-      document.getElementById('cartBadge').textContent = cart.reduce((s,x)=>s+x.qty,0);
+      updateBadge();
     }
 
-    function updateQty(index, value){
+    window.updateQty = function(index, value){
       let cart = getCart();
       cart[index].qty = Math.max(1, parseInt(value)||1);
       setCart(cart);
       renderCart();
     }
 
-    function removeItem(index){
+    window.removeItem = function(index){
       let cart = getCart();
       cart.splice(index,1);
       setCart(cart);
       renderCart();
     }
 
-    document.getElementById('checkoutBtn').onclick=()=>{
-      alert("🧾 結算流程稍後開發，目前只是展示購物車。");
+    document.getElementById('clearBtn').onclick = ()=>{
+      if(confirm('確定要清空購物車嗎？')){
+        setCart([]);
+        renderCart();
+      }
+    };
+
+    // WhatsApp 下单：把清单+總價組成訊息
+    document.getElementById('checkoutBtn').onclick = ()=>{
+      const cart = getCart();
+      if(cart.length===0){ alert('購物車是空的'); return; }
+      const total = cart.reduce((s,item)=> s + priceToNumber(item.price) * (item.qty||1), 0);
+
+      let lines = [];
+      lines.push('🧾 Glow On 訂單（網站）');
+      lines.push('');
+      cart.forEach((item, i)=>{
+        const unit = priceToNumber(item.price);
+        const sub  = unit * (item.qty||1);
+        lines.push(`${i+1}. ${item.title}  x${item.qty||1}`);
+        lines.push(`   單價：${item.price}；小計：HK$${sub.toFixed(2)}`);
+      });
+      lines.push('');
+      lines.push(`總計：HK$${total.toFixed(2)}`);
+      lines.push('');
+      lines.push('請協助確認庫存與送貨安排，謝謝！');
+
+      const text = encodeURIComponent(lines.join('\n'));
+      const url  = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+      window.open(url, '_blank');
     };
 
     renderCart();

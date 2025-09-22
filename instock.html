@@ -21,7 +21,7 @@
     /* 页脚：默认只显示中文行，英文行在切英文时由脚本切换 */
     .foot-row.en { display:none; }
 
-    /* 商品卡片 */
+    /* 商品卡片（只保留卡片样式，不重写 .grid 的响应式，避免覆盖全局 styles.css 的“手机两列”） */
     .card { display:block; border:1px solid #eee; border-radius:10px; overflow:hidden; text-decoration:none; color:inherit; }
     .card .thumb img { width:100%; display:block; }
     .card .content { padding:8px; }
@@ -29,10 +29,10 @@
     .card .price { font-weight:800; color:#b91c1c; font-size:16px; }
     .grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
     @media (max-width:920px){ .grid{ grid-template-columns:repeat(2,1fr); } }
-    @media (max-width:520px){ .grid{ grid-template-columns:1fr; } }
+    /* 不再写 <=520 的 1 列，交给全局 styles.css（你那边已设置为手机两列） */
   </style>
 </head>
-<body>
+<body data-page="instock">
   <!-- Header（统一样式） -->
   <header class="site-header">
     <div class="container">
@@ -135,43 +135,11 @@
 
   <script src="site.js"></script>
   <script>
-    // —— 現貨好物列表（点击整卡跳 product.html?pid=...） —— //
-    const INSTOCK = [
-      { pid:'1',  img:'Archive/Untitled_design/1.png',  zh:'PURITI 麥盧卡蜜糖 MGO350 1kg', en:'PURITI Manuka Honey MGO350 1kg', price:'HK$430' },
-      { pid:'2',  img:'Archive/Untitled_design/2.png',  zh:'Hismile 牙膏 60g – 薄荷朱古力', en:'Hismile Toothpaste 60g – Mint Choc', price:'HK$65' },
-      { pid:'3',  img:'Archive/Untitled_design/3.png',  zh:'Hismile 牙膏 60g – 士多啤梨奶油', en:'Hismile Toothpaste 60g – Strawberry Cream', price:'HK$65' },
-      { pid:'4',  img:'Archive/Untitled_design/4.png',  zh:'Hismile 牙膏 60g – 可樂味', en:'Hismile Toothpaste 60g – Cola', price:'HK$65' },
-      { pid:'5',  img:'Archive/Untitled_design/5.png',  zh:'Skin Control 可愛暗瘡貼 36片', en:'Skin Control Pimple Patch Party Pack 36', price:'HK$65' },
-      { pid:'6',  img:'Archive/Untitled_design/6.png',  zh:'Dr.PAWPAW 潤唇膏 10ml', en:'Dr.PAWPAW Original Balm 10ml', price:'HK$55' },
-      { pid:'7',  img:'Archive/Untitled_design/7.png',  zh:'Dr.PAWPAW 豐唇護唇油 8ml', en:'Dr.PAWPAW Plumping Lip Oil 8ml', price:'HK$55' },
-      { pid:'8',  img:'Archive/Untitled_design/8.png',  zh:'Dr.PAWPAW 有色潤唇膏 粉紅 10ml', en:'Dr.PAWPAW Tinted Hot Pink Balm 10ml', price:'HK$55' },
-      { pid:'9',  img:'Archive/Untitled_design/9.png',  zh:'Dr.PAWPAW 有色潤唇膏 珊瑚 10ml', en:'Dr.PAWPAW Tinted Coral Balm 10ml', price:'HK$55' }
-    ];
-
-    function cardLinkHTML(item, lc){
-      const title = (lc==='en') ? item.en : item.zh;
-      const href = `product.html?pid=${encodeURIComponent(item.pid)}&lc=${lc}`;
-      return `
-        <a class="card" href="${href}">
-          <div class="thumb"><img src="${item.img}" alt="${title}" loading="lazy"></div>
-          <div class="content"><div class="title">${title}</div><div class="price">${item.price}</div></div>
-        </a>`;
+    // 使用全局 site.js 的渲染器，从 products.json 读取并筛选现货类目
+    function renderInstock() {
+      renderCardsInto('#instock-grid', p => p.category === 'instock');
     }
-
-    function renderInstock(){
-      const lc = getLocale();
-      document.getElementById('instock-grid').innerHTML = INSTOCK.map(x=>cardLinkHTML(x, lc)).join('');
-
-      // 根据语言切换页脚中英行显示
-      const zhRow = document.querySelector('.foot-row.zh');
-      const enRow = document.querySelector('.foot-row.en');
-      if (zhRow && enRow){
-        if (lc === 'en'){ zhRow.style.display='none'; enRow.style.display='flex'; }
-        else { zhRow.style.display='flex'; enRow.style.display='none'; }
-      }
-    }
-
-    renderInstock();
+    document.addEventListener('DOMContentLoaded', renderInstock);
     window.addEventListener('locale-changed', renderInstock);
   </script>
 </body>

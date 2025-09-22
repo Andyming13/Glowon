@@ -174,7 +174,7 @@
 
   <script src="site.js"></script>
   <script>
-    // —— 轮播：自动播放 + 小圆点（数量自动根据 slide 数量生成） —— //
+    /* —— 轮播：自动播放 + 小圆点 —— */
     (function(){
       const track = document.getElementById('carouselTrack');
       const dotsWrap = document.getElementById('carouselDots');
@@ -208,56 +208,14 @@
       track.parentElement.addEventListener('mouseleave', ()=>auto(true));
     })();
 
-    // —— 首页卡片（点进去跳 product.html?pid=...） —— //
-    const HOME_PREORDER = [
-      { pid:'caruso-collagen-100g', img:'Archive/Untitled_design/14.png',
-        zh:"Caruso's Total Beauty® 膠原蛋白（100g粉裝）", en:"Caruso’s Collagen (100g powder)", price:'HK$210' },
-      { pid:'caruso-collagen-60tabs', img:'Archive/Untitled_design/15.png',
-        zh:"Caruso's Total Beauty® 膠原蛋白（60片裝）", en:"Caruso’s Collagen (60 tablets)", price:'HK$210' },
-      { pid:'ls-double-30', img:'Archive/Untitled_design/18.png',
-        zh:'Life-Space 雙倍強度益生菌（30粒膠囊）', en:"Life-Space Double Strength Probiotic (30 caps)", price:'待定' },
-      { pid:'ls-children-60g', img:'Archive/Untitled_design/19.png',
-        zh:'Life-Space 兒童益生菌粉（60g）', en:"Life-Space Children Probiotic Powder (60g)", price:'待定' }
-    ];
-    const HOME_INSTOCK = [
-      { pid:'puriti-mgo350-1kg', img:'Archive/Untitled_design/1.png',
-        zh:'PURITI 麥盧卡蜜糖 MGO 350 (1kg)', en:"PURITI Manuka Honey MGO 350 (1kg)", price:'HK$430' },
-      { pid:'hismile-mintchoc-60g', img:'Archive/Untitled_design/2.png',
-        zh:'Hismile 薄荷朱古力味牙膏 60g', en:"Hismile Mint Chocolate Toothpaste 60g", price:'HK$65' },
-      { pid:'pawpaw-balm-10ml', img:'Archive/Untitled_design/6.png',
-        zh:'Dr. PAWPAW 潤唇膏 10ml', en:"Dr. PAWPAW Original Balm 10ml", price:'HK$55' },
-      { pid:'t2-earlgrey-10', img:'Archive/Untitled_design/10.png',
-        zh:'T2 French Earl Grey 茶包（10包）', en:"T2 French Earl Grey Teabags (10)", price:'HK$70' }
-    ];
-
-    function cardLinkHTML(item, lc){
-      const title = (lc==='en') ? item.en : item.zh;
-      const href = `product.html?pid=${encodeURIComponent(item.pid)}&lc=${lc}`;
-      return `
-      <a class="card" href="${href}">
-        <div class="thumb"><img src="${item.img}" alt="${title}" loading="lazy"></div>
-        <div class="content">
-          <div class="title">${title}</div>
-          <div class="price">${item.price}</div>
-        </div>
-      </a>`;
+    /* —— 首页商品：改为从 products.json 动态渲染 —— */
+    function renderHomeFromJSON(){
+      // category: 'preorder' / 'instock'
+      renderCardsInto('#home-preorder', p => String(p.category).toLowerCase() === 'preorder');
+      renderCardsInto('#home-instock',  p => String(p.category).toLowerCase() === 'instock');
     }
-
-    function renderHome(){
-      const lc = getLocale();
-      document.getElementById('home-preorder').innerHTML = HOME_PREORDER.map(x=>cardLinkHTML(x, lc)).join('');
-      document.getElementById('home-instock').innerHTML  = HOME_INSTOCK.map(x=>cardLinkHTML(x, lc)).join('');
-
-      // 根据语言切换页脚的中英行显示
-      const zhRow = document.querySelector('.foot-row.zh');
-      const enRow = document.querySelector('.foot-row.en');
-      if (zhRow && enRow){
-        if (lc === 'en'){ zhRow.style.display='none'; enRow.style.display='flex'; }
-        else { zhRow.style.display='flex'; enRow.style.display='none'; }
-      }
-    }
-    renderHome();
-    window.addEventListener('locale-changed', renderHome);
+    renderHomeFromJSON();
+    window.addEventListener('locale-changed', renderHomeFromJSON);
   </script>
 </body>
 </html>

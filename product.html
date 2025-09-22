@@ -1,284 +1,178 @@
 <!DOCTYPE html>
 <html lang="zh-HK">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title id="pageTitle">產品詳情</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Glow On · 產品詳情</title>
   <link rel="stylesheet" href="styles.css"/>
   <style>
     .container{max-width:1100px;margin:0 auto;padding:16px}
     .wrap{display:flex;gap:20px;flex-wrap:wrap}
-    .preview{flex:1 1 420px}
+    .preview{flex:1 1 440px}
     .preview img{width:100%;aspect-ratio:1/1;object-fit:contain;background:#fff;border:1px solid #e5e7eb;border-radius:10px}
-    .meta{flex:1 1 320px}
+    .meta{flex:1 1 360px}
     h1{margin:0 0 10px;font-size:22px}
     .price{color:#e11d48;font-weight:800;margin:8px 0}
-    .row{margin:10px 0}
-    input[type=number]{width:100px;padding:10px 12px;border:1px solid #e5e7eb;border-radius:10px}
+    .row{margin:12px 0}
+    input[type=number]{width:96px;padding:10px 12px;border:1px solid #e5e7eb;border-radius:10px}
     .btn{padding:10px 14px;border:1px solid #e5e7eb;border-radius:10px;cursor:pointer}
     .btn.primary{background:#111;color:#fff;border-color:#111}
-    .desc{margin-top:20px;border-top:1px dashed #e5e7eb;padding-top:12px}
+    .desc{margin-top:20px;border-top:1px dashed #e5e7eb;padding-top:12px;line-height:1.8}
+    /* 购物车徽标（若全站已有样式，可忽略） */
+    .badge{display:inline-flex;min-width:18px;height:18px;padding:0 6px;align-items:center;justify-content:center;background:#111;color:#fff;border-radius:999px;font-size:12px;margin-left:4px}
   </style>
 </head>
-<body>
-  <!-- Header（与首页一致） -->
-  <!-- 统一头部导航（复制到每个页面，替换原来的 header） -->
-<header class="site-header">
-  <div class="container">
-    <nav class="top">
-      <!-- 左：LOGO -->
-      <a href="index.html" class="logo">
-        <img src="Archive/logo.png" alt="Glow On logo">
-        <strong data-i18n="brand">Glow On</strong>
-      </a>
-
-      <!-- 中：导航 -->
-      <div class="nav">
-        <a href="index.html" data-i18n="nav_home">首頁</a>
-        <a href="preorder.html" data-route="preorder" data-i18n="nav_preorder">精選預購</a>
-        <a href="instock.html"  data-route="instock"  data-i18n="nav_instock">現貨專區</a>
-        <a href="buyagent.html" data-route="service"  data-i18n="nav_service">澳洲代購服務</a>
-      </div>
-
-      <!-- 右：动作 + 语言（桌面端显示） -->
-      <div class="actions">
-        <a class="btn icon whatsapp" 
-           href="https://wa.me/85200000000" 
-           target="_blank" 
-           rel="noopener" 
-           title="WhatsApp" 
-           aria-label="WhatsApp">
-          <img src="Archive/whats.png" alt="WhatsApp" style="height:24px;width:24px;">
-        </a>
-        
-        <a class="btn icon search" href="#" title="Search" aria-label="Search">🔍</a>
-        <a class="btn icon login"  href="login.html" title="Login" aria-label="Login">👤</a>
-        <a class="btn icon cart"   href="checkout.html" title="Cart" aria-label="Cart">🛒</a>
-      
-        <!-- 语言切换 -->
-        <div class="lang">
-          <button id="langBtn" class="lang-btn" type="button" aria-haspopup="menu" aria-expanded="false">
-            <span aria-hidden="true">🌐</span>
-            <span id="langLabel">繁體中文</span>
-            <span class="caret" aria-hidden="true">▾</span>
-          </button>
-          <div class="lang-menu" id="langMenu" role="menu" hidden>
-            <button role="menuitem" data-lc="zh-HK">繁體中文</button>
-            <button role="menuitem" data-lc="en">English</button>
+<body data-page="product">
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="top">
+        <div class="left">
+          <a href="index.html" class="logo">
+            <img src="Archive/logo.png" alt="Glow On logo">
+            <strong data-i18n="brand">Glow On</strong>
+          </a>
+          <div class="nav">
+            <a href="index.html" data-i18n="nav_home">首頁</a>
+            <a href="preorder.html" data-route="preorder" data-i18n="nav_preorder">精選預購</a>
+            <a href="instock.html"  data-route="instock"  data-i18n="nav_instock">現貨專區</a>
+            <a href="buyagent.html" data-route="service"  data-i18n="nav_service">澳洲代購服務</a>
           </div>
         </div>
-      
-        <!-- 更多按钮（手机端） -->
-        <button class="btn icon" id="moreBtn" aria-haspopup="menu" aria-expanded="false" title="更多">⋯</button>
-        <div class="more-menu" id="moreMenu" hidden>
-          <a class="item" href="https://wa.me/85200000000" target="_blank" rel="noopener">
-            <img src="Archive/whats.png" alt="WhatsApp" style="height:18px;width:18px;vertical-align:middle;"> WhatsApp
-          </a>
-          <a class="item" href="#" id="moreSearch">🔍 Search</a>
-          <a class="item" href="login.html">👤 Login</a>
-          <a class="item" href="checkout.html">🛒 Cart</a>
-          <div class="sep"></div>
-          <button class="item" type="button" data-set-lc="zh-HK">繁體中文</button>
-          <button class="item" type="button" data-set-lc="en">English</button>
-        </div>
-      </div>
-    </nav>
-  </div>
-</header>
 
-  <main class="container">
+        <div class="actions">
+          <a class="btn icon whatsapp" 
+             href="https://wa.me/85297436663" 
+             target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp">
+            <img src="Archive/whats.png" alt="WhatsApp" style="height:24px;width:24px;">
+          </a>
+          <a class="btn icon search" href="#" title="Search" aria-label="Search">🔍</a>
+          <a class="btn icon login"  href="login.html" title="Login" aria-label="Login">👤</a>
+          <a class="btn icon cart"   href="checkout.html" title="Cart" aria-label="Cart">🛒 <span id="cartBadge" class="badge">0</span></a>
+
+          <div class="lang">
+            <button id="langBtn" class="lang-btn" type="button" aria-haspopup="menu" aria-expanded="false">
+              <span aria-hidden="true">🌐</span>
+              <span id="langLabel">繁體中文</span>
+              <span class="caret" aria-hidden="true">▾</span>
+            </button>
+            <div class="lang-menu" id="langMenu" role="menu" hidden>
+              <button role="menuitem" data-lc="zh-HK">繁體中文</button>
+              <button role="menuitem" data-lc="en">English</button>
+            </div>
+          </div>
+
+          <button class="btn icon" id="moreBtn" aria-haspopup="menu" aria-expanded="false" title="更多">⋯</button>
+          <div class="more-menu" id="moreMenu" hidden>
+            <a class="item" href="https://wa.me/85297436663" target="_blank" rel="noopener">
+              <img src="Archive/whats.png" alt="WhatsApp" style="height:18px;width:18px;vertical-align:middle;"> WhatsApp
+            </a>
+            <a class="item" href="#" id="moreSearch">🔍 Search</a>
+            <a class="item" href="login.html">👤 Login</a>
+            <a class="item" href="checkout.html">🛒 Cart</a>
+            <div class="sep"></div>
+            <button class="item" type="button" data-set-lc="zh-HK">繁體中文</button>
+            <button class="item" type="button" data-set-lc="en">English</button>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" id="product">
     <div class="wrap">
-      <div class="preview"><img id="img" alt="產品圖片"></div>
+      <div class="preview">
+        <img id="p-img" alt="產品圖片">
+      </div>
       <div class="meta">
-        <h1 id="title">暫定商品</h1>
-        <div class="price" id="price">HKD —</div>
+        <h1 id="p-title">—</h1>
+        <div class="price" id="p-price">HK$ —</div>
+
         <div class="row">
-          數量：<input id="qty" type="number" value="1" min="1">
+          數量：
+          <input id="p-qty" type="number" min="1" value="1">
         </div>
         <div class="row">
-          <button class="btn primary" id="addCart">加入購物車</button>
+          <button class="btn primary" id="btnAddCart">加入購物車</button>
+          <a class="btn" href="checkout.html">查看購物車</a>
         </div>
       </div>
     </div>
+
     <section class="desc">
-      <h3>商品詳情</h3>
-      <div id="detail"></div>
+      <h3 data-i18n="details_title">商品詳情</h3>
+      <div id="p-desc"></div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-box">
-      <div class="copy">2025 © Glow On HK. All Rights Reserved.</div>
+      <nav class="foot-row zh">
+        <a href="terms.html"><b>條款及細則</b></a>
+        <a href="privacy.html"><b>私隱政策</b></a>
+        <a href="returns.html"><b>退換貨政策</b></a>
+        <a href="process.html"><b>購買流程</b></a>
+        <a href="payment.html"><b>付款方式</b></a>
+        <a href="contact.html"><b>聯絡我們</b></a>
+      </nav>
+      <nav class="foot-row en">
+        <a href="terms.html"><b>Terms &amp; Conditions</b></a>
+        <a href="privacy.html"><b>Privacy Policy</b></a>
+        <a href="returns.html"><b>Return &amp; Exchange Policy</b></a>
+        <a href="process.html"><b>Shopping Process</b></a>
+        <a href="payment.html"><b>Payment Methods</b></a>
+        <a href="contact.html"><b>Contact Us</b></a>
+      </nav>
+      <div class="copy">2025 © Glow On HK. <span data-i18n="rights">All Rights Reserved.</span></div>
     </div>
   </footer>
 
   <script src="site.js"></script>
   <script>
-    // 商品資料（來自 docx 摘要） [oai_citation:1‡webpage content.docx](file-service://file-78sfMwpK8Y3U5GJEL345pN)
-    const PRODUCTS = {
-      "1": {
-        title:"PURITI 麥盧卡蜜糖 MGO350 1kg",
-        price:"HK$430",
-        img:"Archive/Untitled_design/1.png",
-        detail:`紐西蘭進口，MGO350 中高活性<br>
-        ✨ 功效：免疫支持、腸胃護理、喉嚨舒緩<br>
-        建議：每日1–2茶匙，避免高溫`
-      },
-      "2": {
-        title:"Hismile 牙膏 60g – 薄荷朱古力",
-        price:"HK$65",
-        img:"Archive/Untitled_design/2.png",
-        detail:`來自澳洲 Hismile 的限量口味牙膏<br>
-        🍫 清新薄荷 × 香濃朱古力<br>
-        ✨ 功效：清潔牙齒，帶來獨特口感`
-      },
-      "3": {
-        title:"Hismile 牙膏 60g – 士多啤梨奶油",
-        price:"HK$65",
-        img:"Archive/Untitled_design/3.png",
-        detail:`甜美士多啤梨 × 綿密奶油<br>
-        ✨ 功效：清新口氣，保持牙齒健康<br>
-        適合喜愛水果風味的用家`
-      },
-      "4": {
-        title:"Hismile 牙膏 60g – 可樂味",
-        price:"HK$65",
-        img:"Archive/Untitled_design/4.png",
-        detail:`🥤 彷彿喝下一口可樂的清爽感<br>
-        ✨ 功效：清潔牙齒，增添趣味口感`
-      },
-      "5": {
-        title:"Skin Control 可愛暗瘡貼 36片",
-        price:"HK$65",
-        img:"Archive/Untitled_design/5.png",
-        detail:`隱形暗瘡貼，日夜修護<br>
-        🌙 夜間保護痘痘，加速癒合<br>
-        🌞 白天可隱形貼妝`
-      },
-      "6": {
-        title:"Dr.PAWPAW 潤唇膏 10ml",
-        price:"HK$55",
-        img:"Archive/Untitled_design/6.png",
-        detail:`經典萬用膏，英國暢銷<br>
-        ✨ 功效：滋潤乾裂嘴唇，舒緩乾燥肌膚`
-      },
-      "7": {
-        title:"Dr.PAWPAW 豐唇護唇油 8ml",
-        price:"HK$55",
-        img:"Archive/Untitled_design/7.png",
-        detail:`清爽護唇油，帶來自然光澤感<br>
-        ✨ 功效：滋潤雙唇，豐盈效果`
-      },
-      "8": {
-        title:"Dr.PAWPAW 有色潤唇膏 粉紅 10ml",
-        price:"HK$55",
-        img:"Archive/Untitled_design/8.png",
-        detail:`粉嫩色澤 × 潤澤保濕<br>
-        ✨ 功效：同時護唇與增添妝效`
-      },
-      "9": {
-        title:"Dr.PAWPAW 有色潤唇膏 珊瑚 10ml",
-        price:"HK$55",
-        img:"Archive/Untitled_design/9.png",
-        detail:`珊瑚橘色，自然提亮膚色<br>
-        ✨ 功效：潤澤雙唇，提供自然妝感`
-      },
-      "10": {
-        title:"T2 French Earl Grey 茶包 10入",
-        price:"HK$70",
-        img:"Archive/Untitled_design/10.png",
-        detail:`澳洲 T2 經典茶品<br>
-        🌿 法式伯爵茶，清新柑橘香氣<br>
-        每盒 10 包，方便日常沖泡`
-      },
-      "11": {
-        title:"Sunbites Grainwaves 酸忌廉青蔥 8包",
-        price:"HK$65",
-        img:"Archive/Untitled_design/11.png",
-        detail:`多穀物焗製薯片，酸忌廉青蔥口味<br>
-        ✨ 更健康的零食選擇`
-      },
-      "12": {
-        title:"Dermal Therapy 有色潤唇膏 玫瑰粉 8g",
-        price:"HK$65",
-        img:"Archive/Untitled_design/12.png",
-        detail:`澳洲藥妝品牌 Dermal Therapy<br>
-        🌹 玫瑰粉色潤唇膏，帶色護唇二合一`
-      },
-      "13": {
-        title:"Dermal Therapy 有色潤唇膏 蜜桃裸 8g",
-        price:"HK$65",
-        img:"Archive/Untitled_design/13.png",
-        detail:`蜜桃裸色，低調自然<br>
-        ✨ 功效：長效滋潤，淡雅顏色`
-      },
-      "14": {
-        title:"Caruso’s 膠原蛋白粉 100g",
-        price:"HK$210",
-        img:"Archive/Untitled_design/14.png",
-        detail:`專利 Verisol® 膠原蛋白勝肽<br>
-        ✨ 改善緊緻、減淡細紋、促進指甲健康`
-      },
-      "15": {
-        title:"Caruso’s 膠原蛋白 60片",
-        price:"HK$210",
-        img:"Archive/Untitled_design/15.png",
-        detail:`專利 Verisol® 膠原蛋白勝肽<br>
-        ✨ 改善膚質、維持肌膚結構、支持指甲健康`
-      },
-      "16": {
-        title:"Healthy Care 蜂膠液 25ml",
-        price:"HK$65",
-        img:"Archive/Untitled_design/16.png",
-        detail:`澳洲保健品牌 Healthy Care<br>
-        ✨ 蜂膠液，支持免疫健康，抗氧化`
-      },
-      "17": {
-        title:"Designs for Health 高強度 Omega-3 120粒",
-        price:"HKD —",
-        img:"Archive/Untitled_design/17.png",
-        detail:`高純度魚油，每粒含 EPA 750mg、DHA 250mg<br>
-        ✨ 支持心血管、大腦功能、免疫健康`
-      },
-      "18": {
-        title:"Life-Space 雙倍強度益生菌 30粒",
-        price:"HKD —",
-        img:"Archive/Untitled_design/18.png",
-        detail:`每粒含 640 億 CFU，15 種益菌株<br>
-        ✨ 維持消化、免疫、恢復腸道益菌`
-      },
-      "19": {
-        title:"Life-Space 兒童益生菌粉 60g",
-        price:"HKD —",
-        img:"Archive/Untitled_design/19.png",
-        detail:`每克含 100 億 CFU，15 種益菌株<br>
-        ✨ 支持日常健康、免疫力、腸道平衡`
-      }
-    };
-
-    // ===== 初始化 =====
-    const params = new URLSearchParams(location.search);
-    const pid = params.get('pid') || params.get('id') || '1';   // 👈 变量名统一成 pid
-    const p = PRODUCTS[pid] || {title:"未知商品", price:"HKD —", img:"", detail:""};
-    document.title = "產品詳情 · " + p.title;
-    document.getElementById("pageTitle").textContent = p.title;
-    document.getElementById("title").textContent = p.title;
-    document.getElementById("price").textContent = p.price;
-    document.getElementById("img").src = p.img;
-    document.getElementById("detail").innerHTML = p.detail;
-
-    // ===== 購物車 =====
+    // 购物车工具
     const CART_KEY='glowon-cart';
     const getCart=()=>{ try{ return JSON.parse(localStorage.getItem(CART_KEY))||[] }catch{ return [] } };
     const setCart=(c)=> localStorage.setItem(CART_KEY, JSON.stringify(c));
-    const updateBadge=()=>{ document.getElementById('cartBadge').textContent = getCart().reduce((s,x)=>s+x.qty,0); };
-    updateBadge();
+    function updateBadge(){
+      const badge=document.getElementById('cartBadge');
+      if(!badge) return;
+      const total = getCart().reduce((s,x)=>s+Number(x.qty||0),0);
+      badge.textContent = total;
+    }
 
-    document.getElementById("addCart").onclick=()=>{
-      const qty=Math.max(1, parseInt(document.getElementById("qty").value||"1",10));
-      const c=getCart(); c.push({pid, title:p.title, price:p.price, img:p.img, qty});
-      setCart(c); updateBadge(); alert("已加入購物車");
-    };
+    // 先渲染产品详情（来自 site.js -> products.json）
+    document.addEventListener('DOMContentLoaded', async () => {
+      await renderProductPage(); // 填充 #p-img/#p-title/#p-price/#p-desc
+      updateBadge();
+
+      // 从 URL 获取 pid，拿到完整对象用于加入购物车
+      const url = new URL(location.href);
+      const pid = url.searchParams.get('pid');
+      const list = await loadProducts();
+      const p = list.find(x => String(x.id) === String(pid));
+      if (!p) return;
+
+      document.getElementById('btnAddCart').addEventListener('click', ()=>{
+        const qty = Math.max(1, parseInt(document.getElementById('p-qty').value||'1',10));
+        const cart = getCart();
+
+        // 如果购物车里已有该商品，则叠加数量
+        const found = cart.find(x=> String(x.id)===String(p.id));
+        if(found){ found.qty += qty; }
+        else{
+          cart.push({
+            id: p.id,
+            title: (getLocale()==='en' ? (p.title_en || p.title_zh) : (p.title_zh || p.title_en)),
+            price: p.price_text,   // 例如 "HK$430"
+            img: p.img,
+            qty
+          });
+        }
+        setCart(cart);
+        updateBadge();
+        alert('已加入購物車');
+      });
+    });
   </script>
 </body>
 </html>

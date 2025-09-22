@@ -6,22 +6,18 @@
   <title>Glow On · 精選預購</title>
   <link rel="stylesheet" href="styles.css"/>
   <style>
-    /* 头部：Logo + 导航在左侧 */
     .site-header .top { display:flex; align-items:center; justify-content:space-between; }
     .site-header .left { display:flex; align-items:center; gap:14px; }
-    .site-header .logo strong { display:none; } /* 仅保留图标 */
+    .site-header .logo strong { display:none; }
     .site-header .logo img { height:26px; width:auto; display:block; }
     .site-header .nav { display:flex; gap:14px; flex-wrap:wrap; }
     .site-header .nav a { text-decoration:none; }
 
-    /* Banner */
     .banner img{ width:100%; height:320px; object-fit:cover; border-radius:12px; display:block; }
     @media (max-width:600px){ .banner img{ height:220px; } }
 
-    /* 页脚：默认只显示中文行，英文行在切英文时由脚本切换 */
     .foot-row.en { display:none; }
 
-    /* 商品卡片 */
     .card { display:block; border:1px solid #eee; border-radius:10px; overflow:hidden; text-decoration:none; color:inherit; }
     .card .thumb img { width:100%; display:block; }
     .card .content { padding:8px; }
@@ -32,16 +28,15 @@
     @media (max-width:520px){ .grid{ grid-template-columns:1fr; } }
   </style>
 </head>
-<body>
+<body data-page="preorder">
   <!-- Header（与首页一致） -->
   <header class="site-header">
     <div class="container">
       <nav class="top">
-        <!-- 左：LOGO + 导航 -->
         <div class="left">
           <a href="index.html" class="logo">
             <img src="Archive/logo.png" alt="Glow On logo">
-            <strong data-i18n="brand">Glow On</strong><!-- 已隐藏 -->
+            <strong data-i18n="brand">Glow On</strong>
           </a>
           <div class="nav">
             <a href="index.html" data-i18n="nav_home">首頁</a>
@@ -51,21 +46,17 @@
           </div>
         </div>
 
-        <!-- 右：动作 + 语言 -->
         <div class="actions">
           <a class="btn icon whatsapp" 
              href="https://wa.me/85297436663" 
-             target="_blank" 
-             rel="noopener" 
-             title="WhatsApp" 
-             aria-label="WhatsApp">
+             target="_blank" rel="noopener" 
+             title="WhatsApp" aria-label="WhatsApp">
             <img src="Archive/whats.png" alt="WhatsApp" style="height:24px;width:24px;">
           </a>
           <a class="btn icon search" href="#" title="Search" aria-label="Search">🔍</a>
           <a class="btn icon login"  href="login.html" title="Login" aria-label="Login">👤</a>
           <a class="btn icon cart"   href="checkout.html" title="Cart" aria-label="Cart">🛒</a>
 
-          <!-- 语言切换 -->
           <div class="lang">
             <button id="langBtn" class="lang-btn" type="button" aria-haspopup="menu" aria-expanded="false">
               <span aria-hidden="true">🌐</span>
@@ -78,7 +69,6 @@
             </div>
           </div>
 
-          <!-- 更多按钮（手机端） -->
           <button class="btn icon" id="moreBtn" aria-haspopup="menu" aria-expanded="false" title="更多">⋯</button>
           <div class="more-menu" id="moreMenu" hidden>
             <a class="item" href="https://wa.me/85297436663" target="_blank" rel="noopener">
@@ -98,7 +88,6 @@
 
   <main>
     <div class="container">
-      <!-- Banner：2.png -->
       <section class="banner" aria-label="Pre-Order">
         <img src="Archive/Promo_Banner/2.png" alt="Pre-Order Banner">
       </section>
@@ -110,7 +99,7 @@
     </div>
   </main>
 
-  <!-- Footer（与首页一致，含付款方式/Payment Methods） -->
+  <!-- Footer（与首页一致） -->
   <footer class="site-footer">
     <div class="container footer-box">
       <nav class="foot-row zh">
@@ -135,43 +124,13 @@
 
   <script src="site.js"></script>
   <script>
-    // —— 精選預購商品（点击整卡跳 product.html?pid=...） —— //
-    const PREORDER = [
-      { pid:'19', img:'Archive/Untitled_design/19.png', zh:'Life-Space 兒童益生菌粉 60g', en:'Life-Space Children Probiotic Powder 60g', price:'HKD —' },
-      { pid:'18', img:'Archive/Untitled_design/18.png', zh:'Life-Space 雙倍強度益生菌 30粒', en:'Life-Space Double Strength Probiotic 30 caps', price:'HKD —' },
-      { pid:'14', img:'Archive/Untitled_design/14.png', zh:'Caruso’s 膠原蛋白粉 100g', en:"Caruso’s Collagen Powder 100g", price:'HK$210' },
-      { pid:'15', img:'Archive/Untitled_design/15.png', zh:'Caruso’s 膠原蛋白 60片', en:"Caruso’s Collagen 60 tablets", price:'HK$210' },
-      { pid:'17', img:'Archive/Untitled_design/17.png', zh:'DFH 高強度 Omega-3 120粒', en:'Designs for Health Omega-3 120 softgels', price:'HKD —' }
-    ];
-
-    function cardLinkHTML(item, lc){
-      const title = (lc==='en') ? item.en : item.zh;
-      const href = `product.html?pid=${encodeURIComponent(item.pid)}&lc=${lc}`;
-      return `
-        <a class="card" href="${href}">
-          <div class="thumb"><img src="${item.img}" alt="${title}" loading="lazy"></div>
-          <div class="content">
-            <div class="title">${title}</div>
-            <div class="price">${item.price}</div>
-          </div>
-        </a>`;
-    }
-
-    function renderPreorder(){
-      const lc = getLocale();
-      document.getElementById('preorder-grid').innerHTML = PREORDER.map(x=>cardLinkHTML(x, lc)).join('');
-
-      // 根据语言切换页脚中英行显示
-      const zhRow = document.querySelector('.foot-row.zh');
-      const enRow = document.querySelector('.foot-row.en');
-      if (zhRow && enRow){
-        if (lc === 'en'){ zhRow.style.display='none'; enRow.style.display='flex'; }
-        else { zhRow.style.display='flex'; enRow.style.display='none'; }
-      }
-    }
-
-    renderPreorder();
-    window.addEventListener('locale-changed', renderPreorder);
+    document.addEventListener('DOMContentLoaded', () => {
+      // 渲染所有 category=preorder 的商品
+      renderCardsInto('#preorder-grid', p => p.category === 'preorder');
+    });
+    window.addEventListener('locale-changed', () => {
+      renderCardsInto('#preorder-grid', p => p.category === 'preorder');
+    });
   </script>
 </body>
 </html>
