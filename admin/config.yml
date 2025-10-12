@@ -1,13 +1,11 @@
 backend:
   name: github
-  repo: Andyming13/glowon     # 如仓库名不同请改
-  branch: main                # 如默认分支不是 main 请改
-  # 第 3 步我们会补上：
-  # app_id: YOUR_GITHUB_APP_CLIENT_ID
-  # base_url: https://YOUR-OAUTH-BRIDGE.DOMAIN
+  repo: Andyming13/Glowon
+  branch: main
+  base_url: https://glowon-sms-oauth.vercel.app   # ← 你在 Vercel 的网关域名
 
-media_folder: "frontend/assets/uploads"   # 图片实际存到仓库的这个目录
-public_folder: "/assets/uploads"          # 线上访问路径（站点根指向 frontend/）
+media_folder: "frontend/assets/uploads"
+public_folder: "/assets/uploads"
 
 publish_mode: editorial_workflow
 locale: "zh_Hant"
@@ -18,7 +16,7 @@ collections:
     files:
       - label: "商品清單（products.json）"
         name: "products_json"
-        file: "frontend/products.json"    # 关键：指向 frontend/ 下的文件
+        file: "frontend/products.json"
         format: "json"
         fields:
           - label: "商品清單"
