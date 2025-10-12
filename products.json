@@ -289,6 +289,16 @@
       "img": "/Archive/Untitled_design/29.png",
       "desc_zh": "濃郁朱古力香味，綿密泡泡溫柔潔淨肌膚，甜蜜香氣讓沐浴時光更加愉悅！\n\n🇦🇺 產地：澳洲",
       "desc_en": "Rich chocolate-scented foaming body wash that gently cleanses for a sweet bathing experience.\n\n🇦🇺 Made in Australia"
+    },
+    {
+      "category": "instock",
+      "id": "30",
+      "price_hkd": 123,
+      "title_en": "123",
+      "title_zh": "123",
+      "desc_zh": "xxx",
+      "desc_en": "xxx",
+      "img": "/Archive/Untitled_design/11.png"
     }
   ]
 }
