@@ -1,16 +1,18 @@
+/* =====================================================
+   基础设置 & I18N
+   ===================================================== */
 
    const DEFAULT_LOCALE = 'zh-HK';
 
    /* ---------- Locale ---------- */
    function getLocale(){
-     // 兼容旧键 dordor-locale，统一迁移到 glowon-locale
      const saved = localStorage.getItem('glowon-locale') || localStorage.getItem('dordor-locale');
      return saved === 'en' ? 'en' : DEFAULT_LOCALE;
    }
    function setLocale(lc){
      const v = lc === 'en' ? 'en' : DEFAULT_LOCALE;
      localStorage.setItem('glowon-locale', v);
-     localStorage.removeItem('dordor-locale'); // 清理旧键
+     localStorage.removeItem('dordor-locale');
      applyI18N();
      window.dispatchEvent(new CustomEvent('locale-changed'));
    }
@@ -87,7 +89,6 @@
      const y = document.getElementById('year');
      if (y) y.textContent = new Date().getFullYear();
    
-     // 页脚中/英两行联动显示
      const zhRow = document.querySelector('.foot-row.zh');
      const enRow = document.querySelector('.foot-row.en');
      if (zhRow && enRow){
@@ -140,7 +141,6 @@
        if (!moreMenu.hidden && !moreMenu.contains(e.target) && e.target !== moreBtn) closeMenu();
      });
    
-     // 菜单内语言切换（统一走 setLocale）
      moreMenu.querySelectorAll('[data-set-lc]').forEach(btn => {
        btn.addEventListener('click', () => {
          setLocale(btn.getAttribute('data-set-lc'));
@@ -148,7 +148,6 @@
        });
      });
    
-     // 可选：小菜单里的搜索
      const ms = document.getElementById('moreSearch');
      if (ms) ms.addEventListener('click', (e) => {
        e.preventDefault();
@@ -168,141 +167,152 @@
       商品数据加载与渲染（从 products.json 读取）
       ===================================================== */
    
-  // ======= 更健壮的 Products loader & render =======
-
-// 统一取字段的小工具（容错：支持多种别名）
-function pick(o, keys, def='') {
-  for (const k of keys) {
-    if (o[k] !== undefined && o[k] !== null && String(o[k]).trim() !== '') return o[k];
-  }
-  return def;
-}
-
-// 构造图片地址；缺省用 id.png；加载失败再试 .PNG
-function buildImg(p) {
-  const explicit = pick(p, ['img', 'image', 'image_url']);
-  const idLike   = String(pick(p, ['id', 'image_id', 'img_id'], '')).trim();
-  const base     = explicit || (idLike ? `Archive/Untitled_design/${idLike}.png` : '');
-  return base;
-}
-
-async function fetchProducts() {
-  const res = await fetch('products.json?ts=' + Date.now());
-  if (!res.ok) throw new Error('products.json load failed: ' + res.status);
-  return await res.json();
-}
-
-window.loadProducts = async function () {
-  if (window.PRODUCTS) return window.PRODUCTS;
-  const arr = await fetchProducts();
-
-  // 标准化 & 兜底
-  window.PRODUCTS = arr.map(raw => {
-    const id        = String(pick(raw, ['id', 'ID', 'sku'], '')).trim();
-    const category  = String(pick(raw, ['category', 'cat', 'type'], '')).toLowerCase();
-    const title_zh  = pick(raw, ['title_zh','name_zh','title_cn','name_cn'], '');
-    const title_en  = pick(raw, ['title_en','name_en'], '');
-    const price     = pick(raw, ['price_hkd','price','hkd'], null);
-    const desc_zh   = pick(raw, ['desc_zh','description_zh','details_zh','content_zh'], '');
-    const desc_en   = pick(raw, ['desc_en','description_en','details_en','content_en'], '');
-    const img       = buildImg({ ...raw, id });
-
-    // 价格文本
-    let price_text = (price || price === 0)
-      ? ('HK$' + (Number(price) % 1 ? Number(price) : parseInt(price)))
-      : (getLocale() === 'en' ? 'TBD' : '待定');
-
-    return {
-      ...raw,
-      id, category, title_zh, title_en, desc_zh, desc_en,
-      img, price_hkd: price, price_text
-    };
-  });
-
-  return window.PRODUCTS;
-};
-
-// 图片 onerror 兜底：.png -> .PNG，仍失败就用占位
-function imgWithFallback(src, alt) {
-  const esc = (s)=>String(s).replace(/"/g,'&quot;');
-  return `<img src="${esc(src)}" alt="${esc(alt)}" loading="lazy"
-      onerror="
-        (function(img){
-          if (!img.dataset.triedUpper) {
-            img.dataset.triedUpper = '1';
-            img.src = img.src.replace(/\.png($|\?)/i, '.PNG$1');
-          } else {
-            img.src = 'Archive/placeholder.png';
-          }
-        })(this)
-      ">`;
-}
-
-// 卡片 HTML
-function cardHTML(p, lc) {
-  const title = lc === 'en' ? (p.title_en || p.title_zh || '') : (p.title_zh || p.title_en || '');
-  const imgEl = imgWithFallback(p.img, title);
-  return `
-    <a class="card" href="product.html?pid=${encodeURIComponent(p.id)}">
-      <div class="thumb">${imgEl}</div>
-      <div class="content">
-        <div class="title">${title}</div>
-        <div class="price">${p.price_text}</div>
-      </div>
-    </a>`;
-}
-
-// 渲染到容器（可传筛选函数）
-window.renderCardsInto = async function (selector, filterFn) {
-  const lc = (getLocale && getLocale() === 'en') ? 'en' : 'zh';
-  const list = await loadProducts();
-  const items = typeof filterFn === 'function' ? list.filter(filterFn) : list;
-  const html = items.map(p => cardHTML(p, lc)).join('') || `<div class="muted" data-i18n="empty_list">暫無商品</div>`;
-  const el = document.querySelector(selector);
-  if (el) el.innerHTML = html;
-};
-
-// 详情页渲染
-window.renderProductPage = async function () {
-  const url = new URL(location.href);
-  const pid = url.searchParams.get('pid');
-  const lc  = (getLocale && getLocale() === 'en') ? 'en' : 'zh';
-  const list = await loadProducts();
-  const p = list.find(x => String(x.id) === String(pid));
-  const notFound = lc === 'en' ? 'Product not found.' : '找不到此商品。';
-
-  const host  = document.getElementById('product');
-  const img   = document.getElementById('p-img');
-  const title = document.getElementById('p-title');
-  const price = document.getElementById('p-price');
-  const desc  = document.getElementById('p-desc');
-
-  if (!p) { if (host) host.innerHTML = `<p>${notFound}</p>`; return; }
-
-  const theTitle = lc === 'en' ? (p.title_en || p.title_zh || '') : (p.title_zh || p.title_en || '');
-  document.title = `${theTitle} · Glow On`;
-
-  if (img) {
-    img.src = p.img;
-    img.alt = theTitle;
-    img.onerror = function () {
-      if (!img.dataset.triedUpper) {
-        img.dataset.triedUpper = '1';
-        img.src = img.src.replace(/\.png($|\?)/i, '.PNG$1');
-      } else {
-        img.src = 'Archive/placeholder.png';
-      }
-    };
-  }
-  if (title) title.textContent = theTitle;
-  if (price) price.textContent = p.price_text;
-
-  const rawDesc = lc === 'en'
-    ? (p.desc_en || p.desc_zh || '')
-    : (p.desc_zh || p.desc_en || '');
-
-  // 支持 \n 自动换行；也支持你在 JSON 里直接写少量 <p>/<ul> 的 HTML
-  if (desc) desc.innerHTML = /<\/(p|ul|ol|br)>/i.test(rawDesc)
-      ? rawDesc
-      : String(rawDesc).replace(/\n/g, '<br>');
-};
+   // 小工具：按候选键取值
+   function pick(o, keys, def='') {
+     for (const k of keys) {
+       if (o && o[k] !== undefined && o[k] !== null && String(o[k]).trim() !== '') return o[k];
+     }
+     return def;
+   }
+   
+   // 构造图片地址；缺省用 id.png；加载失败再试 .PNG
+   function buildImg(p) {
+     const explicit = pick(p, ['img', 'image', 'image_url']);
+     const idLike   = String(pick(p, ['id', 'image_id', 'img_id'], '')).trim();
+     const base     = explicit || (idLike ? `Archive/Untitled_design/${idLike}.png` : '');
+     return base;
+   }
+   
+   /* ---------- 兼容加载：根数组 or { items: [...] }；路径双探测 ---------- */
+   async function fetchProducts() {
+     const cacheBust = 'ts=' + Date.now();
+   
+     // 先尝试与页面同层的 products.json（B 情况通常可用）
+     let res = await fetch('./products.json?' + cacheBust).catch(()=>null);
+     if (!res || !res.ok) {
+       // 兜底：再尝试 /frontend/products.json（若页面在仓库根而文件在 frontend/ 里）
+       res = await fetch('./frontend/products.json?' + cacheBust).catch(()=>null);
+     }
+     if (!res || !res.ok) {
+       const code = res ? res.status : 'NETWORK';
+       throw new Error('products.json load failed: ' + code);
+     }
+   
+     const raw = await res.json();
+     // 兼容两种结构
+     const data = Array.isArray(raw) ? raw : (raw && Array.isArray(raw.items) ? raw.items : []);
+     return data;
+   }
+   
+   window.loadProducts = async function () {
+     if (window.PRODUCTS) return window.PRODUCTS;
+     const arr = await fetchProducts();
+   
+     window.PRODUCTS = arr.map(raw => {
+       const id        = String(pick(raw, ['id', 'ID', 'sku'], '')).trim();
+       const category  = String(pick(raw, ['category', 'cat', 'type'], '')).toLowerCase();
+       const title_zh  = pick(raw, ['title_zh','name_zh','title_cn','name_cn'], '');
+       const title_en  = pick(raw, ['title_en','name_en'], '');
+       const price     = pick(raw, ['price_hkd','price','hkd'], null);
+       const desc_zh   = pick(raw, ['desc_zh','description_zh','details_zh','content_zh'], '');
+       const desc_en   = pick(raw, ['desc_en','description_en','details_en','content_en'], '');
+       const img       = buildImg({ ...raw, id });
+   
+       let price_text = (price || price === 0)
+         ? ('HK$' + (Number(price) % 1 ? Number(price) : parseInt(price)))
+         : (getLocale() === 'en' ? 'TBD' : '待定');
+   
+       return {
+         ...raw,
+         id, category, title_zh, title_en, desc_zh, desc_en,
+         img, price_hkd: price, price_text
+       };
+     });
+   
+     return window.PRODUCTS;
+   };
+   
+   // 图片 onerror 兜底：.png -> .PNG，仍失败就用占位
+   function imgWithFallback(src, alt) {
+     const esc = (s)=>String(s).replace(/"/g,'&quot;');
+     return `<img src="${esc(src)}" alt="${esc(alt)}" loading="lazy"
+         onerror="
+           (function(img){
+             if (!img.dataset.triedUpper) {
+               img.dataset.triedUpper = '1';
+               img.src = img.src.replace(/\.png($|\?)/i, '.PNG$1');
+             } else {
+               img.src = 'Archive/placeholder.png';
+             }
+           })(this)
+         ">`;
+   }
+   
+   // 卡片 HTML
+   function cardHTML(p, lc) {
+     const title = lc === 'en' ? (p.title_en || p.title_zh || '') : (p.title_zh || p.title_en || '');
+     const imgEl = imgWithFallback(p.img, title);
+     return `
+       <a class="card" href="product.html?pid=${encodeURIComponent(p.id)}">
+         <div class="thumb">${imgEl}</div>
+         <div class="content">
+           <div class="title">${title}</div>
+           <div class="price">${p.price_text}</div>
+         </div>
+       </a>`;
+   }
+   
+   // 渲染到容器（可传筛选函数）
+   window.renderCardsInto = async function (selector, filterFn) {
+     const lc = (getLocale && getLocale() === 'en') ? 'en' : 'zh';
+     const list = await loadProducts();
+     const items = typeof filterFn === 'function' ? list.filter(filterFn) : list;
+     const html = items.map(p => cardHTML(p, lc)).join('') || `<div class="muted" data-i18n="empty_list">暫無商品</div>`;
+     const el = document.querySelector(selector);
+     if (el) el.innerHTML = html;
+   };
+   
+   // 详情页渲染
+   window.renderProductPage = async function () {
+     const url = new URL(location.href);
+     const pid = url.searchParams.get('pid');
+     const lc  = (getLocale && getLocale() === 'en') ? 'en' : 'zh';
+     const list = await loadProducts();
+     const p = list.find(x => String(x.id) === String(pid));
+     const notFound = lc === 'en' ? 'Product not found.' : '找不到此商品。';
+   
+     const host  = document.getElementById('product');
+     const img   = document.getElementById('p-img');
+     const title = document.getElementById('p-title');
+     const price = document.getElementById('p-price');
+     const desc  = document.getElementById('p-desc');
+   
+     if (!p) { if (host) host.innerHTML = `<p>${notFound}</p>`; return; }
+   
+     const theTitle = lc === 'en' ? (p.title_en || p.title_zh || '') : (p.title_zh || p.title_en || '');
+     document.title = `${theTitle} · Glow On`;
+   
+     if (img) {
+       img.src = p.img;
+       img.alt = theTitle;
+       img.onerror = function () {
+         if (!img.dataset.triedUpper) {
+           img.dataset.triedUpper = '1';
+           img.src = img.src.replace(/\.png($|\?)/i, '.PNG$1');
+         } else {
+           img.src = 'Archive/placeholder.png';
+         }
+       };
+     }
+     if (title) title.textContent = theTitle;
+     if (price) price.textContent = p.price_text;
+   
+     const rawDesc = lc === 'en'
+       ? (p.desc_en || p.desc_zh || '')
+       : (p.desc_zh || p.desc_en || '');
+   
+     if (desc) desc.innerHTML = /<\/(p|ul|ol|br)>/i.test(rawDesc)
+         ? rawDesc
+         : String(rawDesc).replace(/\n/g, '<br>');
+   };
+   

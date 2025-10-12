@@ -1,0 +1,36 @@
+backend:
+  name: github
+  repo: Andyming13/glowon     # 如仓库名不同请改
+  branch: main                # 如默认分支不是 main 请改
+  # 第 3 步我们会补上：
+  # app_id: YOUR_GITHUB_APP_CLIENT_ID
+  # base_url: https://YOUR-OAUTH-BRIDGE.DOMAIN
+
+media_folder: "frontend/assets/uploads"   # 图片实际存到仓库的这个目录
+public_folder: "/assets/uploads"          # 线上访问路径（站点根指向 frontend/）
+
+publish_mode: editorial_workflow
+locale: "zh_Hant"
+
+collections:
+  - label: "商品（Products）"
+    name: "products"
+    files:
+      - label: "商品清單（products.json）"
+        name: "products_json"
+        file: "frontend/products.json"    # 关键：指向 frontend/ 下的文件
+        format: "json"
+        fields:
+          - label: "商品清單"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.title_zh}}（HKD {{fields.price_hkd}}）"
+            fields:
+              - {label: "ID", name: "id", widget: "string"}
+              - {label: "分類", name: "category", widget: "select", options: ["instock","preorder","archived"], default: "instock"}
+              - {label: "標題（繁中）", name: "title_zh", widget: "string"}
+              - {label: "標題（EN）", name: "title_en", widget: "string"}
+              - {label: "價格（HKD）", name: "price_hkd", widget: "number", value_type: "float", min: 0}
+              - {label: "主圖（或多圖）", name: "img", widget: "image"}
+              - {label: "描述（繁中）", name: "desc_zh", widget: "text", required: false}
+              - {label: "描述（EN）", name: "desc_en", widget: "text", required: false}
