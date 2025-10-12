@@ -2,8 +2,9 @@ backend:
   name: github
   repo: Andyming13/Glowon
   branch: main
-  base_url: https://glowon-sms-oauth.vercel.app   # ← 你在 Vercel 的网关域名
-
+  base_url: https://glowon-sms-oauth.vercel.app
+  auth_endpoint: /api/auth
+  
 media_folder: "frontend/assets/uploads"
 public_folder: "/assets/uploads"
 
