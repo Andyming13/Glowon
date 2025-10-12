@@ -94,9 +94,9 @@
         <img src="Archive/Promo_Banner/4.png" alt="AUS Shopping Agent">
       </section>
 
-      <!-- 中部流程图：5.png（更小，max-width:600px） -->
+      <!-- 中部流程图：中文 9.png / 英文 10.png（随语言切换） -->
       <section class="intro-img">
-        <img src="Archive/Promo_Banner/5.png" alt="澳洲代購流程 Introduction">
+        <img id="flowImg" src="Archive/Promo_Banner/9.png" alt="澳洲代購流程 Introduction">
       </section>
     </div>
   </main>
@@ -136,8 +136,28 @@
         else { zhRow.style.display='flex'; enRow.style.display='none'; }
       }
     }
-    renderFooter();
-    window.addEventListener('locale-changed', renderFooter);
+
+    // 根据语言切换流程图（9.png / 10.png）
+    function renderFlowImg(){
+      const lc = getLocale();
+      const img = document.getElementById('flowImg');
+      if (!img) return;
+      if (lc === 'en'){
+        img.src = 'Archive/Promo_Banner/10.png';
+        img.alt = 'AUS Shopping Process (EN)';
+      } else {
+        img.src = 'Archive/Promo_Banner/9.png';
+        img.alt = '澳洲代購流程';
+      }
+    }
+
+    function renderPage(){
+      renderFooter();
+      renderFlowImg();
+    }
+
+    renderPage();
+    window.addEventListener('locale-changed', renderPage);
   </script>
 </body>
 </html>

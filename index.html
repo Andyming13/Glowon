@@ -111,20 +111,9 @@
   <main class="home">
     <div class="container">
 
-      <!-- Banner：仅保留第1张与第6张；第6张不可点击 -->
+      <!-- Banner：按语言动态渲染三张（1、5/6、7/8） -->
       <section class="banner carousel" aria-label="Promotions">
-        <div class="track" id="carouselTrack">
-          <!-- 第1张：可点击 -->
-          <div class="slide">
-            <a href="preorder.html">
-              <img src="Archive/Promo_Banner/1.png" alt="Promo 1">
-            </a>
-          </div>
-          <!-- 第6张：不可点击 -->
-          <div class="slide">
-            <img src="Archive/Promo_Banner/6.png" alt="Promo 6">
-          </div>
-        </div>
+        <div class="track" id="carouselTrack"></div>
         <div class="ctrl" id="carouselDots" aria-label="Carousel Dots"></div>
       </section>
 
@@ -174,43 +163,86 @@
 
   <script src="site.js"></script>
   <script>
-    /* —— 轮播：自动播放 + 小圆点 —— */
-    (function(){
+    /* —— 根据语言动态渲染 Banner —— */
+    function buildPromoSlides(){
+      const lc = (typeof getLocale === 'function' && getLocale() === 'en') ? 'en' : 'zh-HK';
       const track = document.getElementById('carouselTrack');
       const dotsWrap = document.getElementById('carouselDots');
-      const total = track.children.length;
-      let idx = 0, timer = null;
+      if (!track || !dotsWrap) return;
 
-      for(let i=0;i<total;i++){
+      // 三张图：第一张固定 1.png，可点击；其余随语言切换
+      const slides = [
+        { src: 'Archive/Promo_Banner/1.png', link: 'preorder.html', clickable: true, alt: 'Promo 1' },
+        { src: lc === 'en' ? 'Archive/Promo_Banner/6.png' : 'Archive/Promo_Banner/5.png', clickable: false, alt: lc === 'en' ? 'Promo 6' : 'Promo 5' },
+        { src: lc === 'en' ? 'Archive/Promo_Banner/8.png' : 'Archive/Promo_Banner/7.png', clickable: false, alt: lc === 'en' ? 'Promo 8' : 'Promo 7' }
+      ];
+
+      // 渲染 slides
+      track.innerHTML = slides.map(s => {
+        const img = `<img src="${s.src}" alt="${s.alt}">`;
+        return `<div class="slide">${ s.clickable ? `<a href="${s.link}">${img}</a>` : img }</div>`;
+      }).join('');
+
+      // 重建 dots
+      dotsWrap.innerHTML = '';
+      for (let i=0; i<slides.length; i++){
         const d=document.createElement('button');
         d.className='dot';
         d.type='button';
         d.setAttribute('aria-label','go to slide '+(i+1));
-        d.addEventListener('click', ()=>go(i,true));
+        d.addEventListener('click', ()=>carouselGo(i,true));
         dotsWrap.appendChild(d);
       }
-      function render(){
-        track.style.transform = `translateX(-${idx*100}%)`;
-        [...dotsWrap.children].forEach((el,i)=>el.setAttribute('aria-current', i===idx?'true':'false'));
-      }
-      function go(i,stop){
-        idx=(i+total)%total;
-        render();
-        if(stop){ auto(false); }
-      }
-      function auto(start=true){
-        if(timer){ clearInterval(timer); timer=null; }
-        if(start){ timer=setInterval(()=>go(idx+1,false), 3500); }
-      }
-      render();
-      auto(true);
-      track.parentElement.addEventListener('mouseenter', ()=>auto(false));
-      track.parentElement.addEventListener('mouseleave', ()=>auto(true));
-    })();
 
-    /* —— 首页商品：改为从 products.json 动态渲染 —— */
+      // 初始化/重置轮播
+      window.__carousel__ = {
+        idx: 0,
+        total: slides.length,
+        timer: null,
+        track,
+        dotsWrap
+      };
+      carouselRender();
+      carouselAuto(true);
+
+      // 悬停暂停
+      track.parentElement.addEventListener('mouseenter', ()=>carouselAuto(false), {once:false});
+      track.parentElement.addEventListener('mouseleave', ()=>carouselAuto(true),  {once:false});
+    }
+
+    function carouselRender(){
+      const c = window.__carousel__;
+      if (!c) return;
+      c.track.style.transform = `translateX(-${c.idx*100}%)`;
+      [...c.dotsWrap.children].forEach((el,i)=>el.setAttribute('aria-current', i===c.idx?'true':'false'));
+    }
+    function carouselGo(i,stop){
+      const c = window.__carousel__;
+      if (!c) return;
+      c.idx = (i + c.total) % c.total;
+      carouselRender();
+      if (stop){ carouselAuto(false); }
+    }
+    function carouselAuto(start=true){
+      const c = window.__carousel__;
+      if (!c) return;
+      if (c.timer){ clearInterval(c.timer); c.timer=null; }
+      if (start){ c.timer=setInterval(()=>carouselGo(c.idx+1,false), 3500); }
+    }
+
+    // 初次加载与语言切换时都重建 Banner
+    document.addEventListener('DOMContentLoaded', buildPromoSlides);
+    window.addEventListener('locale-changed', ()=>{
+      // 重建之前先清掉旧计时器
+      if (window.__carousel__ && window.__carousel__.timer){
+        clearInterval(window.__carousel__.timer);
+        window.__carousel__.timer = null;
+      }
+      buildPromoSlides();
+    });
+
+    /* —— 首页商品：从 products.json 动态渲染 —— */
     function renderHomeFromJSON(){
-      // category: 'preorder' / 'instock'
       renderCardsInto('#home-preorder', p => String(p.category).toLowerCase() === 'preorder');
       renderCardsInto('#home-instock',  p => String(p.category).toLowerCase() === 'instock');
     }
