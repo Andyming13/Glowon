@@ -5,11 +5,13 @@ backend:
   base_url: https://glowon-sms-oauth.vercel.app
   auth_endpoint: /api/auth
 
-# ✅ 以后在仓库里就放到这个图片目录
+# ✅ 直接写主分支，不走草稿/PR（想走PR把 simple 改回 editorial_workflow）
+publish_mode: simple
+
+# ✅ 图片统一放这里；前端也按同路径读取
 media_folder: "Archive/Untitled_design"
 public_folder: "/Archive/Untitled_design"
 
-publish_mode: editorial_workflow
 locale: "zh_Hant"
 
 collections:
@@ -18,7 +20,7 @@ collections:
     files:
       - label: "商品清單（products.json）"
         name: "products_json"
-        file: "products.json"          # ✅ 写到根目录
+        file: "products.json"     # ✅ 以后只写根目录
         format: "json"
         fields:
           - label: "商品清單"
@@ -31,7 +33,7 @@ collections:
               - {label: "標題（繁中）", name: "title_zh", widget: "string"}
               - {label: "標題（EN）", name: "title_en", widget: "string"}
               - {label: "價格（HKD）", name: "price_hkd", widget: "number", value_type: "float", min: 0}
-              # 可選：若你偶爾想用非 <id>.png 的圖片，保留此欄位；否則可刪掉
-              - {label: "自定圖片路徑（可留空，留空則使用 Archive/Untitled_design/<id>.png）", name: "img", widget: "image", required: false}
+              # 留空時前端會用 Archive/Untitled_design/<id>.png
+              - {label: "自定圖片（可留空）", name: "img", widget: "image", required: false}
               - {label: "描述（繁中）", name: "desc_zh", widget: "text", required: false}
               - {label: "描述（EN）", name: "desc_en", widget: "text", required: false}
