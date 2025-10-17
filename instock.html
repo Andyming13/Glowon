@@ -21,7 +21,7 @@
     /* 页脚：默认只显示中文行，英文行在切英文时由脚本切换 */
     .foot-row.en { display:none; }
 
-    /* 商品卡片（只保留卡片样式，不重写 .grid 的响应式，避免覆盖全局 styles.css 的“手机两列”） */
+    /* 商品卡片（不覆盖全局 .grid 的手机两列设置） */
     .card { display:block; border:1px solid #eee; border-radius:10px; overflow:hidden; text-decoration:none; color:inherit; }
     .card .thumb img { width:100%; display:block; }
     .card .content { padding:8px; }
@@ -29,7 +29,6 @@
     .card .price { font-weight:800; color:#b91c1c; font-size:16px; }
     .grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
     @media (max-width:920px){ .grid{ grid-template-columns:repeat(2,1fr); } }
-    /* 不再写 <=520 的 1 列，交给全局 styles.css（你那边已设置为手机两列） */
   </style>
 </head>
 <body data-page="instock">
@@ -110,7 +109,7 @@
     </div>
   </main>
 
-  <!-- Footer（与首页一致，含“付款方式/Payment Methods”） -->
+  <!-- Footer（与首页一致） -->
   <footer class="site-footer">
     <div class="container footer-box">
       <nav class="foot-row zh">
@@ -133,12 +132,37 @@
     </div>
   </footer>
 
+  <!-- 公共逻辑（renderCardsInto / 语言切换等） -->
   <script src="site.js"></script>
+
+  <!-- 本页脚本：带版本号 + 绝对路径加载 products.json -->
   <script>
-    // 使用全局 site.js 的渲染器，从 products.json 读取并筛选现货类目
-    function renderInstock() {
-      renderCardsInto('#instock-grid', p => p.category === 'instock');
+    // 每次上线改一下版本号（或改成最新 commit SHA 片段）
+    const DATA_VERSION = '2025-10-18-01';
+
+    async function loadProductsOnce() {
+      if (window.__PRODUCTS_LOADED__) return;
+      const res = await fetch('/products.json?v=' + DATA_VERSION, { cache: 'no-store' });
+      if (!res.ok) {
+        console.error('Failed to load products.json', res.status, res.statusText);
+        throw new Error('Failed to load products.json: ' + res.status);
+      }
+      const data = await res.json();
+      window.__PRODUCTS_VERSION__ = data.version || DATA_VERSION;
+      window.__PRODUCTS__ = data.items || data;
+      window.__PRODUCTS_LOADED__ = true;
     }
+
+    function renderInstock() {
+      if (typeof renderCardsInto !== 'function') {
+        console.warn('renderCardsInto 未定义：请确认 site.js 是否正确加载。');
+        return;
+      }
+      const run = () => renderCardsInto('#instock-grid', p => String(p.category).toLowerCase() === 'instock');
+      if (window.__PRODUCTS_LOADED__) return run();
+      loadProductsOnce().then(run).catch(console.error);
+    }
+
     document.addEventListener('DOMContentLoaded', renderInstock);
     window.addEventListener('locale-changed', renderInstock);
   </script>
