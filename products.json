@@ -2,14 +2,36 @@
   "version": "2025-10-18-01",
   "items": [
     {
-      "category": "preorder",
-      "id": "1",
-      "title_zh": " <預購>  UGG羊毛靴 – Classic Ultra Mini    ⏰ 截單：10月25日 ",
-      "title_en": " <Pre-order> UGG Boot – Classic Ultra Mini ⏰ Order cut-off：Oct 25",
-      "price_hkd": 1099,
+      "desc_images_en": [
+        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
+      ],
       "img": "/Archive/Untitled_design/classic-ultra-mini.png",
+      "desc_images_zh": [
+        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
+      ],
+      "price_hkd": 1099,
+      "title_en": " <Pre-order> UGG Boot – Classic Ultra Mini ⏰ Order cut-off：Oct 25",
+      "title_zh": " <預購>  UGG羊毛靴 – Classic Ultra Mini    ⏰ 截單：10月25日 ",
+      "desc_en": "Black / Sand / Caribou / Grey - SIZE (EU): 36,37,38,39,40\nCHestnut- SIZE (EU): 36,37,38,39\nSea Foam– SIZE (EU): 37\n",
+      "id": "1",
       "desc_zh": "黑色 / 沙色 / 灰啡色 / 灰色 - SIZE (EU): 36,37,38,39,40\n栗子啡色- SIZE (EU): 36,37,38,39\n淺藍色– SIZE (EU): 37\n",
-      "desc_en": "Black / Sand / Caribou / Grey - SIZE (EU): 36,37,38,39,40\nCHestnut- SIZE (EU): 36,37,38,39\nSea Foam– SIZE (EU): 37\n"
+      "category": "preorder"
+    },
+    {
+      "desc_images_en": [
+        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
+      ],
+      "img": "/Archive/Untitled_design/classic-ultra-mini-platform.png",
+      "desc_images_zh": [
+        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
+      ],
+      "price_hkd": 1199,
+      "title_en": "<Pre-order> UGG Boot – Classic Ultra Mini Platform ⏰ Order cut-off：Oct 25",
+      "title_zh": "<預購>  UGG羊毛靴 – Classic Ultra Mini Platform  ⏰ 截單：10月25日",
+      "desc_en": "Black- size (EU): 39,40\nSand - size (EU): 38,39,40\nChestnut - size (EU): 36,37,38,39,40\n",
+      "id": "2",
+      "desc_zh": "黑色- size (EU): 39,40\n沙色 - size (EU): 38,39,40\n栗子啡色 - size (EU): 36,37,38,39,40\n",
+      "category": "preorder"
     },
     {
       "desc_images_en": [],
