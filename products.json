@@ -811,6 +811,89 @@
       "price_hkd": 111,
       "title_zh": "Ego QV臉部活膚眼霜 (30g)",
       "img": "/Archive/Untitled_design/41.png"
+    },
+    {
+      "desc_images_en": [
+        "/Archive/Untitled_design/chese-crackers.png"
+      ],
+      "img": "/Archive/Untitled_design/4954750_r-zm.jpg",
+      "desc_images_zh": [
+        "/Archive/Untitled_design/chese-crackers.png"
+      ],
+      "price_hkd": 40,
+      "title_en": "",
+      "title_zh": "Uncle Tobys芝士醬脆餅 (132g / 6包裝)",
+      "desc_en": "🧀 Uncle Tobys Cheese Dip & Cracker Snacks (132g / 6 packs)\n\n✨ One of Australia’s most popular and long-selling snacks! ✨\n\nA school-time favourite for kids 👏 — crispy sesame crackers paired with rich, creamy cheese dip that’s simply irresistible! 😍 Each pack comes with 3 sesame crackers + cheese dip, perfectly portioned and easy to take anywhere.\n\nAvailable in multiple flavours 👇\n🧀 Tasty Cheese\n🧀 Cheddar Cheese\n🥓 Cheese & Bacon\n🧅 French Onion ",
+      "id": "1036",
+      "desc_zh": "✨澳洲超人氣零食・長期熱銷款✨\n\n呢款係小朋友返學茶點首選👏芝麻香脆餅 + 濃郁芝士醬，真係食到停唔到口！😍獨立包裝設計，每包有 3塊芝麻餅乾 + 芝士醬，方便攜帶隨時享用！\n\n多種口味選👇\n🧀 香濃芝士\n🧀 車打芝士\n🥓 煙肉芝士\n🧅洋蔥芝士\n",
+      "category": "preorder"
+    },
+    {
+      "desc_images_en": [
+        "/Archive/Untitled_design/uncle-tobys-fruit-roll-up.png"
+      ],
+      "img": "/Archive/Untitled_design/6899175-zm.jpg",
+      "desc_images_zh": [
+        "/Archive/Untitled_design/uncle-tobys-fruit-roll-up.png"
+      ],
+      "price_hkd": 40,
+      "title_en": "Uncle Tobys Fruit Roll-Ups (94g / 6 packs)",
+      "title_zh": "Uncle Tobys 水果捲糖 (94g / 6包裝)",
+      "desc_en": "🎉 Kids’ favourite snack is here!\nMade from real fruit 🍓🍒🍍🍇 with no artificial colours or flavours, making it a fun and safe treat for little ones! ✅\nEach pack is individually wrapped — perfect for school, travel, or a quick snack anytime 😋\n\n🌈 Available flavours:\n💖 Rainbow Fruit\n💖 Grape\n💖 Strawberry\n💖 Berry Rainbow\n💖 Apple",
+      "id": "1037",
+      "desc_zh": "🎉 小朋友必搶零食登場啦！\n純天然水果🍓🍒🍍🍇製造，✅ 無添加人造成色或香料，小朋友安全食用！\n獨立包裝，返學、旅行、下午茶隨時開心食😋\n\n🌈 口味選擇：\n💖 彩虹雜果\n💖 葡萄\n💖士多啤梨\n💖彩虹莓果\n💖蘋果\n\n",
+      "category": "preorder"
+    },
+    {
+      "desc_images_en": [
+        "/Archive/Untitled_design/pistachio-papi-crunchy.png"
+      ],
+      "img": "/Archive/Untitled_design/untitled-design.png",
+      "desc_images_zh": [
+        "/Archive/Untitled_design/pistachio-papi-crunchy.png"
+      ],
+      "price_hkd": 128,
+      "title_zh": "Pistachio Papi Crunchy 開心果脆粒醬 (180g)",
+      "desc_en": "🇮🇹 Upgraded Pistachio Spread – Made in Italy!\nA must-try for all pistachio lovers 💚\n\nSmooth, creamy pistachio spread blended with crunchy pistachio bits — every bite is bursting with rich nutty aroma and irresistible crunch! 😍\nPerfect on toast, croissants, or biscuits — indulgent, fragrant, and never too sweet. One taste and you’ll be hooked! 🤤",
+      "id": "1038",
+      "desc_zh": "升級版開心果醬🇮🇹 意大利製造・開心果控必試！\n順滑開心果醬 x 香脆開心果碎，每一口都濃香四溢、脆香滿分😍\n無論搽多士、配牛角包或餅乾，都超級正！香氣濃郁又唔膩，試一啖就停唔到手🤤\n",
+      "category": "preorder"
+    },
+    {
+      "desc_images_en": [
+        "/Archive/Untitled_design/grain-waves.png"
+      ],
+      "img": "/Archive/Untitled_design/untitled-design-1-.png",
+      "desc_images_zh": [
+        "/Archive/Untitled_design/grain-waves.png"
+      ],
+      "price_hkd": 35,
+      "title_en": "Sunbites Grainwaves Minis Canister Sour Cream & Chives  (150g)",
+      "title_zh": "Sunbites Minis Grainwaves 酸忌廉洋葱味穀物脆片 (150g)",
+      "desc_en": "One of the must-buy snacks from Australian supermarkets! Super tasty 😋\nHong Kong friends tried it and couldn’t stop munching!\nSour Cream & Onion flavour — not too salty, made with wholegrain baked crisps, not fried, healthier than regular chips 💚",
+      "id": "1039",
+      "desc_zh": "澳洲超市必買零食清單之一！超好味！香港朋友仔食完都話追住食停唔到口😋酸忌廉洋葱味唔太鹹，用全穀物烘焙製成，非油炸比普通薯片更健康💚",
+      "category": "preorder"
+    },
+    {
+      "category": "preorder",
+      "id": "1040",
+      "title_zh": "Garnier Fructis Hair Food滋養髮膜 (390ml)",
+      "desc_en": "💆‍♀️ Dry Hair Savior! Garnier Fructis Hair Food Nourishing Mask \n\nAfter dyeing, my ends were so dry—tried this Banana Hair Mask for 3 days straight and my hair instantly felt softer! Now I use it every other day, and my strands are smooth, shiny, and healthy 😍\n\n🌱 Silicone-free | No Artificial Color | Cruelty-Free | Vegan\nMade with 97% natural ingredients, enriched with Vitamins C, E & F\n\nVariants for every hair need:\n🍌 Banana (for dry hair) – deep nourishment + 7x nutrition, perfect for dry, tangled ends 💛\n\n🌰 Macadamia (for frizzy hair) – smooths and tames frizz for 48h, great for natural curls or flyaways\n\n🍉 Watermelon (for fine hair) – adds volume and bounce to delicate strands\n\n🥭 Papaya (for damaged hair) – repairs damaged hair, reduces breakage by 94%, a must after coloring",
+      "desc_zh": "🍌✨ 乾髮救星！Garnier Fructis Hair Food滋養髮膜\n\n\n染髮後髮尾好乾，試左呢隻香蕉髮膜連續3日，明顯冇咁乾💆‍♀️而家keep住用隔日用，髮絲柔順咗又有光澤😍\n🌱 無矽靈 / 無人工色素 / Cruelty Free / Vegan, 97%天然成分，添加維他命 C、E、F\n\n🍌 香蕉（乾髮救星）\n深層滋養 + 7倍營養💛 髮尾乾旱、打結救星！\n\n🌰 澳洲堅果（乾燥毛躁髮適用）\n順滑抗毛躁48小時，特別啱自然捲或易炸毛髮質\n\n🍉 西瓜（細軟髮質適用）\n幫幼細髮質注入豐盈感，令髮絲更飽滿、有彈性\n\n🥭 木瓜（受損髮專用）\n修護受損、減少94%斷髮，漂染後髮質必備",
+      "title_en": "Garnier Fructis Hair Food Mask (390ml)",
+      "price_hkd": 85,
+      "img": "/Archive/Untitled_design/garnier-hair-mask.png"
+    },
+    {
+      "category": "preorder",
+      "id": "1041",
+      "title_zh": "Garnier Fructis Hair Food 二合一洗髮皂 (60g)",
+      "price_hkd": 75,
+      "desc_zh": "94%植物來源成分🌿 無矽靈、無人工色素、無防腐劑✨ 💦 一塊相當於2枝250ml洗髮水，環保又方便♻️\n\n🍌 香蕉 – 滋養修護 （乾髮用）\n香蕉 + 椰子油幫助乾髮深層滋養，髮絲柔順有光澤，唔扁塌\n\n 🍉 西瓜 – 蓬鬆豐盈 (細軟髮質適用)\n西瓜、石榴、椰子油混合配方，豐盈輕盈，髮絲健康閃亮✨\n\n🌿蘆薈– 深層滋潤乾髮（乾髮&普通髮質用）\n蘆薈+ 椰子油乾旱髮質救星，植物萃取深入滋養髮絲，柔順不扁塌",
+      "title_en": "Garnier Fructis Hair Food 2-in-1 Shampoo Bar (60g)",
+      "desc_en": "🌿 94% plant-based ingredients | Silicone-free | No artificial colors | No preservatives ✨\n💦 1 bar = 2 x 250ml shampoo bottles – eco-friendly & convenient ♻️\n\nVariants for every hair need:\n🍌 Banana – Nourishing & Repairing (for dry hair)\nBanana + coconut oil deeply nourish dry strands, leaving hair soft, shiny, and bouncy.\n\n🍉 Watermelon – Volumizing & Lightweight (for fine hair)\nWatermelon, pomegranate & coconut oil blend adds volume and shine without weighing hair down ✨\n\n🌿 Aloe Vera – Deep Hydration (for dry & normal hair)\nAloe vera + coconut oil rescue dry strands, delivering plant-powered hydration for smooth, non-flat hair.",
+      "img": "/Archive/Untitled_design/garnier-shampoo-bar.png"
     }
   ]
 }
