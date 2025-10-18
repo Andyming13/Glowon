@@ -3,10 +3,12 @@
   "items": [
     {
       "desc_images_en": [
+        "/Archive/Untitled_design/classic-ultra-mini.png",
         "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
       ],
       "img": "/Archive/Untitled_design/classic-ultra-mini.png",
       "desc_images_zh": [
+        "/Archive/Untitled_design/classic-ultra-mini.png",
         "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
       ],
       "price_hkd": 1099,
@@ -19,10 +21,12 @@
     },
     {
       "desc_images_en": [
+        "/Archive/Untitled_design/classic-ultra-mini-platform.png",
         "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
       ],
       "img": "/Archive/Untitled_design/classic-ultra-mini-platform.png",
       "desc_images_zh": [
+        "/Archive/Untitled_design/classic-ultra-mini-platform.png",
         "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
       ],
       "price_hkd": 1199,
@@ -35,10 +39,12 @@
     },
     {
       "desc_images_en": [
+        "/Archive/Untitled_design/mini-bailey-bow-ii.png",
         "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
       ],
       "img": "/Archive/Untitled_design/mini-bailey-bow-ii.png",
       "desc_images_zh": [
+        "/Archive/Untitled_design/mini-bailey-bow-ii.png",
         "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
       ],
       "price_hkd": 1249,
@@ -51,10 +57,12 @@
     },
     {
       "desc_images_en": [
+        "/Archive/Untitled_design/classic-mini-ii.png",
         "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
       ],
       "img": "/Archive/Untitled_design/classic-mini-ii.png",
       "desc_images_zh": [
+        "/Archive/Untitled_design/classic-mini-ii.png",
         "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
       ],
       "price_hkd": 1099,
@@ -67,10 +75,12 @@
     },
     {
       "desc_images_en": [
+        "/Archive/Untitled_design/classic-short-ii.png",
         "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
       ],
       "img": "/Archive/Untitled_design/classic-short-ii.png",
       "desc_images_zh": [
+        "/Archive/Untitled_design/classic-short-ii.png",
         "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
       ],
       "price_hkd": 1248,
@@ -79,6 +89,80 @@
       "desc_en": "Grey / Chestnut / Sand - size (EU): 36,37,38,39,40",
       "id": "5",
       "desc_zh": "灰色 / 栗子啡色 / 沙色 - size (EU): 36,37,38,39,40",
+      "category": "preorder"
+    },
+    {
+      "desc_images_en": [
+        "/Archive/Untitled_design/as01-musa-platform-1.png",
+        "/Archive/Untitled_design/as01-musa-platform-2.png",
+        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
+      ],
+      "img": "/Archive/Untitled_design/as01-musa-platform-1.png",
+      "desc_images_zh": [
+        "/Archive/Untitled_design/as01-musa-platform-1.png",
+        "/Archive/Untitled_design/as01-musa-platform-2.png",
+        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
+      ],
+      "price_hkd": 879,
+      "title_en": "<Pre-order> UGG Australian Shepherd sheepskin shoes (AS01)    ⏰ Order cut-off: Oct 25",
+      "title_zh": "<預購> UGG Australian Shepherd羊毛鞋 (AS01)    ⏰ 截單: 10月25日",
+      "desc_en": "Sand - size (EU): 35,36,37, 40\nGoat Grey – size (EU): 35,36,37,38\nBlack / Grey / Chestnut / Dawn Pink - size (EU): 35,36,37,38,39,40\n\n* This pair comes with two detachable heel straps, offering you three versatile ways to wear it.\n",
+      "id": "6",
+      "desc_zh": "沙色 - size (EU): 35,36,37, 40\n淺灰色 – size (EU): 35,36,37,38\n黑色 / 深灰色 / 栗子啡色 / 暗粉色 - size (EU): 35,36,37,38,39,40\n\n*呢款鞋跟埋2條可拆式後提帶替換，俾你可以有3種穿法！\n",
+      "category": "preorder"
+    },
+    {
+      "desc_images_en": [
+        "/Archive/Untitled_design/as02-ventus-cow-suede-platform-slippers.png",
+        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
+      ],
+      "img": "/Archive/Untitled_design/as02-ventus-cow-suede-platform-slippers.png",
+      "desc_images_zh": [
+        "/Archive/Untitled_design/as02-ventus-cow-suede-platform-slippers.png",
+        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
+      ],
+      "price_hkd": 889,
+      "title_en": "<Pre-order> UGG Australian Shepherd sheepskin shoes (AS02)    ⏰ Order cut-off: Oct 25",
+      "title_zh": "<預購>  UGG Australian Shepherd羊毛鞋 (AS02)    ⏰ 截單: 10月25日",
+      "desc_en": "Brown / Chestnut / Black- size (EU): 35,36,37,38,39,40",
+      "id": "7",
+      "desc_zh": "啡色 / 栗子啡色 / 黑色- size (EU): 35,36,37,38,39,40",
+      "category": "preorder"
+    },
+    {
+      "desc_images_en": [
+        "/Archive/Untitled_design/as03-waffle-curly-platform.png",
+        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
+      ],
+      "img": "/Archive/Untitled_design/as03-waffle-curly-platform.png",
+      "desc_images_zh": [
+        "/Archive/Untitled_design/as03-waffle-curly-platform.png",
+        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
+      ],
+      "price_hkd": 848,
+      "title_en": "<預購>  UGG Australian Shepherd羊毛鞋(AS03)    ⏰ 截單: 10月25日",
+      "title_zh": "<預購>  UGG Australian Shepherd羊毛鞋(AS03)    ⏰ 截單: 10月25日",
+      "desc_en": "Sand- size (EU): 40\nChestnut- size (EU): 37,40\nBlack / Grey - size (EU): 35,36,37,38,39,40\n\n*Detachable back straps for two stylish ways to wear.\n",
+      "id": "8",
+      "desc_zh": "沙色- size (EU): 40\n栗子啡色- size (EU): 37,40\n黑色 / 深灰色 - size (EU): 35,36,37,38,39,40\n\n*後提帶可拆卸，隨心變換兩種穿法。\n",
+      "category": "preorder"
+    },
+    {
+      "desc_images_en": [
+        "/Archive/Untitled_design/as04-rilee-slipper.png",
+        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
+      ],
+      "img": "/Archive/Untitled_design/as04-rilee-slipper.png",
+      "desc_images_zh": [
+        "/Archive/Untitled_design/as04-rilee-slipper.png",
+        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
+      ],
+      "price_hkd": 849,
+      "title_en": "<Pre-order> UGG Australian Shepherd sheepskin shoes (AS04)    ⏰ Order cut-off: Oct 25",
+      "title_zh": "<預購>  UGG Australian Shepherd羊毛鞋(AS04)    ⏰ 截單: 10月25日",
+      "desc_en": "Brown / Chocolate- size (EU): 35\nSand - size (EU): 35,39\nChestnut  - size (EU): 35,36,37,38,39,40\n",
+      "id": "9",
+      "desc_zh": "啡色 / 朱古力色- size (EU): 35\n沙色 - size (EU): 35,39\n栗子啡色  - size (EU): 35,36,37,38,39,40\n",
       "category": "preorder"
     },
     {
@@ -427,24 +511,6 @@
       "desc_en": "Rich chocolate-scented foaming body wash that gently cleanses for a sweet bathing experience.\n\n🇦🇺 Made in Australia",
       "id": "1024",
       "desc_zh": "濃郁朱古力香味，綿密泡泡溫柔潔淨肌膚，甜蜜香氣讓沐浴時光更加愉悅！\n\n🇦🇺 產地：澳洲",
-      "category": "preorder"
-    },
-    {
-      "desc_images_en": [
-        "/Archive/Untitled_design/as01-musa-platform-2.png",
-        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
-      ],
-      "img": "/Archive/Untitled_design/as01-musa-platform-1.png",
-      "desc_images_zh": [
-        "/Archive/Untitled_design/as01-musa-platform-2.png",
-        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
-      ],
-      "price_hkd": 879,
-      "title_en": "<Pre-order> UGG Australian Shepherd sheepskin shoes (AS01)    ⏰ Order cut-off: Oct 25",
-      "title_zh": "<預購> UGG Australian Shepherd羊毛鞋 (AS01)    ⏰ 截單: 10月25日",
-      "desc_en": "Sand - size (EU): 35,36,37, 40\nGoat Grey – size (EU): 35,36,37,38\nBlack / Grey / Chestnut / Dawn Pink - size (EU): 35,36,37,38,39,40\n\n* This pair comes with two detachable heel straps, offering you three versatile ways to wear it.\n",
-      "id": "6",
-      "desc_zh": "沙色 - size (EU): 35,36,37, 40\n淺灰色 – size (EU): 35,36,37,38\n黑色 / 深灰色 / 栗子啡色 / 暗粉色 - size (EU): 35,36,37,38,39,40\n\n*呢款鞋跟埋2條可拆式後提帶替換，俾你可以有3種穿法！\n",
       "category": "preorder"
     }
   ]
