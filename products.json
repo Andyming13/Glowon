@@ -141,7 +141,7 @@
       ],
       "price_hkd": 848,
       "title_en": "<預購>  UGG Australian Shepherd羊毛鞋(AS03)    ⏰ 截單: 10月25日",
-      "title_zh": "<預購>  UGG Australian Shepherd羊毛鞋(AS03)    ⏰ 截單: 10月25日",
+      "title_zh": "<預購>  UGG Australian Shepherd羊毛鞋 (AS03)    ⏰ 截單: 10月25日",
       "desc_en": "Sand- size (EU): 40\nChestnut- size (EU): 37,40\nBlack / Grey - size (EU): 35,36,37,38,39,40\n\n*Detachable back straps for two stylish ways to wear.\n",
       "id": "8",
       "desc_zh": "沙色- size (EU): 40\n栗子啡色- size (EU): 37,40\n黑色 / 深灰色 - size (EU): 35,36,37,38,39,40\n\n*後提帶可拆卸，隨心變換兩種穿法。\n",
@@ -159,10 +159,136 @@
       ],
       "price_hkd": 849,
       "title_en": "<Pre-order> UGG Australian Shepherd sheepskin shoes (AS04)    ⏰ Order cut-off: Oct 25",
-      "title_zh": "<預購>  UGG Australian Shepherd羊毛鞋(AS04)    ⏰ 截單: 10月25日",
+      "title_zh": "<預購>  UGG Australian Shepherd羊毛鞋 (AS04)    ⏰ 截單: 10月25日",
       "desc_en": "Brown / Chocolate- size (EU): 35\nSand - size (EU): 35,39\nChestnut  - size (EU): 35,36,37,38,39,40\n",
       "id": "9",
       "desc_zh": "啡色 / 朱古力色- size (EU): 35\n沙色 - size (EU): 35,39\n栗子啡色  - size (EU): 35,36,37,38,39,40\n",
+      "category": "preorder"
+    },
+    {
+      "desc_images_en": [
+        "/Archive/Untitled_design/as05-–-vance.png",
+        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
+      ],
+      "img": "/Archive/Untitled_design/as05-–-vance.png",
+      "desc_images_zh": [
+        "/Archive/Untitled_design/as05-–-vance.png",
+        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
+      ],
+      "price_hkd": 799,
+      "title_en": "<Pre-order> UGG Australian Shepherd sheepskin shoes (AS05)    ⏰ Order cut-off: Oct 25",
+      "title_zh": "<預購>  UGG Australian Shepherd羊毛鞋 (AS05)    ⏰ 截單: 10月25日",
+      "desc_en": "Black- size (EU): 35,36,40\nCHestnut  - size (EU): 35,36,38,39,40\n",
+      "id": "10",
+      "desc_zh": "黑色- size (EU): 35,36,40\n栗子啡色  - size (EU): 35,36,38,39,40\n",
+      "category": "preorder"
+    },
+    {
+      "desc_images_en": [
+        "/Archive/Untitled_design/as06-–-coated-classic.png",
+        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
+      ],
+      "img": "/Archive/Untitled_design/as06-–-coated-classic.png",
+      "desc_images_zh": [
+        "/Archive/Untitled_design/as06-–-coated-classic.png",
+        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
+      ],
+      "price_hkd": 869,
+      "title_en": "<Pre-order> UGG Australian Shepherd sheepskin shoes (AS06)    ⏰ Order cut-off: Oct 25",
+      "title_zh": "<預購>  UGG Australian Shepherd羊毛鞋 (AS06)    ⏰ 截單: 10月25日",
+      "desc_en": "Milk - size (EU): 35,36,38,39,40\nBlack / Pink / Chestnut  - size (EU): 35,36,37,38,39,40\n",
+      "id": "11",
+      "desc_zh": "奶油色- size (EU): 35,36,38,39,40\n黑色 / 粉紅色 / 栗子啡色  - size (EU): 35,36,37,38,39,40\n",
+      "category": "preorder"
+    },
+    {
+      "desc_images_en": [
+        "/Archive/Untitled_design/as07-cecil-slipper.png",
+        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
+      ],
+      "img": "/Archive/Untitled_design/as07-cecil-slipper.png",
+      "desc_images_zh": [
+        "/Archive/Untitled_design/as07-cecil-slipper.png",
+        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
+      ],
+      "price_hkd": 699,
+      "title_en": "<Pre-order> UGG Australian Shepherd sheepskin shoes (AS07)    ⏰ Order cut-off: Oct 25",
+      "title_zh": "<預購>  UGG Australian Shepherd羊毛鞋 (AS07)    ⏰ 截單: 10月25日",
+      "desc_en": "Brown - size (EU): 35\nCream - size (EU): 35,36,37,38,39,40\n",
+      "id": "12",
+      "desc_zh": "啡色 - size (EU): 35\n米白色 - size (EU): 35,36,37,38,39,40\n",
+      "category": "preorder"
+    },
+    {
+      "desc_images_en": [
+        "/Archive/Untitled_design/as08-kamari-flats.png",
+        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
+      ],
+      "img": "/Archive/Untitled_design/as08-kamari-flats.png",
+      "desc_images_zh": [
+        "/Archive/Untitled_design/as08-kamari-flats.png",
+        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
+      ],
+      "price_hkd": 599,
+      "title_en": "<Pre-order> UGG Australian Shepherd sheepskin shoes (AS08)    ⏰ Order cut-off: Oct 25",
+      "title_zh": "<預購>  UGG Australian Shepherd羊毛鞋 (AS08)    ⏰ 截單: 10月25日",
+      "desc_en": "Black - size (EU): 36,38\nBeige - size (EU): 35,36,37,38,39,40\n",
+      "id": "13",
+      "desc_zh": "黑色 - size (EU): 36,38\n米杏色 - size (EU): 35,36,37,38,39,40\n",
+      "category": "preorder"
+    },
+    {
+      "desc_images_en": [
+        "/Archive/Untitled_design/as09-barrett-slipper.png",
+        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
+      ],
+      "img": "/Archive/Untitled_design/as09-barrett-slipper.png",
+      "desc_images_zh": [
+        "/Archive/Untitled_design/as09-barrett-slipper.png",
+        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
+      ],
+      "price_hkd": 698,
+      "title_en": "<Pre-order> UGG Australian Shepherd sheepskin shoes (AS09)    ⏰ Order cut-off: Oct 25",
+      "title_zh": "<預購>  UGG Australian Shepherd羊毛鞋 (AS09)    ⏰ 截單: 10月25日",
+      "desc_en": "Black / Pink  - size (EU): 35,36,37,38,39,40\nCream  - size (EU): 35,37,40\nBrown  - size (EU): 35,36,37",
+      "id": "14",
+      "desc_zh": "黑色 / 粉紅色  - size (EU): 35,36,37,38,39,40\n米白色  - size (EU): 35,37,40\n啡色  - size (EU): 35,36,37\n\n",
+      "category": "instock"
+    },
+    {
+      "desc_images_en": [
+        "/Archive/Untitled_design/as10-–-mina-boots.png",
+        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
+      ],
+      "img": "/Archive/Untitled_design/as10-–-mina-boots.png",
+      "desc_images_zh": [
+        "/Archive/Untitled_design/as10-–-mina-boots.png",
+        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
+      ],
+      "price_hkd": 1099,
+      "title_en": "<Pre-order> UGG Australian Shepherd sheepskin shoes (AS10)    ⏰ Order cut-off: Oct 25",
+      "title_zh": "<預購>  UGG Australian Shepherd羊毛鞋 (AS10)    ⏰ 截單: 10月25日",
+      "desc_en": "Grey- size (EU): 35,36,37,38,39\nBlack / Chestnut / Pink  - size (EU): 35,36,37,38,39,40\n",
+      "id": "15",
+      "desc_zh": "灰色- size (EU): 35,36,37,38,39\n黑色 / 栗子啡色 / 粉色  - size (EU): 35,36,37,38,39,40\n",
+      "category": "preorder"
+    },
+    {
+      "desc_images_en": [
+        "/Archive/Untitled_design/ea01-–-mallow-slipper.png",
+        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
+      ],
+      "img": "/Archive/Untitled_design/ea01-–-mallow-slipper.png",
+      "desc_images_zh": [
+        "/Archive/Untitled_design/ea01-–-mallow-slipper.png",
+        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
+      ],
+      "price_hkd": 649,
+      "title_en": "<Pre-order> EVER AU sheepskin shoes (EA01)    ⏰ Order cut-off: Oct 25",
+      "title_zh": "<預購> EVER AU 羊毛鞋 (EA01)    ⏰ 截單: 10月25日",
+      "desc_en": "Pink  - size (EU): 35,36,37,38,39\nLilac- size (EU): 35,36,41\nBrown  - size (EU): 37,38,39\nGrey - size (EU): 36, 39\n",
+      "id": "16",
+      "desc_zh": "粉紅色  - size (EU): 35,36,37,38,39\n紫丁香色- size (EU): 35,36,41\n啡色  - size (EU): 37,38,39\n灰色  - size (EU): 36, 39\n",
       "category": "preorder"
     },
     {
