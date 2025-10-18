@@ -53,8 +53,9 @@
           <a class="btn icon whatsapp" href="https://wa.me/85297436663" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp">
             <img src="Archive/whats.png" alt="WhatsApp" style="height:24px;width:24px;">
           </a>
-          <a class="btn icon search" href="#" title="Search" aria-label="Search">🔍</a>
-          <a class="btn icon login"  href="login.html" title="Login" aria-label="Login">👤</a>
+          <!-- 搜索改为跳转 search.html -->
+          <a class="btn icon search" href="search.html" title="Search" aria-label="Search">🔍</a>
+          <!-- 移除會員登入按鈕 -->
           <a class="btn icon cart"   href="checkout.html" title="Cart" aria-label="Cart">🛒</a>
 
           <div class="lang">
@@ -74,8 +75,8 @@
             <a class="item" href="https://wa.me/85297436663" target="_blank" rel="noopener">
               <img src="Archive/whats.png" alt="WhatsApp" style="height:18px;width:18px;vertical-align:middle;"> WhatsApp
             </a>
-            <a class="item" href="#" id="moreSearch">🔍 Search</a>
-            <a class="item" href="login.html">👤 Login</a>
+            <a class="item" href="search.html" id="moreSearch">🔍 Search</a>
+            <!-- 移除 Login -->
             <a class="item" href="checkout.html">🛒 Cart</a>
             <div class="sep"></div>
             <button class="item" type="button" data-set-lc="zh-HK">繁體中文</button>
@@ -127,6 +128,18 @@
     // 每次上线改版本号
     const DATA_VERSION = '2025-10-18-01';
 
+    function currentLocale(){
+      try {
+        if (typeof getLocale === 'function') {
+          const lc = getLocale();
+          if (lc === 'en' || lc === 'zh-HK') return lc;
+        }
+      } catch(e){}
+      const docLang = (document.documentElement.lang || '').toLowerCase();
+      if (docLang.startsWith('en')) return 'en';
+      return 'zh-HK';
+    }
+
     async function loadProductsOnce() {
       if (window.__PRODUCTS_LOADED__) return;
       const res = await fetch('/products.json?v=' + DATA_VERSION, { cache: 'no-store' });
@@ -150,8 +163,21 @@
       loadProductsOnce().then(run).catch(console.error);
     }
 
-    document.addEventListener('DOMContentLoaded', renderPreorder);
-    window.addEventListener('locale-changed', renderPreorder);
+    /* 兜底：切英文时把“首頁”改成“Homepage” */
+    function updateHomeLabel(){
+      if (currentLocale() === 'en') {
+        document.querySelectorAll('[data-i18n="nav_home"]').forEach(el => el.textContent = 'Homepage');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderPreorder();
+      updateHomeLabel();
+    });
+    window.addEventListener('locale-changed', () => {
+      renderPreorder();
+      updateHomeLabel();
+    });
   </script>
 </body>
 </html>

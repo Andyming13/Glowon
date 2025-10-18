@@ -1,4 +1,4 @@
-<!-- terms.html -->
+<!-- terms.html (updated) -->
 <!DOCTYPE html>
 <html lang="zh-HK">
 <head>
@@ -9,23 +9,26 @@
   <style>
     .container{max-width:1100px;margin:0 auto;padding:16px}
     .prose h1,.prose h2{margin:16px 0 8px}
-    .prose p{margin:8px 0;line-height:1.8}
-    /* 默认只显示中文块；切英文时由脚本切换 */
+    .prose p,.prose li{margin:8px 0;line-height:1.8}
+    ul{margin:6px 0 12px 18px}
+
+    /* 语言块：默认中文显示；英文切换后由脚本控制 */
     .zh{display:block}
     .en{display:none}
-    /* 头部与其它页一致的小样式（若已在 styles.css 定好可忽略） */
-    .site-header .top { display:flex; align-items:center; justify-content:space-between; }
-    .site-header .left { display:flex; align-items:center; gap:14px; }
-    .site-header .logo strong { display:none; } /* 仅保留图标 */
-    .site-header .logo img { height:26px; width:auto; display:block; }
-    .site-header .nav { display:flex; gap:14px; flex-wrap:wrap; }
-    .site-header .nav a { text-decoration:none; }
-    /* 页脚英文行默认隐藏 */
-    .foot-row.en{display:none;}
+    /* 页脚英文行默认隐藏，切英文时显示 */
+    .foot-row.en{display:none}
+
+    /* 头部（与其它已改页面一致） */
+    .site-header .top{display:flex;align-items:center;justify-content:space-between}
+    .site-header .left{display:flex;align-items:center;gap:14px}
+    .site-header .logo strong{display:none} /* 只保留图标 */
+    .site-header .logo img{height:26px;width:auto;display:block}
+    .site-header .nav{display:flex;gap:14px;flex-wrap:wrap}
+    .site-header .nav a{text-decoration:none}
   </style>
 </head>
 <body>
-  <!-- Header（与其它页面一致） -->
+  <!-- Header -->
   <header class="site-header">
     <div class="container">
       <nav class="top">
@@ -33,7 +36,7 @@
         <div class="left">
           <a href="index.html" class="logo">
             <img src="Archive/logo.png" alt="Glow On logo">
-            <strong data-i18n="brand">Glow On</strong><!-- 已隐藏 -->
+            <strong data-i18n="brand">Glow On</strong>
           </a>
           <div class="nav">
             <a href="index.html" data-i18n="nav_home">首頁</a>
@@ -53,8 +56,9 @@
              aria-label="WhatsApp">
             <img src="Archive/whats.png" alt="WhatsApp" style="height:24px;width:24px;">
           </a>
-          <a class="btn icon search" href="#" title="Search" aria-label="Search">🔍</a>
-          <a class="btn icon login"  href="login.html" title="Login" aria-label="Login">👤</a>
+          <!-- 搜索入口预留到 search.html -->
+          <a class="btn icon search" href="search.html" title="Search" aria-label="Search">🔍</a>
+          <!-- 移除登录按钮 -->
           <a class="btn icon cart"   href="checkout.html" title="Cart" aria-label="Cart">🛒</a>
 
           <!-- 语言切换 -->
@@ -76,8 +80,7 @@
             <a class="item" href="https://wa.me/85297436663" target="_blank" rel="noopener">
               <img src="Archive/whats.png" alt="WhatsApp" style="height:18px;width:18px;vertical-align:middle;"> WhatsApp
             </a>
-            <a class="item" href="#" id="moreSearch">🔍 Search</a>
-            <a class="item" href="login.html">👤 Login</a>
+            <a class="item" href="search.html" id="moreSearch">🔍 Search</a>
             <a class="item" href="checkout.html">🛒 Cart</a>
             <div class="sep"></div>
             <button class="item" type="button" data-set-lc="zh-HK">繁體中文</button>
@@ -90,8 +93,6 @@
 
   <main>
     <div class="container">
-      <!-- 没有 Banner（按你的要求已删除图片） -->
-
       <!-- 繁體中文內容（默认显示） -->
       <article class="prose zh" id="terms-zh">
         <h1>條款及細則</h1>
@@ -111,14 +112,15 @@
           <p>如遇供應商缺貨或系統誤差導致無法供貨，我們會儘快通知並安排退款。</p>
         </section>
 
+        <!-- 這兩節按你的最新文案重寫 -->
         <section id="order">
           <h2>【訂單確認】</h2>
-          <p>下單前請務必核對資料無誤。提交訂單後，系統會發送確認電郵（如未收到，請檢查垃圾郵件匣）；該電郵代表我們已接收訂單。</p>
+          <p>目前僅接受透過 WhatsApp 下單。請在提交前仔細核對所有資料。當我們收到你的 WhatsApp 訂單訊息後，會於 24 小時內回覆並確認訂單，請留意 WhatsApp 回覆訊息。</p>
         </section>
 
         <section id="shipping">
           <h2>【送貨安排】</h2>
-          <p>我們將盡力盡快出貨；實際派送由第三方物流（如順豐）處理，或因天氣、交通、假期、智能櫃容量等因素延誤。會協助跟進，但不承擔因延誤導致之損失。</p>
+          <p>現貨產品將盡快出貨，並由本地第三方物流（如順豐）派送，或按本店與客人約定的交收方式進行。預購產品通常需約 2–3 週由海外寄抵香港，再由本地第三方物流派送或依約定方式交收。送貨時間可能因天氣、交通、假期或智能櫃容量等因素延誤。我們會協助跟進，但不承擔因延誤造成的任何損失。</p>
         </section>
 
         <section id="pricing">
@@ -138,7 +140,7 @@
 
         <section id="product-info-en">
           <h2>Product Information</h2>
-          <p>We strive for accuracy in images, descriptions, prices, and offers on the site. However, actual colors may vary due to display differences and lighting; size may vary by 1–3cm due to material and measurement methods. If any information (including prices, descriptions, promotions) is incorrect, we will correct it promptly and confirm with you on how to proceed (continue or cancel the order).</p>
+          <p>We strive for accuracy in images, descriptions, prices, and offers on the site. However, actual colors may vary due to display differences and lighting; size may vary by 1–3cm due to material and measurement methods. If any information (including prices, descriptions, promotions) is incorrect, we will correct it promptly and confirm with you how to proceed (continue or cancel the order).</p>
         </section>
 
         <section id="stock-en">
@@ -146,14 +148,15 @@
           <p>If a supplier is out of stock or a system error prevents fulfillment, we will notify you as soon as possible and arrange a refund.</p>
         </section>
 
+        <!-- These two sections replaced with your new copy -->
         <section id="order-en">
           <h2>Order Confirmation</h2>
-          <p>Please verify details before submitting your order. After submission, a confirmation email will be sent (check your spam folder if not received); this email indicates your order has been received.</p>
+          <p>We currently accept orders via WhatsApp only. Please ensure all details are correct before submitting. Once we receive your WhatsApp order message, our team will reply and confirm your order within 24 hours, so please check your WhatsApp for our confirmation message.</p>
         </section>
 
         <section id="shipping-en">
           <h2>Shipping</h2>
-          <p>We will dispatch orders as quickly as possible. Delivery is handled by third-party couriers (e.g., SF Express) and may be delayed due to weather, traffic, holidays, or locker capacity. We will help follow up but are not liable for losses caused by delays.</p>
+          <p>In-stock items will be dispatched promptly and delivered via local third-party couriers (e.g., SF Express), or according to the delivery method agreed with the customer. Pre-order items usually take around 2–3 weeks to arrive from overseas before local delivery or handover as agreed. Delivery times may be affected by weather, traffic, holidays, or locker capacity. We will assist with follow-up but are not responsible for any loss caused by such delays.</p>
         </section>
 
         <section id="pricing-en">
@@ -164,7 +167,7 @@
     </div>
   </main>
 
-  <!-- Footer（新增付款方式；随语言切换） -->
+  <!-- Footer（随语言切换；含付款方式） -->
   <footer class="site-footer">
     <div class="container footer-box">
       <nav class="foot-row zh">
@@ -189,9 +192,20 @@
 
   <script src="site.js"></script>
   <script>
-    // 切换语言：正文与页脚联动显示中/英
+    function currentLocale(){
+      try{
+        if (typeof getLocale === 'function'){
+          const lc = getLocale();
+          if (lc === 'en' || lc === 'zh-HK') return lc;
+        }
+      }catch(e){}
+      const docLang = (document.documentElement.lang || '').toLowerCase();
+      return docLang.startsWith('en') ? 'en' : 'zh-HK';
+    }
+
+    // 正文/页脚切换 + 顶部“首頁/Homepage”兜底 + 标题切换
     function renderLocaleBlocks(){
-      const lc = getLocale ? getLocale() : (localStorage.getItem('dordor-locale') || 'zh-HK');
+      const lc = currentLocale();
       document.documentElement.lang = lc;
 
       // 正文
@@ -209,7 +223,16 @@
         if (lc === 'en'){ zhRow.style.display='none'; enRow.style.display='flex'; }
         else { zhRow.style.display='flex'; enRow.style.display='none'; }
       }
+
+      // 顶部“首頁”→“Homepage”
+      document.querySelectorAll('[data-i18n="nav_home"]').forEach(el=>{
+        el.textContent = (lc === 'en' ? 'Homepage' : '首頁');
+      });
+
+      // 页面标题
+      document.title = (lc === 'en' ? 'Glow On · Terms & Conditions' : 'Glow On · 條款及細則');
     }
+
     renderLocaleBlocks();
     window.addEventListener('locale-changed', renderLocaleBlocks);
   </script>

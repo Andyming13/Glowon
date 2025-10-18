@@ -1,3 +1,4 @@
+<!-- checkout.html (updated, bilingual + WhatsApp message format) -->
 <!DOCTYPE html>
 <html lang="zh-HK">
 <head>
@@ -18,6 +19,14 @@
     .btn.primary{background:#111;color:#fff;border-color:#111}
     .toolrow{display:flex;gap:10px;justify-content:flex-end;margin-top:16px;flex-wrap:wrap}
     .badge{display:inline-flex;min-width:18px;height:18px;padding:0 6px;align-items:center;justify-content:center;background:#111;color:#fff;border-radius:999px;font-size:12px;margin-left:4px}
+
+    /* Header small tweaks (align with site) */
+    .site-header .top{display:flex;align-items:center;justify-content:space-between}
+    .site-header .left{display:flex;align-items:center;gap:14px}
+    .site-header .logo strong{display:none}
+    .site-header .logo img{height:26px;width:auto;display:block}
+    .site-header .nav{display:flex;gap:14px;flex-wrap:wrap}
+    .site-header .nav a{text-decoration:none}
   </style>
 </head>
 <body>
@@ -25,30 +34,71 @@
   <header class="site-header">
     <div class="container">
       <nav class="top">
-        <a href="index.html" class="logo">
-          <img src="Archive/logo.png" alt="Glow On logo">
-          <strong data-i18n="brand">Glow On</strong>
-        </a>
-        <div class="nav">
-          <a href="index.html" data-i18n="nav_home">首頁</a>
-          <a href="preorder.html" data-route="preorder" data-i18n="nav_preorder">精選預購</a>
-          <a href="instock.html"  data-route="instock"  data-i18n="nav_instock">現貨專區</a>
-          <a href="buyagent.html" data-route="service"  data-i18n="nav_service">澳洲代購服務</a>
+        <div class="left">
+          <a href="index.html" class="logo">
+            <img src="Archive/logo.png" alt="Glow On logo">
+            <strong data-i18n="brand">Glow On</strong>
+          </a>
+          <div class="nav">
+            <a href="index.html" data-i18n="nav_home">首頁</a>
+            <a href="preorder.html" data-route="preorder" data-i18n="nav_preorder">精選預購</a>
+            <a href="instock.html"  data-route="instock"  data-i18n="nav_instock">現貨專區</a>
+            <a href="buyagent.html" data-route="service"  data-i18n="nav_service">澳洲代購服務</a>
+          </div>
         </div>
+
         <div class="actions">
+          <a class="btn icon whatsapp" 
+             href="https://wa.me/85297436663" 
+             target="_blank" 
+             rel="noopener" 
+             title="WhatsApp" 
+             aria-label="WhatsApp">
+            <img src="Archive/whats.png" alt="WhatsApp" style="height:24px;width:24px;">
+          </a>
+          <!-- 搜索入口预留到 search.html -->
+          <a class="btn icon search" href="search.html" title="Search" aria-label="Search">🔍</a>
+          <!-- 无登录按钮 -->
           <a class="btn icon cart" href="checkout.html" title="Cart" aria-label="Cart">🛒 <span id="cartBadge" class="badge">0</span></a>
+
+          <!-- 语言切换 -->
+          <div class="lang">
+            <button id="langBtn" class="lang-btn" type="button" aria-haspopup="menu" aria-expanded="false">
+              <span aria-hidden="true">🌐</span>
+              <span id="langLabel">繁體中文</span>
+              <span class="caret" aria-hidden="true">▾</span>
+            </button>
+            <div class="lang-menu" id="langMenu" role="menu" hidden>
+              <button role="menuitem" data-lc="zh-HK">繁體中文</button>
+              <button role="menuitem" data-lc="en">English</button>
+            </div>
+          </div>
+
+          <!-- 更多按钮（手机端） -->
+          <button class="btn icon" id="moreBtn" aria-haspopup="menu" aria-expanded="false" title="更多">⋯</button>
+          <div class="more-menu" id="moreMenu" hidden>
+            <a class="item" href="https://wa.me/85297436663" target="_blank" rel="noopener">
+              <img src="Archive/whats.png" alt="WhatsApp" style="height:18px;width:18px;vertical-align:middle;"> WhatsApp
+            </a>
+            <a class="item" href="search.html" id="moreSearch">🔍 Search</a>
+            <a class="item" href="checkout.html">🛒 Cart</a>
+            <div class="sep"></div>
+            <button class="item" type="button" data-set-lc="zh-HK">繁體中文</button>
+            <button class="item" type="button" data-set-lc="en">English</button>
+          </div>
         </div>
       </nav>
     </div>
   </header>
 
   <main class="container">
-    <h1>🛒 購物車</h1>
+    <h1 id="title">🛒 購物車</h1>
+
     <div id="cart-container"></div>
     <div class="total" id="cart-total"></div>
 
     <div class="toolrow">
-      <a class="btn" href="index.html">繼續購物</a>
+      <a class="btn" id="btn-continue" href="index.html">繼續購物</a>
       <button class="btn" id="clearBtn">清空購物車</button>
       <button class="btn primary" id="checkoutBtn">去結算（WhatsApp）</button>
     </div>
@@ -60,9 +110,21 @@
     </div>
   </footer>
 
+  <script src="site.js"></script>
   <script>
     const CART_KEY='glowon-cart';
-    const WHATSAPP_NUMBER = '85297436663'; // 你的客服號
+    const WHATSAPP_NUMBER = '85297436663';
+
+    function currentLocale(){
+      try{
+        if (typeof getLocale === 'function'){
+          const lc = getLocale();
+          if (lc === 'en' || lc === 'zh-HK') return lc;
+        }
+      }catch(e){}
+      const docLang = (document.documentElement.lang || '').toLowerCase();
+      return docLang.startsWith('en') ? 'en' : 'zh-HK';
+    }
 
     const getCart=()=>{ try{ return JSON.parse(localStorage.getItem(CART_KEY))||[] }catch{ return [] } };
     const setCart=(c)=> localStorage.setItem(CART_KEY, JSON.stringify(c));
@@ -74,9 +136,42 @@
     }
 
     function priceToNumber(priceText){
-      // 把 "HK$430" -> 430
+      // "HK$430" -> 430
       const n = parseFloat(String(priceText||'').replace(/[^0-9.]/g,''));
       return isNaN(n)?0:n;
+    }
+
+    function t(key){
+      const lc = currentLocale();
+      const zh = {
+        title: '🛒 購物車',
+        th_item: '商品',
+        th_name: '名稱',
+        th_price: '單價',
+        th_qty: '數量',
+        th_sub: '小計',
+        th_action: '',
+        empty: '購物車是空的',
+        total_prefix: '總計：HK$',
+        continue: '繼續購物',
+        clear: '清空購物車',
+        checkout: '去結算（WhatsApp）',
+      };
+      const en = {
+        title: '🛒 Cart',
+        th_item: 'Item',
+        th_name: 'Name',
+        th_price: 'Unit Price',
+        th_qty: 'Qty',
+        th_sub: 'Subtotal',
+        th_action: '',
+        empty: 'Your cart is empty',
+        total_prefix: 'Total: HK$',
+        continue: 'Continue Shopping',
+        clear: 'Clear Cart',
+        checkout: 'Checkout (WhatsApp)',
+      };
+      return (lc==='en'?en:zh)[key];
     }
 
     function renderCart(){
@@ -84,8 +179,14 @@
       const container = document.getElementById('cart-container');
       const totalEl = document.getElementById('cart-total');
 
+      // 头部标题 + 按钮 i18n
+      document.getElementById('title').textContent = t('title');
+      document.getElementById('btn-continue').textContent = t('continue');
+      document.getElementById('clearBtn').textContent = t('clear');
+      document.getElementById('checkoutBtn').textContent = t('checkout');
+
       if(cart.length===0){
-        container.innerHTML = `<div class="empty">購物車是空的</div>`;
+        container.innerHTML = `<div class="empty">${t('empty')}</div>`;
         totalEl.textContent='';
         updateBadge();
         return;
@@ -105,7 +206,7 @@
                    onchange="updateQty(${i}, this.value)">
           </td>
           <td>HK$${subtotal.toFixed(2)}</td>
-          <td><button class="btn" onclick="removeItem(${i})">移除</button></td>
+          <td><button class="btn" onclick="removeItem(${i})">×</button></td>
         </tr>`;
       }).join('');
 
@@ -113,7 +214,12 @@
         <table>
           <thead>
             <tr>
-              <th>商品</th><th>名稱</th><th>單價</th><th>數量</th><th>小計</th><th></th>
+              <th>${t('th_item')}</th>
+              <th>${t('th_name')}</th>
+              <th>${t('th_price')}</th>
+              <th>${t('th_qty')}</th>
+              <th>${t('th_sub')}</th>
+              <th>${t('th_action')}</th>
             </tr>
           </thead>
           <tbody>${rows}</tbody>
@@ -121,7 +227,8 @@
       `;
 
       const total = cart.reduce((s,item)=> s + priceToNumber(item.price) * (item.qty||1), 0);
-      totalEl.textContent = "總計：HK$" + total.toFixed(2);
+      const lc = currentLocale();
+      document.getElementById('cart-total').textContent = (lc==='en' ? 'Total: HK$' : '總計：HK$') + total.toFixed(2);
       updateBadge();
     }
 
@@ -140,38 +247,78 @@
     }
 
     document.getElementById('clearBtn').onclick = ()=>{
-      if(confirm('確定要清空購物車嗎？')){
+      const lc = currentLocale();
+      const msg = lc==='en' ? 'Clear all items in cart?' : '確定要清空購物車嗎？';
+      if(confirm(msg)){
         setCart([]);
         renderCart();
       }
     };
 
-    // WhatsApp 下单：把清单+總價組成訊息
+    // WhatsApp 下单：按语言生成消息
     document.getElementById('checkoutBtn').onclick = ()=>{
       const cart = getCart();
-      if(cart.length===0){ alert('購物車是空的'); return; }
+      if(cart.length===0){ 
+        alert(currentLocale()==='en' ? 'Your cart is empty' : '購物車是空的'); 
+        return; 
+      }
+      const lc = currentLocale();
       const total = cart.reduce((s,item)=> s + priceToNumber(item.price) * (item.qty||1), 0);
 
       let lines = [];
-      lines.push('🧾 Glow On 訂單（網站）');
-      lines.push('');
-      cart.forEach((item, i)=>{
-        const unit = priceToNumber(item.price);
-        const sub  = unit * (item.qty||1);
-        lines.push(`${i+1}. ${item.title}  x${item.qty||1}`);
-        lines.push(`   單價：${item.price}；小計：HK$${sub.toFixed(2)}`);
-      });
-      lines.push('');
-      lines.push(`總計：HK$${total.toFixed(2)}`);
-      lines.push('');
-      lines.push('請協助確認庫存與送貨安排，謝謝！');
+      if (lc === 'en'){
+        // EN template
+        lines.push('Glow On Website Order');
+        lines.push('');
+        cart.forEach((item, i)=>{
+          const unit = priceToNumber(item.price);
+          lines.push(`${i+1}. ${item.title}  x${item.qty||1}`);
+          lines.push(`Unit price: HK$${unit.toFixed(2)}`);
+        });
+        lines.push('');
+        lines.push(`Total: HK$${total.toFixed(2)}`);
+        lines.push('');
+        lines.push('Please confirm the items and let me know payment and delivery arrangements. Thanks!');
+      } else {
+        // ZH-HK template（按你提供的格式）
+        lines.push('Glow On 網站訂單');
+        lines.push('');
+        cart.forEach((item, i)=>{
+          const unit = priceToNumber(item.price);
+          lines.push(`${i+1}. ${item.title}  x${item.qty||1}`);
+          lines.push(`單價：HK$${unit.toFixed(2)}`);
+        });
+        lines.push('');
+        lines.push(`總數：HK$${total.toFixed(2)}`);
+        lines.push('');
+        lines.push('麻煩確認下貨品，同埋話我知付款同送貨安排，唔該～');
+      }
 
       const text = encodeURIComponent(lines.join('\n'));
       const url  = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
       window.open(url, '_blank');
     };
 
+    function renderLocaleChrome(){
+      const lc = currentLocale();
+      document.documentElement.lang = lc;
+
+      // 页面标题
+      document.title = (lc==='en' ? 'Glow On · Cart' : 'Glow On · 購物車');
+
+      // 顶部“首頁/Homepage”
+      document.querySelectorAll('[data-i18n="nav_home"]').forEach(el=>{
+        el.textContent = (lc === 'en' ? 'Homepage' : '首頁');
+      });
+    }
+
+    // 初始化
+    renderLocaleChrome();
     renderCart();
+    window.addEventListener('locale-changed', ()=>{
+      renderLocaleChrome();
+      renderCart();
+    });
   </script>
 </body>
 </html>

@@ -18,15 +18,24 @@
     .btn{padding:10px 14px;border:1px solid #e5e7eb;border-radius:10px;cursor:pointer}
     .btn.primary{background:#111;color:#fff;border-color:#111}
     .desc{margin-top:20px;border-top:1px dashed #e5e7eb;padding-top:12px;line-height:1.8}
-    /* 购物车徽标（若全站已有样式，可忽略） */
+    .desc h3{margin:0 0 10px}
+    /* 商品详情图容器（预留多图展示） */
+    .desc-images{margin-top:12px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .desc-images figure{margin:0}
+    .desc-images img{width:100%;aspect-ratio:1/1;object-fit:cover;border:1px solid #e5e7eb;border-radius:10px;background:#fff}
+    @media (max-width:920px){ .desc-images{ grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:520px){ .desc-images{ grid-template-columns:1fr; } }
+
+    /* 购物车徽标 */
     .badge{display:inline-flex;min-width:18px;height:18px;padding:0 6px;align-items:center;justify-content:center;background:#111;color:#fff;border-radius:999px;font-size:12px;margin-left:4px}
   </style>
 </head>
 <body data-page="product">
-  <!-- Header -->
+  <!-- Header（与 process.html 一致） -->
   <header class="site-header">
     <div class="container">
       <nav class="top">
+        <!-- 左：LOGO + 导航 -->
         <div class="left">
           <a href="index.html" class="logo">
             <img src="Archive/logo.png" alt="Glow On logo">
@@ -40,16 +49,22 @@
           </div>
         </div>
 
+        <!-- 右：动作 + 语言 -->
         <div class="actions">
-          <a class="btn icon whatsapp" 
-             href="https://wa.me/85297436663" 
-             target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp">
+          <a class="btn icon whatsapp"
+             href="https://wa.me/85297436663"
+             target="_blank" rel="noopener"
+             title="WhatsApp" aria-label="WhatsApp">
             <img src="Archive/whats.png" alt="WhatsApp" style="height:24px;width:24px;">
           </a>
-          <a class="btn icon search" href="#" title="Search" aria-label="Search">🔍</a>
-          <a class="btn icon login"  href="login.html" title="Login" aria-label="Login">👤</a>
-          <a class="btn icon cart"   href="checkout.html" title="Cart" aria-label="Cart">🛒 <span id="cartBadge" class="badge">0</span></a>
+          <!-- 搜索预留入口 -->
+          <a class="btn icon search" href="search.html" title="Search" aria-label="Search">🔍</a>
+          <!-- 移除登录 -->
+          <a class="btn icon cart" href="checkout.html" title="Cart" aria-label="Cart">
+            🛒 <span id="cartBadge" class="badge">0</span>
+          </a>
 
+          <!-- 语言切换 -->
           <div class="lang">
             <button id="langBtn" class="lang-btn" type="button" aria-haspopup="menu" aria-expanded="false">
               <span aria-hidden="true">🌐</span>
@@ -62,13 +77,13 @@
             </div>
           </div>
 
+          <!-- 更多（手机端） -->
           <button class="btn icon" id="moreBtn" aria-haspopup="menu" aria-expanded="false" title="更多">⋯</button>
           <div class="more-menu" id="moreMenu" hidden>
             <a class="item" href="https://wa.me/85297436663" target="_blank" rel="noopener">
               <img src="Archive/whats.png" alt="WhatsApp" style="height:18px;width:18px;vertical-align:middle;"> WhatsApp
             </a>
-            <a class="item" href="#" id="moreSearch">🔍 Search</a>
-            <a class="item" href="login.html">👤 Login</a>
+            <a class="item" href="search.html" id="moreSearch">🔍 Search</a>
             <a class="item" href="checkout.html">🛒 Cart</a>
             <div class="sep"></div>
             <button class="item" type="button" data-set-lc="zh-HK">繁體中文</button>
@@ -102,6 +117,8 @@
     <section class="desc">
       <h3 data-i18n="details_title">商品詳情</h3>
       <div id="p-desc"></div>
+      <!-- 详情图片栅格（与 CMS 对应 desc_images 数组） -->
+      <div id="p-desc-images" class="desc-images"></div>
     </section>
   </main>
 
@@ -136,41 +153,65 @@
     function updateBadge(){
       const badge=document.getElementById('cartBadge');
       if(!badge) return;
-      const total = getCart().reduce((s,x)=>s+Number(x.qty||0),0);
-      badge.textContent = total;
+      badge.textContent = getCart().reduce((s,x)=>s+Number(x.qty||0),0);
     }
 
-    // 先渲染产品详情（来自 site.js -> products.json）
+    function currentLocale(){
+      try{ if (typeof getLocale === 'function'){ const lc=getLocale(); if(lc==='en'||lc==='zh-HK') return lc; } }catch(e){}
+      return (document.documentElement.lang||'').toLowerCase().startsWith('en') ? 'en' : 'zh-HK';
+    }
+
+    function renderDetailImages(product){
+      const box=document.getElementById('p-desc-images');
+      box.innerHTML='';
+      const imgs = product?.desc_images || product?.desc_imgs || [];
+      imgs.forEach(src=>{
+        const fig=document.createElement('figure');
+        const img=document.createElement('img');
+        img.src=src;
+        img.alt=product?.title_zh||product?.title_en||'product image';
+        fig.appendChild(img);
+        box.appendChild(fig);
+      });
+    }
+
     document.addEventListener('DOMContentLoaded', async () => {
-      await renderProductPage(); // 填充 #p-img/#p-title/#p-price/#p-desc
+      // 渲染产品基本信息（site.js 提供）
+      await renderProductPage();
       updateBadge();
 
-      // 从 URL 获取 pid，拿到完整对象用于加入购物车
-      const url = new URL(location.href);
-      const pid = url.searchParams.get('pid');
+      // “首頁/Homepage”文案兜底（与 process.html 一致）
+      const lc = currentLocale();
+      document.querySelectorAll('[data-i18n="nav_home"]').forEach(el=>{
+        el.textContent = (lc === 'en' ? 'Homepage' : '首頁');
+      });
+
+      // 用 pid 找到完整商品对象，用于详情图和加入购物车
+      const pid = new URL(location.href).searchParams.get('pid');
       const list = await loadProducts();
       const p = list.find(x => String(x.id) === String(pid));
       if (!p) return;
 
+      renderDetailImages(p);
+
       document.getElementById('btnAddCart').addEventListener('click', ()=>{
         const qty = Math.max(1, parseInt(document.getElementById('p-qty').value||'1',10));
         const cart = getCart();
-
-        // 如果购物车里已有该商品，则叠加数量
         const found = cart.find(x=> String(x.id)===String(p.id));
+        const priceText = (typeof p.price_hkd === 'number') ? `HK$${p.price_hkd}` : (p.price_text || 'HK$—');
+        const title = (lc==='en' ? (p.title_en || p.title_zh) : (p.title_zh || p.title_en));
         if(found){ found.qty += qty; }
-        else{
-          cart.push({
-            id: p.id,
-            title: (getLocale()==='en' ? (p.title_en || p.title_zh) : (p.title_zh || p.title_en)),
-            price: p.price_text,   // 例如 "HK$430"
-            img: p.img,
-            qty
-          });
-        }
+        else{ cart.push({ id:p.id, title, price:priceText, img:p.img, qty }); }
         setCart(cart);
         updateBadge();
-        alert('已加入購物車');
+        alert(lc==='en' ? 'Added to cart' : '已加入購物車');
+      });
+    });
+
+    window.addEventListener('locale-changed', ()=>{
+      const lc = currentLocale();
+      document.querySelectorAll('[data-i18n="nav_home"]').forEach(el=>{
+        el.textContent = (lc === 'en' ? 'Homepage' : '首頁');
       });
     });
   </script>

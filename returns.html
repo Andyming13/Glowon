@@ -1,4 +1,4 @@
-<!-- returns.html -->
+<!-- returns.html (updated) -->
 <!DOCTYPE html>
 <html lang="zh-HK">
 <head>
@@ -11,17 +11,23 @@
     .prose h1,.prose h2{margin:16px 0 8px}
     .prose p, .prose li{margin:8px 0;line-height:1.8}
     ul{margin:6px 0 12px 18px}
-    /* 语言块：默认只显示中文 */
+
+    /* 语言块：默认中文显示，英文隐藏；英文页脚默认隐藏 */
     .zh{display:block}
     .en{display:none}
-    /* 页脚英文行默认隐藏；切英文时显示 */
     .foot-row.en{display:none}
-    .site-header .left{display:flex;align-items:center;gap:24px}
-    .site-header .nav{display:flex;align-items:center;gap:28px;justify-content:flex-start;flex:unset}
+
+    /* 头部（与其它已改页面一致） */
+    .site-header .top{display:flex;align-items:center;justify-content:space-between}
+    .site-header .left{display:flex;align-items:center;gap:14px}
+    .site-header .logo strong{display:none}
+    .site-header .logo img{height:26px;width:auto;display:block}
+    .site-header .nav{display:flex;gap:14px;flex-wrap:wrap}
+    .site-header .nav a{text-decoration:none}
   </style>
 </head>
 <body>
-  <!-- Header（与其它页面一致） -->
+  <!-- Header -->
   <header class="site-header">
     <div class="container">
       <nav class="top">
@@ -32,19 +38,46 @@
           </a>
           <div class="nav">
             <a href="index.html" data-i18n="nav_home">首頁</a>
-            <a href="preorder.html" data-i18n="nav_preorder">精選預購</a>
-            <a href="instock.html"  data-i18n="nav_instock">現貨專區</a>
-            <a href="buyagent.html" data-i18n="nav_service">澳洲代購服務</a>
+            <a href="preorder.html" data-route="preorder" data-i18n="nav_preorder">精選預購</a>
+            <a href="instock.html"  data-route="instock"  data-i18n="nav_instock">現貨專區</a>
+            <a href="buyagent.html" data-route="service"  data-i18n="nav_service">澳洲代購服務</a>
           </div>
         </div>
+
         <div class="actions">
           <a class="btn icon whatsapp" href="https://wa.me/85297436663" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp">
             <img src="Archive/whats.png" alt="WhatsApp" style="height:24px;width:24px;">
           </a>
-          <a class="btn icon search" href="#" aria-label="Search">🔍</a>
-          <a class="btn icon login"  href="login.html" aria-label="Login">👤</a>
-          <a class="btn icon cart"   href="checkout.html" aria-label="Cart">🛒</a>
-          <!-- 语言下拉 + 更多菜单（保持你现有的） -->
+          <!-- 搜索入口预留到 search.html -->
+          <a class="btn icon search" href="search.html" title="Search" aria-label="Search">🔍</a>
+          <!-- 移除登录按钮 -->
+          <a class="btn icon cart" href="checkout.html" title="Cart" aria-label="Cart">🛒</a>
+
+          <!-- 语言切换 -->
+          <div class="lang">
+            <button id="langBtn" class="lang-btn" type="button" aria-haspopup="menu" aria-expanded="false">
+              <span aria-hidden="true">🌐</span>
+              <span id="langLabel">繁體中文</span>
+              <span class="caret" aria-hidden="true">▾</span>
+            </button>
+            <div class="lang-menu" id="langMenu" role="menu" hidden>
+              <button role="menuitem" data-lc="zh-HK">繁體中文</button>
+              <button role="menuitem" data-lc="en">English</button>
+            </div>
+          </div>
+
+          <!-- 更多按钮（手机端） -->
+          <button class="btn icon" id="moreBtn" aria-haspopup="menu" aria-expanded="false" title="更多">⋯</button>
+          <div class="more-menu" id="moreMenu" hidden>
+            <a class="item" href="https://wa.me/85297436663" target="_blank" rel="noopener">
+              <img src="Archive/whats.png" alt="WhatsApp" style="height:18px;width:18px;vertical-align:middle;"> WhatsApp
+            </a>
+            <a class="item" href="search.html" id="moreSearch">🔍 Search</a>
+            <a class="item" href="checkout.html">🛒 Cart</a>
+            <div class="sep"></div>
+            <button class="item" type="button" data-set-lc="zh-HK">繁體中文</button>
+            <button class="item" type="button" data-set-lc="en">English</button>
+          </div>
         </div>
       </nav>
     </div>
@@ -120,7 +153,7 @@
         <a href="payment.html"><b>付款方式</b></a>
         <a href="contact.html"><b>聯絡我們</b></a>
       </nav>
-      <!-- 英文（默认隐藏） -->
+      <!-- 英文 -->
       <nav class="foot-row en">
         <a href="terms.html"><b>Terms &amp; Conditions</b></a>
         <a href="privacy.html"><b>Privacy Policy</b></a>
@@ -135,30 +168,47 @@
 
   <script src="site.js"></script>
   <script>
-    // 根据当前语言显示对应内容与脚注
+    function currentLocale(){
+      try{
+        if (typeof getLocale === 'function'){
+          const lc = getLocale();
+          if (lc === 'en' || lc === 'zh-HK') return lc;
+        }
+      }catch(e){}
+      const docLang = (document.documentElement.lang || '').toLowerCase();
+      return docLang.startsWith('en') ? 'en' : 'zh-HK';
+    }
+
+    // 根据语言：正文块/页脚切换 + 顶部“首頁/Homepage”文字兜底 + 页面标题
     function renderLocaleBlocks(){
-      const lc = (typeof getLocale === 'function') ? getLocale() : (localStorage.getItem('dordor-locale') || 'zh-HK');
+      const lc = currentLocale();
       document.documentElement.lang = lc;
 
+      // 正文
       const zh = document.querySelector('.prose.zh');
       const en = document.querySelector('.prose.en');
+      if (zh && en){
+        if (lc === 'en'){ zh.style.display='none'; en.style.display='block'; }
+        else { zh.style.display='block'; en.style.display='none'; }
+      }
+
+      // 页脚
       const zhRow = document.querySelector('.foot-row.zh');
       const enRow = document.querySelector('.foot-row.en');
-
-      if (lc === 'en'){
-        if (zh) zh.style.display = 'none';
-        if (en) en.style.display = 'block';
-        if (zhRow) zhRow.style.display = 'none';
-        if (enRow) enRow.style.display = 'flex';
-        document.title = 'Glow On · Return Policy';
-      } else {
-        if (zh) zh.style.display = 'block';
-        if (en) en.style.display = 'none';
-        if (zhRow) zhRow.style.display = 'flex';
-        if (enRow) enRow.style.display = 'none';
-        document.title = 'Glow On · 退換貨政策';
+      if (zhRow && enRow){
+        if (lc === 'en'){ zhRow.style.display='none'; enRow.style.display='flex'; }
+        else { zhRow.style.display='flex'; enRow.style.display='none'; }
       }
+
+      // 顶部“首頁”→“Homepage”
+      document.querySelectorAll('[data-i18n="nav_home"]').forEach(el=>{
+        el.textContent = (lc === 'en' ? 'Homepage' : '首頁');
+      });
+
+      // 页面标题
+      document.title = (lc === 'en' ? 'Glow On · Return Policy' : 'Glow On · 退換貨政策');
     }
+
     renderLocaleBlocks();
     window.addEventListener('locale-changed', renderLocaleBlocks);
   </script>

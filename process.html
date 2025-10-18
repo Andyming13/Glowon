@@ -1,3 +1,4 @@
+<!-- process.html (updated) -->
 <!DOCTYPE html>
 <html lang="zh-HK">
 <head>
@@ -18,20 +19,20 @@
     .zh{display:block}
     .en{display:none}
 
-    /* 与站点统一头部的小样式（若 styles.css 已有可忽略，它们不会冲突） */
+    /* 与站点统一头部的小样式 */
     .site-header .top{display:flex;align-items:center;justify-content:space-between}
     .site-header .left{display:flex;align-items:center;gap:14px}
-    .site-header .logo strong{display:none} /* 仅保留图标 */
+    .site-header .logo strong{display:none}
     .site-header .logo img{height:26px;width:auto;display:block}
     .site-header .nav{display:flex;gap:14px;flex-wrap:wrap}
     .site-header .nav a{text-decoration:none}
 
-    /* 页脚英文行默认隐藏，由脚本随语言切换 */
-    .foot-row.en,.pay-row.en{display:none}
+    /* 页脚英文行默认隐藏，脚本随语言切换 */
+    .foot-row.en{display:none}
   </style>
 </head>
 <body>
-  <!-- 统一头部导航（与其它页面一致） -->
+  <!-- 统一头部导航 -->
   <header class="site-header">
     <div class="container">
       <nav class="top">
@@ -59,8 +60,9 @@
              aria-label="WhatsApp">
             <img src="Archive/whats.png" alt="WhatsApp" style="height:24px;width:24px;">
           </a>
-          <a class="btn icon search" href="#" title="Search" aria-label="Search">🔍</a>
-          <a class="btn icon login"  href="login.html" title="Login" aria-label="Login">👤</a>
+          <!-- 搜索：预留入口到 search.html -->
+          <a class="btn icon search" href="search.html" title="Search" aria-label="Search">🔍</a>
+          <!-- 移除登录按钮 -->
           <a class="btn icon cart"   href="checkout.html" title="Cart" aria-label="Cart">🛒</a>
 
           <!-- 语言切换 -->
@@ -82,8 +84,8 @@
             <a class="item" href="https://wa.me/85297436663" target="_blank" rel="noopener">
               <img src="Archive/whats.png" alt="WhatsApp" style="height:18px;width:18px;vertical-align:middle;"> WhatsApp
             </a>
-            <a class="item" href="#" id="moreSearch">🔍 Search</a>
-            <a class="item" href="login.html">👤 Login</a>
+            <!-- Search 改为 search.html；移除 Login -->
+            <a class="item" href="search.html" id="moreSearch">🔍 Search</a>
             <a class="item" href="checkout.html">🛒 Cart</a>
             <div class="sep"></div>
             <button class="item" type="button" data-set-lc="zh-HK">繁體中文</button>
@@ -99,7 +101,6 @@
       <!-- 中文正文（默认显示） -->
       <article class="zh">
         <h1>購買流程</h1>
-
         <div class="steps">
           <div class="card">
             <h2>步驟一｜瀏覽與加入購物車</h2>
@@ -118,14 +119,12 @@
             <p>確認訂單後安排付款（轉數快 / 銀行轉帳 / 其他方式），我們收到款項即安排出貨。</p>
           </div>
         </div>
-
         <p class="muted" style="margin-top:10px">提示：如需澳洲代購服務，請前往「澳洲代購服務」頁查看流程與聯絡方式。</p>
       </article>
 
-      <!-- English content（默认隐藏，切到英文时显示） -->
+      <!-- English content（默认隐藏） -->
       <article class="en">
         <h1>Shopping Process</h1>
-
         <div class="steps">
           <div class="card">
             <h2>Step 1 · Browse & Add to Cart</h2>
@@ -144,7 +143,6 @@
             <p>After confirming the order, pay via FPS / bank transfer / other methods. We’ll ship once the payment is received.</p>
           </div>
         </div>
-
         <p class="muted" style="margin-top:10px">Tip: For sourcing from Australia, see the “AUS Shopping Agent” page.</p>
       </article>
     </div>
@@ -162,8 +160,6 @@
         <a href="payment.html"><b>付款方式</b></a>
         <a href="contact.html"><b>聯絡我們</b></a>
       </nav>
-      </div>
-
       <!-- 英文行 -->
       <nav class="foot-row en">
         <a href="terms.html"><b>Terms &amp; Conditions</b></a>
@@ -173,17 +169,27 @@
         <a href="payment.html"><b>Payment Methods</b></a>
         <a href="contact.html"><b>Contact Us</b></a>
       </nav>
-      </div>
-
       <div class="copy">2025 © Glow On HK. <span data-i18n="rights">All Rights Reserved.</span></div>
     </div>
   </footer>
 
   <script src="site.js"></script>
   <script>
-    // 跟随站点语言切换：正文块 + 页脚中/英 & 付款方式联动
+    function currentLocale(){
+      try{
+        if (typeof getLocale === 'function'){
+          const lc = getLocale();
+          if (lc === 'en' || lc === 'zh-HK') return lc;
+        }
+      }catch(e){}
+      const docLang = (document.documentElement.lang || '').toLowerCase();
+      if (docLang.startsWith('en')) return 'en';
+      return 'zh-HK';
+    }
+
+    // 正文 + 页脚切换 & 顶部“首頁/Homepage”兜底
     function renderLocaleBlocks(){
-      const lc = (window.getLocale ? window.getLocale() : (localStorage.getItem('dordor-locale') || 'zh-HK'));
+      const lc = currentLocale();
       document.documentElement.lang = lc;
 
       // 正文
@@ -197,20 +203,16 @@
       // 页脚
       const zhRow = document.querySelector('.foot-row.zh');
       const enRow = document.querySelector('.foot-row.en');
-      const zhPay = document.querySelector('.pay-row.zh');
-      const enPay = document.querySelector('.pay-row.en');
       if (zhRow && enRow){
-        if (lc === 'en'){
-          zhRow.style.display='none'; enRow.style.display='flex';
-          if (zhPay) zhPay.style.display='none';
-          if (enPay) enPay.style.display='block';
-        } else {
-          zhRow.style.display='flex'; enRow.style.display='none';
-          if (zhPay) zhPay.style.display='block';
-          if (enPay) enPay.style.display='none';
-        }
+        if (lc === 'en'){ zhRow.style.display='none'; enRow.style.display='flex'; }
+        else { zhRow.style.display='flex'; enRow.style.display='none'; }
       }
+
+      // 兜底：英文时把“首頁”显示为“Homepage”
+      const homeLinks = document.querySelectorAll('[data-i18n="nav_home"]');
+      homeLinks.forEach(el => { el.textContent = (lc === 'en' ? 'Homepage' : '首頁'); });
     }
+
     renderLocaleBlocks();
     window.addEventListener('locale-changed', renderLocaleBlocks);
   </script>

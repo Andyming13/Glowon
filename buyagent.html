@@ -1,3 +1,4 @@
+<!-- buyagent.html (updated) -->
 <!DOCTYPE html>
 <html lang="zh-HK">
 <head>
@@ -52,8 +53,9 @@
              aria-label="WhatsApp">
             <img src="Archive/whats.png" alt="WhatsApp" style="height:24px;width:24px;">
           </a>
-          <a class="btn icon search" href="#" title="Search" aria-label="Search">🔍</a>
-          <a class="btn icon login"  href="login.html" title="Login" aria-label="Login">👤</a>
+          <!-- 预留搜索入口到 search.html -->
+          <a class="btn icon search" href="search.html" title="Search" aria-label="Search">🔍</a>
+          <!-- 已移除登录按钮 -->
           <a class="btn icon cart"   href="checkout.html" title="Cart" aria-label="Cart">🛒</a>
 
           <!-- 语言切换 -->
@@ -75,8 +77,8 @@
             <a class="item" href="https://wa.me/85297436663" target="_blank" rel="noopener">
               <img src="Archive/whats.png" alt="WhatsApp" style="height:18px;width:18px;vertical-align:middle;"> WhatsApp
             </a>
-            <a class="item" href="#" id="moreSearch">🔍 Search</a>
-            <a class="item" href="login.html">👤 Login</a>
+            <a class="item" href="search.html" id="moreSearch">🔍 Search</a>
+            <!-- 移除 Login -->
             <a class="item" href="checkout.html">🛒 Cart</a>
             <div class="sep"></div>
             <button class="item" type="button" data-set-lc="zh-HK">繁體中文</button>
@@ -126,9 +128,20 @@
 
   <script src="site.js"></script>
   <script>
-    // 切换语言时页脚中英文行显示
+    function currentLocale(){
+      try {
+        if (typeof getLocale === 'function'){
+          const lc = getLocale();
+          if (lc === 'en' || lc === 'zh-HK') return lc;
+        }
+      } catch(e) {}
+      const docLang = (document.documentElement.lang || '').toLowerCase();
+      return docLang.startsWith('en') ? 'en' : 'zh-HK';
+    }
+
+    // 页脚切换
     function renderFooter(){
-      const lc = getLocale();
+      const lc = currentLocale();
       const zhRow = document.querySelector('.foot-row.zh');
       const enRow = document.querySelector('.foot-row.en');
       if (zhRow && enRow){
@@ -137,9 +150,9 @@
       }
     }
 
-    // 根据语言切换流程图（9.png / 10.png）
+    // 流程图切换（9/10.png）
     function renderFlowImg(){
-      const lc = getLocale();
+      const lc = currentLocale();
       const img = document.getElementById('flowImg');
       if (!img) return;
       if (lc === 'en'){
@@ -151,7 +164,17 @@
       }
     }
 
+    // 顶部“首頁/Homepage”切换
+    function renderHomeNav(){
+      const lc = currentLocale();
+      document.querySelectorAll('[data-i18n="nav_home"]').forEach(el=>{
+        el.textContent = (lc === 'en' ? 'Homepage' : '首頁');
+      });
+      document.documentElement.lang = lc;
+    }
+
     function renderPage(){
+      renderHomeNav();
       renderFooter();
       renderFlowImg();
     }

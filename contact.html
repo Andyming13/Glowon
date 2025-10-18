@@ -1,4 +1,4 @@
-<!-- contact.html -->
+<!-- contact.html (updated) -->
 <!DOCTYPE html>
 <html lang="zh-HK">
 <head>
@@ -12,15 +12,23 @@
     h1,h2{margin:16px 0 8px}
     p{margin:6px 0;line-height:1.8}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+
+    /* 语言块默认中文 */
     .zh{display:block}
     .en{display:none}
+
+    /* 页脚英文行默认隐藏 */
     .foot-row.en{display:none}
+
+    /* 头部对齐（与站内其它页一致） */
     .site-header .left{display:flex;align-items:center;gap:24px}
     .site-header .nav{display:flex;align-items:center;gap:28px;justify-content:flex-start;flex:unset}
+    .site-header .logo strong{display:none}
+    .site-header .logo img{height:26px;width:auto;display:block}
   </style>
 </head>
 <body>
-  <!-- Header（與其它頁一致） -->
+  <!-- Header -->
   <header class="site-header">
     <div class="container">
       <nav class="top">
@@ -46,10 +54,12 @@
              aria-label="WhatsApp">
             <img src="Archive/whats.png" alt="WhatsApp" style="height:24px;width:24px;">
           </a>
-          <a class="btn icon search" href="#" title="Search" aria-label="Search">🔍</a>
-          <a class="btn icon login"  href="login.html" title="Login" aria-label="Login">👤</a>
+          <!-- 搜索预留到 search.html -->
+          <a class="btn icon search" href="search.html" title="Search" aria-label="Search">🔍</a>
+          <!-- 移除登录按钮 -->
           <a class="btn icon cart"   href="checkout.html" title="Cart" aria-label="Cart">🛒</a>
 
+          <!-- 语言切换 -->
           <div class="lang">
             <button id="langBtn" class="lang-btn" type="button" aria-haspopup="menu" aria-expanded="false">
               <span aria-hidden="true">🌐</span>
@@ -62,13 +72,14 @@
             </div>
           </div>
 
+          <!-- 更多按钮（手机端） -->
           <button class="btn icon" id="moreBtn" aria-haspopup="menu" aria-expanded="false" title="更多">⋯</button>
           <div class="more-menu" id="moreMenu" hidden>
             <a class="item" href="https://wa.me/85297436663" target="_blank" rel="noopener">
               <img src="Archive/whats.png" alt="WhatsApp" style="height:18px;width:18px;vertical-align:middle;"> WhatsApp
             </a>
-            <a class="item" href="#" id="moreSearch">🔍 Search</a>
-            <a class="item" href="login.html">👤 Login</a>
+            <!-- 搜索改为 search.html；移除 Login -->
+            <a class="item" href="search.html" id="moreSearch">🔍 Search</a>
             <a class="item" href="checkout.html">🛒 Cart</a>
             <div class="sep"></div>
             <button class="item" type="button" data-set-lc="zh-HK">繁體中文</button>
@@ -152,13 +163,26 @@
 
   <script src="site.js"></script>
   <script>
+    function currentLocale(){
+      try{
+        if (typeof getLocale === 'function'){
+          const lc = getLocale();
+          if (lc === 'en' || lc === 'zh-HK') return lc;
+        }
+      }catch(e){}
+      const docLang = (document.documentElement.lang || '').toLowerCase();
+      return docLang.startsWith('en') ? 'en' : 'zh-HK';
+    }
+
     function renderLocaleBlocks(){
-      const lc = (typeof getLocale === 'function') ? getLocale() : (localStorage.getItem('dordor-locale') || 'zh-HK');
+      const lc = currentLocale();
       document.documentElement.lang = lc;
+
       const zh = document.querySelector('article.zh');
       const en = document.querySelector('article.en');
       const zhRow = document.querySelector('.foot-row.zh');
       const enRow = document.querySelector('.foot-row.en');
+
       if (lc === 'en'){
         zh.style.display='none'; en.style.display='block';
         zhRow.style.display='none'; enRow.style.display='flex';
@@ -168,7 +192,13 @@
         zhRow.style.display='flex'; enRow.style.display='none';
         document.title = 'Glow On · 聯絡我們';
       }
+
+      // 英文时把“首頁”显示为“Homepage”
+      document.querySelectorAll('[data-i18n="nav_home"]').forEach(el=>{
+        el.textContent = (lc === 'en' ? 'Homepage' : '首頁');
+      });
     }
+
     renderLocaleBlocks();
     window.addEventListener('locale-changed', renderLocaleBlocks);
   </script>

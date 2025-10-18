@@ -21,6 +21,7 @@
    const I18N = {
      'zh-HK': {
        brand:'Glow On',
+       nav_home:'首頁',
        nav_preorder:'精選預購',
        nav_instock:'現貨專區',
        nav_service:'澳洲代購服務',
@@ -37,6 +38,7 @@
      },
      'en': {
        brand:'Glow On',
+       nav_home:'Homepage',
        nav_preorder:'Pre-Order',
        nav_instock:'In Stock',
        nav_service:'AUS Shopping Agent',
@@ -74,7 +76,7 @@
    
      const dict = I18N[lc];
      [
-       'brand','nav_preorder','nav_instock','nav_service','view_all',
+       'brand','nav_home','nav_preorder','nav_instock','nav_service','view_all',
        'section_preorder','section_instock','rights',
        'terms','privacy','returns','process','contact'
      ].forEach(k=>{
@@ -83,12 +85,15 @@
        });
      });
    
+     // 语言标签
      const label = document.getElementById('langLabel');
      if (label) label.textContent = (lc === 'en') ? 'English' : '繁體中文';
    
+     // 年份（可选）
      const y = document.getElementById('year');
      if (y) y.textContent = new Date().getFullYear();
    
+     // 页脚联动
      const zhRow = document.querySelector('.foot-row.zh');
      const enRow = document.querySelector('.foot-row.en');
      if (zhRow && enRow){
@@ -152,7 +157,12 @@
      if (ms) ms.addEventListener('click', (e) => {
        e.preventDefault();
        closeMenu();
-       window.scrollTo({ top: 0, behavior: 'smooth' });
+       // 统一跳转到 search.html（如果存在）
+       if (location.pathname.split('/').pop() !== 'search.html' && document.querySelector('a[href="search.html"]')) {
+         location.href = 'search.html';
+       } else {
+         window.scrollTo({ top: 0, behavior: 'smooth' });
+       }
      });
    })();
    
@@ -183,15 +193,19 @@
      return base;
    }
    
-   /* ---------- 兼容加载：根数组 or { items: [...] }；路径双探测 ---------- */
+   /* ---------- 兼容加载：根数组 or { items: [...] }；路径三探测 ---------- */
    async function fetchProducts() {
      const cacheBust = 'ts=' + Date.now();
    
-     // 先尝试与页面同层的 products.json（B 情况通常可用）
-     let res = await fetch('./products.json?' + cacheBust).catch(()=>null);
+     // 1) 同层（推荐）
+     let res = await fetch('./products.json?' + cacheBust, { cache: 'no-store' }).catch(()=>null);
+     // 2) 站点根（根目录部署）
      if (!res || !res.ok) {
-       // 兜底：再尝试 /frontend/products.json（若页面在仓库根而文件在 frontend/ 里）
-       res = await fetch('./frontend/products.json?' + cacheBust).catch(()=>null);
+       res = await fetch('/products.json?' + cacheBust, { cache: 'no-store' }).catch(()=>null);
+     }
+     // 3) 前端子目录兜底
+     if (!res || !res.ok) {
+       res = await fetch('./frontend/products.json?' + cacheBust, { cache: 'no-store' }).catch(()=>null);
      }
      if (!res || !res.ok) {
        const code = res ? res.status : 'NETWORK';
@@ -218,6 +232,17 @@
        const desc_en   = pick(raw, ['desc_en','description_en','details_en','content_en'], '');
        const img       = buildImg({ ...raw, id });
    
+       // 兼容多图字段（可能是字符串数组，或对象数组 { image }）
+       const normalizeImgs = (v) => {
+         if (!v) return [];
+         if (Array.isArray(v)) {
+           return v.map(x => (typeof x === 'string' ? x : (x && x.image ? x.image : ''))).filter(Boolean);
+         }
+         return [];
+       };
+       const desc_images_zh = normalizeImgs(raw.desc_images_zh || raw.detail_images_zh);
+       const desc_images_en = normalizeImgs(raw.desc_images_en || raw.detail_images_en);
+   
        let price_text = (price || price === 0)
          ? ('HK$' + (Number(price) % 1 ? Number(price) : parseInt(price)))
          : (getLocale() === 'en' ? 'TBD' : '待定');
@@ -225,6 +250,7 @@
        return {
          ...raw,
          id, category, title_zh, title_en, desc_zh, desc_en,
+         desc_images_zh, desc_images_en,
          img, price_hkd: price, price_text
        };
      });
@@ -240,7 +266,7 @@
            (function(img){
              if (!img.dataset.triedUpper) {
                img.dataset.triedUpper = '1';
-               img.src = img.src.replace(/\.png($|\?)/i, '.PNG$1');
+               img.src = img.src.replace(/\\.png($|\\?)/i, '.PNG$1');
              } else {
                img.src = 'Archive/placeholder.png';
              }
@@ -267,12 +293,39 @@
      const lc = (getLocale && getLocale() === 'en') ? 'en' : 'zh';
      const list = await loadProducts();
      const items = typeof filterFn === 'function' ? list.filter(filterFn) : list;
-     const html = items.map(p => cardHTML(p, lc)).join('') || `<div class="muted" data-i18n="empty_list">暫無商品</div>`;
+     const html = items.map(p => cardHTML(p, lc)).join('') || `<div class="muted" data-i18n="empty_list">${I18N[lc === 'en' ? 'en' : 'zh-HK'].empty_list}</div>`;
      const el = document.querySelector(selector);
      if (el) el.innerHTML = html;
    };
    
-   // 详情页渲染
+   /* =====================================================
+      产品详情页渲染（含文字 + 多图介绍）
+      ===================================================== */
+   
+   function renderDescImages(images){
+     if (!images || !images.length) return '';
+     const items = images.map(src => {
+       const safeSrc = String(src || '').trim();
+       if (!safeSrc) return '';
+       const esc = (s)=>String(s).replace(/"/g,'&quot;');
+       return `
+         <figure class="desc-figure">
+           <img src="${esc(safeSrc)}" alt="" loading="lazy"
+                onerror="
+                  (function(img){
+                    if (!img.dataset.triedUpper) {
+                      img.dataset.triedUpper = '1';
+                      img.src = img.src.replace(/\\.png($|\\?)/i, '.PNG$1');
+                    } else {
+                      img.src = 'Archive/placeholder.png';
+                    }
+                  })(this)
+                ">
+         </figure>`;
+     }).join('');
+     return `<div class="desc-gallery">${items}</div>`;
+   }
+   
    window.renderProductPage = async function () {
      const url = new URL(location.href);
      const pid = url.searchParams.get('pid');
@@ -311,8 +364,18 @@
        ? (p.desc_en || p.desc_zh || '')
        : (p.desc_zh || p.desc_en || '');
    
-     if (desc) desc.innerHTML = /<\/(p|ul|ol|br)>/i.test(rawDesc)
-         ? rawDesc
-         : String(rawDesc).replace(/\n/g, '<br>');
-   };
+     // 文字描述
+     let htmlDesc = /<\/(p|ul|ol|br)>/i.test(rawDesc)
+       ? rawDesc
+       : String(rawDesc || '').replace(/\n/g, '<br>');
    
+     // 详情图片（优先使用当前语言，没有则回退另一语言）
+     const imgs = (lc === 'en' ? (p.desc_images_en && p.desc_images_en.length ? p.desc_images_en : p.desc_images_zh)
+                               : (p.desc_images_zh && p.desc_images_zh.length ? p.desc_images_zh : p.desc_images_en)) || [];
+     const gallery = renderDescImages(imgs);
+   
+     if (desc) {
+       desc.innerHTML = (htmlDesc || '') + (gallery || '');
+     }
+     
+   };

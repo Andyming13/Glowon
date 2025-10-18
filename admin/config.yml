@@ -5,10 +5,10 @@ backend:
   base_url: https://glowon-sms-oauth.vercel.app
   auth_endpoint: /api/auth
 
-# ✅ 直接写主分支，不走草稿/PR（想走PR把 simple 改回 editorial_workflow）
+# ✅ 直接寫主分支，不走草稿/PR（想走PR把 simple 改回 editorial_workflow）
 publish_mode: simple
 
-# ✅ 图片统一放这里；前端也按同路径读取
+# ✅ 圖片統一放這裡；前端也按同路徑讀取
 media_folder: "Archive/Untitled_design"
 public_folder: "/Archive/Untitled_design"
 
@@ -20,7 +20,7 @@ collections:
     files:
       - label: "商品清單（products.json）"
         name: "products_json"
-        file: "products.json"     # ✅ 以后只写根目录
+        file: "products.json"     # ✅ 以後只寫根目錄
         format: "json"
         fields:
           - label: "商品清單"
@@ -28,12 +28,32 @@ collections:
             widget: "list"
             summary: "{{fields.title_zh}}（HKD {{fields.price_hkd}}）"
             fields:
-              - {label: "ID（與圖片檔名一致，例如 28）", name: "id", widget: "string"}
-              - {label: "分類", name: "category", widget: "select", options: ["instock","preorder","archived"], default: "instock"}
-              - {label: "標題（繁中）", name: "title_zh", widget: "string"}
-              - {label: "標題（EN）", name: "title_en", widget: "string"}
-              - {label: "價格（HKD）", name: "price_hkd", widget: "number", value_type: "float", min: 0}
+              - { label: "ID（與圖片檔名一致，例如 28）", name: "id", widget: "string" }
+              - { label: "分類", name: "category", widget: "select", options: ["instock","preorder","archived"], default: "instock" }
+              - { label: "標題（繁中）", name: "title_zh", widget: "string" }
+              - { label: "標題（EN）", name: "title_en", widget: "string", required: false }
+              - { label: "價格（HKD）", name: "price_hkd", widget: "number", valueType: "float", min: 0 }
               # 留空時前端會用 Archive/Untitled_design/<id>.png
-              - {label: "自定圖片（可留空）", name: "img", widget: "image", required: false}
-              - {label: "描述（繁中）", name: "desc_zh", widget: "text", required: false}
-              - {label: "描述（EN）", name: "desc_en", widget: "text", required: false}
+              - { label: "自定圖片（可留空）", name: "img", widget: "image", required: false }
+              - { label: "描述（繁中）", name: "desc_zh", widget: "text", required: false }
+              - { label: "描述（EN）", name: "desc_en", widget: "text", required: false }
+
+              # ✅ 詳情圖片（繁中，多圖）
+              - label: "詳情圖片（繁中，多張）"
+                name: "desc_images_zh"
+                widget: "list"
+                required: false
+                field:
+                  label: "圖片"
+                  name: "image"
+                  widget: "image"
+
+              # ✅ Detail Images（English, multi-images）
+              - label: "Detail Images (EN, multiple)"
+                name: "desc_images_en"
+                widget: "list"
+                required: false
+                field:
+                  label: "Image"
+                  name: "image"
+                  widget: "image"

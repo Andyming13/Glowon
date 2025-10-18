@@ -31,6 +31,8 @@
 
     @media (max-width:600px){
       .banner.carousel img { height:180px; }
+      /* 首张 Banner 在手机端偏左显示主要内容 */
+      .banner.carousel .slide.first img{ object-position: left center; }
     }
 
     /* 页脚：默认只显示中文行，英文行在切英文时由脚本切换 */
@@ -73,8 +75,8 @@
              aria-label="WhatsApp">
             <img src="Archive/whats.png" alt="WhatsApp" style="height:24px;width:24px;">
           </a>
-          <a class="btn icon search" href="#" title="Search" aria-label="Search">🔍</a>
-          <a class="btn icon login"  href="login.html" title="Login" aria-label="Login">👤</a>
+          <a class="btn icon search" href="search.html" title="Search" aria-label="Search">🔍</a>
+          <!-- 已移除會員登入按鈕 -->
           <a class="btn icon cart"   href="checkout.html" title="Cart" aria-label="Cart">🛒</a>
 
           <!-- 语言切换 -->
@@ -96,8 +98,8 @@
             <a class="item" href="https://wa.me/85297436663" target="_blank" rel="noopener">
               <img src="Archive/whats.png" alt="WhatsApp" style="height:18px;width:18px;vertical-align:middle;"> WhatsApp
             </a>
-            <a class="item" href="#" id="moreSearch">🔍 Search</a>
-            <a class="item" href="login.html">👤 Login</a>
+            <a class="item" href="search.html" id="moreSearch">🔍 Search</a>
+            <!-- 已移除 Login -->
             <a class="item" href="checkout.html">🛒 Cart</a>
             <div class="sep"></div>
             <button class="item" type="button" data-set-lc="zh-HK">繁體中文</button>
@@ -111,7 +113,7 @@
   <main class="home">
     <div class="container">
 
-      <!-- Banner：按语言动态渲染三张（1、5/6、7/8） -->
+      <!-- Banner：按语言动态渲染（已移除“奖励/Reward Program”整组） -->
       <section class="banner carousel" aria-label="Promotions">
         <div class="track" id="carouselTrack"></div>
         <div class="ctrl" id="carouselDots" aria-label="Carousel Dots"></div>
@@ -193,24 +195,26 @@
       window.__PRODUCTS_LOADED__ = true;
     }
 
-    /* === 轮播（按语言选择不同图片） === */
+    /* === 轮播（按语言选择不同图片；已去掉 Reward Program） === */
     function buildPromoSlides(){
       const lc = currentLocale();
       const track = document.getElementById('carouselTrack');
       const dotsWrap = document.getElementById('carouselDots');
       if (!track || !dotsWrap) return;
 
+      // 只保留首图 + 5/6（根据语言）；去掉 7/8（Reward Program）
       const slides = [
         { src: 'Archive/Promo_Banner/1.png', link: 'preorder.html', clickable: true, alt: 'Promo 1' },
-        { src: lc === 'en' ? 'Archive/Promo_Banner/6.png' : 'Archive/Promo_Banner/5.png', clickable: false, alt: lc === 'en' ? 'Promo 6' : 'Promo 5' },
-        { src: lc === 'en' ? 'Archive/Promo_Banner/8.png' : 'Archive/Promo_Banner/7.png', clickable: false, alt: lc === 'en' ? 'Promo 8' : 'Promo 7' }
+        { src: lc === 'en' ? 'Archive/Promo_Banner/6.png' : 'Archive/Promo_Banner/5.png', clickable: false, alt: 'Promo' }
       ];
 
-      track.innerHTML = slides.map(s => {
+      track.innerHTML = slides.map((s, idx) => {
         const img = `<img src="${s.src}" alt="${s.alt}">`;
-        return `<div class="slide">${ s.clickable ? `<a href="${s.link}">${img}</a>` : img }</div>`;
+        const inner = s.clickable ? `<a href="${s.link}">${img}</a>` : img;
+        return `<div class="slide ${idx===0?'first':''}" style="position:relative">${inner}</div>`;
       }).join('');
 
+      // 重建 dots
       dotsWrap.innerHTML = '';
       for (let i = 0; i < slides.length; i++){
         const d = document.createElement('button');
@@ -264,13 +268,21 @@
       loadProductsOnce().then(fn).catch(err => console.error(err));
     }
 
+    /* === 兜底：切英文时把“首頁”改成“Homepage” === */
+    function updateHomeLabel(){
+      if (currentLocale() === 'en') {
+        document.querySelectorAll('[data-i18n="nav_home"]').forEach(el => el.textContent = 'Homepage');
+      }
+    }
+
     /* === 初始化 === */
     document.addEventListener('DOMContentLoaded', () => {
       buildPromoSlides();
       ensureDataThen(renderHomeFromJSON);
+      updateHomeLabel();
     });
 
-    /* === 语言切换：重建轮播 + 重新渲染首页商品 === */
+    /* === 语言切换：重建轮播 + 重新渲染首页商品 + 更新首页文案 === */
     window.addEventListener('locale-changed', () => {
       if (window.__carousel__ && window.__carousel__.timer){
         clearInterval(window.__carousel__.timer);
@@ -278,6 +290,7 @@
       }
       buildPromoSlides();
       ensureDataThen(renderHomeFromJSON);
+      updateHomeLabel();
     });
   </script>
 </body>

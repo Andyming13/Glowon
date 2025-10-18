@@ -1,4 +1,4 @@
-<!-- privacy.html -->
+<!-- privacy.html (updated) -->
 <!DOCTYPE html>
 <html lang="zh-HK">
 <head>
@@ -41,26 +41,32 @@
           <a class="btn icon whatsapp" href="https://wa.me/85297436663" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp">
             <img src="Archive/whats.png" alt="WhatsApp" style="height:24px;width:24px;">
           </a>
-          <a class="btn icon search" href="#">🔍</a>
-          <a class="btn icon login" href="login.html">👤</a>
-          <a class="btn icon cart" href="checkout.html">🛒</a>
+          <!-- 搜索：预留入口到 search.html -->
+          <a class="btn icon search" href="search.html" title="Search" aria-label="Search">🔍</a>
+          <!-- 移除登录按钮 -->
+          <a class="btn icon cart" href="checkout.html" title="Cart" aria-label="Cart">🛒</a>
           <div class="lang">
-            <button id="langBtn" class="lang-btn" type="button">
-              🌐 <span id="langLabel">繁體中文</span> ▾
+            <button id="langBtn" class="lang-btn" type="button" aria-haspopup="menu" aria-expanded="false">
+              <span aria-hidden="true">🌐</span>
+              <span id="langLabel">繁體中文</span>
+              <span class="caret" aria-hidden="true">▾</span>
             </button>
-            <div class="lang-menu" id="langMenu" hidden>
-              <button data-lc="zh-HK">繁體中文</button>
-              <button data-lc="en">English</button>
+            <div class="lang-menu" id="langMenu" hidden role="menu">
+              <button role="menuitem" data-lc="zh-HK">繁體中文</button>
+              <button role="menuitem" data-lc="en">English</button>
             </div>
           </div>
-          <button class="btn icon" id="moreBtn" title="更多">⋯</button>
+          <button class="btn icon" id="moreBtn" title="更多" aria-haspopup="menu" aria-expanded="false">⋯</button>
           <div class="more-menu" id="moreMenu" hidden>
-            <a class="item" href="https://wa.me/85297436663" target="_blank"><img src="Archive/whats.png" alt="WhatsApp" style="height:18px;width:18px;"> WhatsApp</a>
-            <a class="item" href="login.html">👤 Login</a>
+            <a class="item" href="https://wa.me/85297436663" target="_blank" rel="noopener">
+              <img src="Archive/whats.png" alt="WhatsApp" style="height:18px;width:18px;vertical-align:middle;"> WhatsApp
+            </a>
+            <!-- Search 改为 search.html；移除 Login -->
+            <a class="item" href="search.html" id="moreSearch">🔍 Search</a>
             <a class="item" href="checkout.html">🛒 Cart</a>
             <div class="sep"></div>
-            <button class="item" data-set-lc="zh-HK">繁體中文</button>
-            <button class="item" data-set-lc="en">English</button>
+            <button class="item" type="button" data-set-lc="zh-HK">繁體中文</button>
+            <button class="item" type="button" data-set-lc="en">English</button>
           </div>
         </div>
       </nav>
@@ -141,29 +147,60 @@
       <nav class="foot-row en">
         <a href="terms.html"><b>Terms &amp; Conditions</b></a>
         <a href="privacy.html"><b>Privacy Policy</b></a>
-        <a href="returns.html"><b>Return Policy</b></a>
+        <a href="returns.html"><b>Return &amp; Exchange Policy</b></a>
         <a href="process.html"><b>Shopping Process</b></a>
         <a href="payment.html"><b>Payment Methods</b></a>
         <a href="contact.html"><b>Contact Us</b></a>
       </nav>
-      <div class="copy">2025 © Glow On HK. All Rights Reserved.</div>
+      <div class="copy">2025 © Glow On HK. <span data-i18n="rights">All Rights Reserved.</span></div>
     </div>
   </footer>
 
   <script src="site.js"></script>
   <script>
+    function currentLocale(){
+      try{
+        if (typeof getLocale === 'function'){
+          const lc = getLocale();
+          if (lc === 'en' || lc === 'zh-HK') return lc;
+        }
+      }catch(e){}
+      const docLang = (document.documentElement.lang || '').toLowerCase();
+      if (docLang.startsWith('en')) return 'en';
+      return 'zh-HK';
+    }
+
     function renderLocaleBlocks(){
-      const lc = getLocale ? getLocale() : (localStorage.getItem('dordor-locale') || 'zh-HK');
+      const lc = currentLocale();
       document.documentElement.lang = lc;
+
       const zh = document.querySelector('.prose.zh');
       const en = document.querySelector('.prose.en');
-      if (lc==='en'){ zh.style.display='none'; en.style.display='block'; }
-      else { zh.style.display='block'; en.style.display='none'; }
-      const zhRow=document.querySelector('.foot-row.zh');
-      const enRow=document.querySelector('.foot-row.en');
-      if (lc==='en'){ zhRow.style.display='none'; enRow.style.display='flex'; }
-      else { zhRow.style.display='flex'; enRow.style.display='none'; }
+      const zhRow = document.querySelector('.foot-row.zh');
+      const enRow = document.querySelector('.foot-row.en');
+
+      if (lc==='en'){
+        if (zh) zh.style.display='none';
+        if (en) en.style.display='block';
+        if (zhRow) zhRow.style.display='none';
+        if (enRow) enRow.style.display='flex';
+        document.title = 'Glow On · Privacy Policy';
+      } else {
+        if (zh) zh.style.display='block';
+        if (en) en.style.display='none';
+        if (zhRow) zhRow.style.display='flex';
+        if (enRow) enRow.style.display='none';
+        document.title = 'Glow On · 私隱政策';
+      }
+
+      // 兜底：英文时把“首頁”显示为“Homepage”
+      if (lc === 'en') {
+        document.querySelectorAll('[data-i18n="nav_home"]').forEach(el => el.textContent = 'Homepage');
+      } else {
+        document.querySelectorAll('[data-i18n="nav_home"]').forEach(el => el.textContent = '首頁');
+      }
     }
+
     renderLocaleBlocks();
     window.addEventListener('locale-changed', renderLocaleBlocks);
   </script>

@@ -1,0 +1,324 @@
+<!-- search.html -->
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Glow On · 搜索</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    .site-header .top { display:flex; align-items:center; justify-content:space-between; }
+    .site-header .left { display:flex; align-items:center; gap:14px; }
+    .site-header .logo strong { display:none; }
+    .site-header .logo img { height:26px; width:auto; display:block; }
+    .site-header .nav { display:flex; gap:14px; flex-wrap:wrap; }
+    .site-header .nav a { text-decoration:none; }
+    /* 搜索条 */
+    .search-bar{display:flex;gap:8px;align-items:center;margin:10px 0 14px}
+    .search-input{flex:1;min-width:160px;padding:10px 12px;border:1px solid #e5e7eb;border-radius:10px}
+    .seg{
+      display:flex;gap:6px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:10px;padding:4px
+    }
+    .seg button{padding:8px 10px;border:0;background:transparent;border-radius:8px;cursor:pointer}
+    .seg button[aria-pressed="true"]{background:#111;color:#fff}
+    .btn{padding:10px 14px;border:1px solid #e5e7eb;border-radius:10px;background:#fff;cursor:pointer}
+    .muted{color:#6b7280}
+    /* 结果网格：遵循你站的卡片样式 */
+    .grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+    @media (max-width:920px){ .grid{ grid-template-columns:repeat(2,1fr); } }
+    /* 页脚英文行默认隐藏，语言切换时显示 */
+    .foot-row.en{display:none}
+  </style>
+</head>
+<body data-page="search">
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="top">
+        <div class="left">
+          <a href="index.html" class="logo">
+            <img src="Archive/logo.png" alt="Glow On logo">
+            <strong data-i18n="brand">Glow On</strong>
+          </a>
+          <div class="nav">
+            <a href="index.html" data-i18n="nav_home">首頁</a>
+            <a href="preorder.html" data-route="preorder" data-i18n="nav_preorder">精選預購</a>
+            <a href="instock.html"  data-route="instock"  data-i18n="nav_instock">現貨專區</a>
+            <a href="buyagent.html" data-route="service"  data-i18n="nav_service">澳洲代購服務</a>
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="btn icon whatsapp" 
+             href="https://wa.me/85297436663" 
+             target="_blank" 
+             rel="noopener" 
+             title="WhatsApp" 
+             aria-label="WhatsApp">
+            <img src="Archive/whats.png" alt="WhatsApp" style="height:24px;width:24px;">
+          </a>
+          <!-- 当前页就是搜索页 -->
+          <a class="btn icon search" href="search.html" title="Search" aria-label="Search">🔍</a>
+          <!-- 移除登录按钮 -->
+          <a class="btn icon cart" href="checkout.html" title="Cart" aria-label="Cart">🛒</a>
+
+          <!-- 语言切换 -->
+          <div class="lang">
+            <button id="langBtn" class="lang-btn" type="button" aria-haspopup="menu" aria-expanded="false">
+              <span aria-hidden="true">🌐</span>
+              <span id="langLabel">繁體中文</span>
+              <span class="caret" aria-hidden="true">▾</span>
+            </button>
+            <div class="lang-menu" id="langMenu" role="menu" hidden>
+              <button role="menuitem" data-lc="zh-HK">繁體中文</button>
+              <button role="menuitem" data-lc="en">English</button>
+            </div>
+          </div>
+
+          <!-- 更多按钮（手机端） -->
+          <button class="btn icon" id="moreBtn" aria-haspopup="menu" aria-expanded="false" title="更多">⋯</button>
+          <div class="more-menu" id="moreMenu" hidden>
+            <a class="item" href="https://wa.me/85297436663" target="_blank" rel="noopener">
+              <img src="Archive/whats.png" alt="WhatsApp" style="height:18px;width:18px;vertical-align:middle;"> WhatsApp
+            </a>
+            <a class="item" href="search.html" id="moreSearch">🔍 Search</a>
+            <!-- 无 Login -->
+            <a class="item" href="checkout.html">🛒 Cart</a>
+            <div class="sep"></div>
+            <button class="item" type="button" data-set-lc="zh-HK">繁體中文</button>
+            <button class="item" type="button" data-set-lc="en">English</button>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1 id="pageTitle">搜尋商品</h1>
+
+      <!-- 搜索条 -->
+      <div class="search-bar" role="search">
+        <input id="q" class="search-input" type="search" autocomplete="off" />
+        <div class="seg" role="tablist" aria-label="category">
+          <button type="button" class="seg-btn" data-cat="all"     aria-pressed="true"  id="catAll">全部</button>
+          <button type="button" class="seg-btn" data-cat="preorder" aria-pressed="false" id="catPre">預購</button>
+          <button type="button" class="seg-btn" data-cat="instock"  aria-pressed="false" id="catIn">現貨</button>
+        </div>
+        <button id="btnGo" class="btn">搜索</button>
+      </div>
+
+      <div id="hint" class="muted"></div>
+      <div id="results" class="grid" style="margin-top:12px"></div>
+    </div>
+  </main>
+
+  <!-- Footer（随语言切换） -->
+  <footer class="site-footer">
+    <div class="container footer-box">
+      <nav class="foot-row zh">
+        <a href="terms.html"><b>條款及細則</b></a>
+        <a href="privacy.html"><b>私隱政策</b></a>
+        <a href="returns.html"><b>退換貨政策</b></a>
+        <a href="process.html"><b>購買流程</b></a>
+        <a href="payment.html"><b>付款方式</b></a>
+        <a href="contact.html"><b>聯絡我們</b></a>
+      </nav>
+      <nav class="foot-row en">
+        <a href="terms.html"><b>Terms &amp; Conditions</b></a>
+        <a href="privacy.html"><b>Privacy Policy</b></a>
+        <a href="returns.html"><b>Return &amp; Exchange Policy</b></a>
+        <a href="process.html"><b>Shopping Process</b></a>
+        <a href="payment.html"><b>Payment Methods</b></a>
+        <a href="contact.html"><b>Contact Us</b></a>
+      </nav>
+      <div class="copy">2025 © Glow On HK. <span data-i18n="rights">All Rights Reserved.</span></div>
+    </div>
+  </footer>
+
+  <script src="site.js"></script>
+  <script>
+    /* === 配置版本号（与其它页一致） === */
+    const DATA_VERSION = '2025-10-18-01';
+
+    /* === 语言工具 === */
+    function currentLocale(){
+      try {
+        if (typeof getLocale === 'function'){
+          const lc = getLocale();
+          if (lc === 'en' || lc === 'zh-HK') return lc;
+        }
+      } catch(e){}
+      const docLang = (document.documentElement.lang || '').toLowerCase();
+      return docLang.startsWith('en') ? 'en' : 'zh-HK';
+    }
+    function applyI18n(){
+      const lc = currentLocale();
+      document.documentElement.lang = lc;
+
+      // 顶部“首頁” → Homepage
+      document.querySelectorAll('[data-i18n="nav_home"]').forEach(el=>{
+        el.textContent = (lc === 'en' ? 'Homepage' : '首頁');
+      });
+
+      // 文案
+      const t = {
+        'zh-HK': {
+          title: '搜尋商品',
+          ph: '輸入關鍵字（例如：膠原蛋白、牙膏…）',
+          btn: '搜索',
+          all: '全部', pre: '預購', in: '現貨',
+          empty: '未找到相關商品，試試其他關鍵字～',
+          hint: '可輸入商品關鍵字，並按分類篩選'
+        },
+        'en': {
+          title: 'Search Products',
+          ph: 'Type keywords (e.g. collagen, toothpaste…)',
+          btn: 'Search',
+          all: 'All', pre: 'Pre-Order', in: 'In-Stock',
+          empty: 'No matching items. Try another keyword.',
+          hint: 'Type keywords and filter by category'
+        }
+      }[lc];
+
+      document.getElementById('pageTitle').textContent = t.title;
+      document.getElementById('q').placeholder = t.ph;
+      document.getElementById('btnGo').textContent = t.btn;
+      document.getElementById('catAll').textContent = t.all;
+      document.getElementById('catPre').textContent = t.pre;
+      document.getElementById('catIn').textContent  = t.in;
+      document.getElementById('hint').textContent   = t.hint;
+
+      // 页脚中英行
+      const zhRow = document.querySelector('.foot-row.zh');
+      const enRow = document.querySelector('.foot-row.en');
+      if (zhRow && enRow){
+        if (lc === 'en'){ zhRow.style.display='none'; enRow.style.display='flex'; }
+        else { zhRow.style.display='flex'; enRow.style.display='none'; }
+      }
+    }
+
+    /* === 数据加载（只加载一次） === */
+    async function loadProductsOnce(){
+      if (window.__PRODUCTS_LOADED__) return;
+      const res = await fetch('/products.json?v=' + DATA_VERSION, { cache: 'no-store' });
+      if (!res.ok) throw new Error('Failed to load products.json: ' + res.status);
+      const data = await res.json();
+      window.__PRODUCTS_VERSION__ = data.version || DATA_VERSION;
+      window.__PRODUCTS__ = Array.isArray(data) ? data : (data.items || []);
+      window.__PRODUCTS_LOADED__ = true;
+    }
+
+    /* === 简单评分匹配：在中/英标题与描述中搜索 === */
+    function scoreItem(p, q, lc){
+      if (!q) return 1; // 没关键词时全部命中
+      const hay = [
+        String(p.title_zh || ''), String(p.title_en || ''),
+        String(p.desc_zh || ''),  String(p.desc_en || '')
+      ].join(' ').toLowerCase();
+      const tokens = q.toLowerCase().trim().split(/\s+/).filter(Boolean);
+      if (tokens.length === 0) return 1;
+      let hit = 0;
+      tokens.forEach(t => { if (hay.includes(t)) hit++; });
+      if (!hit) return 0;
+      // 语言优先：如果当前语言标题命中，加点分
+      const titleNow = (lc === 'en' ? (p.title_en || p.title_zh || '') : (p.title_zh || p.title_en || '')).toLowerCase();
+      let bonus = tokens.some(t => titleNow.includes(t)) ? 0.5 : 0;
+      return hit + bonus;
+    }
+
+    /* === 执行搜索并渲染 === */
+    function doSearch(){
+      if (typeof renderCardsInto !== 'function'){
+        console.warn('renderCardsInto 未定义，请检查 site.js 是否加载');
+        return;
+      }
+      const lc  = currentLocale();
+      const q   = document.getElementById('q').value || '';
+      const cat = document.querySelector('.seg-btn[aria-pressed="true"]')?.dataset.cat || 'all';
+
+      const list = (window.__PRODUCTS__ || []).slice();
+
+      // 先筛选分类
+      const filtered = list.filter(p => {
+        if (cat === 'all') return true;
+        return String(p.category).toLowerCase() === cat;
+      });
+
+      // 评分并排序（高分在前）
+      const scored = filtered
+        .map(p => ({ p, s: scoreItem(p, q, lc) }))
+        .filter(x => x.s > 0 || q.trim() === '')
+        .sort((a,b) => b.s - a.s)
+        .map(x => x.p);
+
+      // 渲染
+      const mount = '#results';
+      const beforeCount = scored.length;
+      // renderCardsInto 会按列表顺序渲染，我们包装一个白名单过滤器
+      const allow = new Set(scored.map(p => String(p.id)));
+      renderCardsInto(mount, p => allow.has(String(p.id)));
+
+      // 空态提示
+      const has = document.querySelector(mount)?.children?.length > 0;
+      const msg = (lc === 'en') ? 'No matching items. Try another keyword.' : '未找到相關商品，試試其他關鍵字～';
+      document.getElementById('hint').textContent = has ? '' : msg;
+
+      // 更新 URL（便于分享）
+      const params = new URLSearchParams(location.search);
+      if (q) params.set('q', q); else params.delete('q');
+      if (cat !== 'all') params.set('cat', cat); else params.delete('cat');
+      const next = location.pathname + (params.toString() ? ('?' + params.toString()) : '');
+      history.replaceState(null, '', next);
+    }
+
+    /* === 交互绑定 === */
+    function bindUI(){
+      const input = document.getElementById('q');
+      const btn   = document.getElementById('btnGo');
+      const segs  = document.querySelectorAll('.seg-btn');
+
+      // 回车搜索 & 点击搜索
+      input.addEventListener('keydown', (e)=>{ if(e.key==='Enter'){ doSearch(); }});
+      btn.addEventListener('click', doSearch);
+
+      // 分类切换
+      segs.forEach(b=>{
+        b.addEventListener('click', ()=>{
+          segs.forEach(x=>x.setAttribute('aria-pressed','false'));
+          b.setAttribute('aria-pressed','true');
+          doSearch();
+        });
+      });
+    }
+
+    /* === 从 URL 初始化 q/cat === */
+    function initFromURL(){
+      const params = new URLSearchParams(location.search);
+      const q   = params.get('q')   || '';
+      const cat = (params.get('cat') || 'all').toLowerCase();
+      document.getElementById('q').value = q;
+      const target = document.querySelector(`.seg-btn[data-cat="${cat}"]`);
+      if (target){
+        document.querySelectorAll('.seg-btn').forEach(x=>x.setAttribute('aria-pressed','false'));
+        target.setAttribute('aria-pressed','true');
+      }
+    }
+
+    /* === 页面初始化 === */
+    function boot(){
+      applyI18n();
+      initFromURL();
+      bindUI();
+      if (window.__PRODUCTS_LOADED__) return doSearch();
+      loadProductsOnce().then(doSearch).catch(console.error);
+    }
+
+    document.addEventListener('DOMContentLoaded', boot);
+    window.addEventListener('locale-changed', ()=>{
+      applyI18n();
+      doSearch();
+    });
+  </script>
+</body>
+</html>
