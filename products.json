@@ -2,6 +2,16 @@
   "version": "2025-10-18-01",
   "items": [
     {
+      "category": "preorder",
+      "id": "1",
+      "title_zh": " <預購>  UGG羊毛靴 – Classic Ultra Mini    ⏰ 截單：10月25日 ",
+      "title_en": " <Pre-order> UGG Boot – Classic Ultra Mini ⏰ Order cut-off：Oct 25",
+      "price_hkd": 1099,
+      "img": "/Archive/Untitled_design/classic-ultra-mini.png",
+      "desc_zh": "黑色 / 沙色 / 灰啡色 / 灰色 - SIZE (EU): 36,37,38,39,40\n栗子啡色- SIZE (EU): 36,37,38,39\n淺藍色– SIZE (EU): 37\n",
+      "desc_en": "Black / Sand / Caribou / Grey - SIZE (EU): 36,37,38,39,40\nCHestnut- SIZE (EU): 36,37,38,39\nSea Foam– SIZE (EU): 37\n"
+    },
+    {
       "desc_images_en": [],
       "img": "Archive/Untitled_design/1.png",
       "desc_images_zh": [],
@@ -348,16 +358,6 @@
       "id": "1024",
       "desc_zh": "濃郁朱古力香味，綿密泡泡溫柔潔淨肌膚，甜蜜香氣讓沐浴時光更加愉悅！\n\n🇦🇺 產地：澳洲",
       "category": "preorder"
-    },
-    {
-      "category": "preorder",
-      "id": "1",
-      "title_zh": " <預購>  UGG羊毛靴 – Classic Ultra Mini    ⏰ 截單：10月25日 ",
-      "title_en": " <Pre-order> UGG Boot – Classic Ultra Mini ⏰ Order cut-off：Oct 25",
-      "price_hkd": 1099,
-      "img": "/Archive/Untitled_design/classic-ultra-mini.png",
-      "desc_zh": "黑色 / 沙色 / 灰啡色 / 灰色 - SIZE (EU): 36,37,38,39,40\n栗子啡色- SIZE (EU): 36,37,38,39\n淺藍色– SIZE (EU): 37\n",
-      "desc_en": "Black / Sand / Caribou / Grey - SIZE (EU): 36,37,38,39,40\nCHestnut- SIZE (EU): 36,37,38,39\nSea Foam– SIZE (EU): 37\n"
     }
   ]
 }
