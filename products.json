@@ -94,58 +94,40 @@
       "img": "/Archive/Untitled_design/garnier-shampoo-bar.png"
     },
     {
-      "desc_images_en": [
-        "/Archive/Untitled_design/as02-ventus-cow-suede-platform-slippers.png",
-        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
-      ],
-      "img": "/Archive/Untitled_design/as02-ventus-cow-suede-platform-slippers.png",
-      "desc_images_zh": [
-        "/Archive/Untitled_design/as02-ventus-cow-suede-platform-slippers.png",
-        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
-      ],
-      "price_hkd": 889,
-      "title_en": "<Pre-order> UGG Australian Shepherd sheepskin shoes (AS02)    ⏰ Order cut-off: Oct 25",
-      "title_zh": "<預購>  UGG Australian Shepherd羊毛鞋 (AS02)    ⏰ 截單: 10月25日",
-      "desc_en": "Brown / Chestnut / Black- size (EU): 35,36,37,38,39,40",
-      "id": "7",
-      "desc_zh": "啡色 / 栗子啡色 / 黑色- size (EU): 35,36,37,38,39,40",
-      "category": "archived"
-    },
-    {
-      "desc_images_en": [
-        "/Archive/Untitled_design/as03-waffle-curly-platform.png",
-        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
-      ],
-      "img": "/Archive/Untitled_design/as03-waffle-curly-platform.png",
-      "desc_images_zh": [
-        "/Archive/Untitled_design/as03-waffle-curly-platform.png",
-        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
-      ],
-      "price_hkd": 849,
-      "title_en": "<預購>  UGG Australian Shepherd羊毛鞋(AS03)    ⏰ 截單: 10月25日",
-      "title_zh": "<預購>  UGG Australian Shepherd羊毛鞋 (AS03)    ⏰ 截單: 10月25日",
-      "desc_en": "Sand- size (EU): 40\nChestnut- size (EU): 37,40\nBlack / Grey - size (EU): 35,36,37,38,39,40\n\n*Detachable back straps for two stylish ways to wear.\n",
-      "id": "8",
-      "desc_zh": "沙色- size (EU): 40\n栗子啡色- size (EU): 37,40\n黑色 / 深灰色 - size (EU): 35,36,37,38,39,40\n\n*後提帶可拆卸，隨心變換兩種穿法。\n",
-      "category": "archived"
-    },
-    {
-      "desc_images_en": [
-        "/Archive/Untitled_design/as04-rilee-slipper.png",
-        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
-      ],
-      "img": "/Archive/Untitled_design/as04-rilee-slipper.png",
-      "desc_images_zh": [
-        "/Archive/Untitled_design/as04-rilee-slipper.png",
-        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
-      ],
-      "price_hkd": 849,
-      "title_en": "<Pre-order> UGG Australian Shepherd sheepskin shoes (AS04)    ⏰ Order cut-off: Oct 25",
-      "title_zh": "<預購>  UGG Australian Shepherd羊毛鞋 (AS04)    ⏰ 截單: 10月25日",
-      "desc_en": "Brown / Chocolate- size (EU): 35\nSand - size (EU): 35,39\nChestnut  - size (EU): 35,36,37,38,39,40\n",
+      "desc_images_en": [],
+      "img": "/Archive/Untitled_design/red.png",
+      "desc_images_zh": [],
+      "price_hkd": 75,
+      "title_en": "<Pre-order> Red Rock Deli Potato Chips Lunchbox Snacks Multipack Assorted 10 Pack (280g)   ⏰ Order cut-off: Nov 4",
+      "title_zh": "<預購>  Red Rock Deli 澳洲薯片迷你包 10包裝     ⏰ 截單: 11月4日",
+      "desc_en": "🇦🇺 Australia’s Best Chips Ever!!\nPerfect for parties, lunchboxes, picnics, movie nights, or game days! 🎉\n\nMade from 100% Aussie potatoes and cooked slowly in sunflower oil for that perfect crunch 😋\nOn a diet? Nah, treat yourself first! 😝\n\n🧂 1 pack includes 4 popular flavours:\n🍯 Honey Soy Chicken ×3\n🌶 Sweet Chilli & Sour Cream ×3\n🍷 Sea Salt & Balsamic Vinegar ×2\n🧊 Original Sea Salt ×2\n\n✅ Made in Australia ｜ Natural Ingredients ｜ Gluten Free\n📦 10 packs per box ｜ 28g per pack",
       "id": "9",
-      "desc_zh": "啡色 / 朱古力色- size (EU): 35\n沙色 - size (EU): 35,39\n栗子啡色  - size (EU): 35,36,37,38,39,40\n",
-      "category": "archived"
+      "desc_zh": "澳洲最好食既薯片!!派對必備！Lunchbox、野餐、追劇、睇波都啱食～\n用100% 澳洲薯仔 + 葵花籽油慢火煮成，香脆可口，減肥？食完先啦！！\n🧂* 1箱有齊4款口味：*\n🍯 蜜糖豉油雞味（3包）\n🌶 甜辣酸忌廉味（3包）\n🍷 海鹽黑醋味（2包）\n🧊 原味海鹽（2包）\n✅ 澳洲製造｜天然成分｜無麩質\n✅ 規格：1箱10包，每包28g\n",
+      "category": "preorder"
+    },
+    {
+      "desc_images_en": [],
+      "img": "/Archive/Untitled_design/dermalx4.png",
+      "desc_images_zh": [],
+      "price_hkd": 50,
+      "title_en": "<預購>  Dermal Therapy Lip Balm 10g    ⏰ 截單: 11月4日",
+      "title_zh": "<預購>  Dermal Therapy潤唇膏10g    ⏰ 截單: 11月4日",
+      "desc_en": "Australia’s No.1 Pharmacy Lip Balm! 🏆\nWorried about dry, chapped lips this autumn? 🥲 Dermal Therapy Professional Repair Lip Balm delivers clinically proven results in just 1 day ✨, instantly soothing cracks, repairing damaged lips, and restoring soft, hydrated lips 💧\n\n👄 Available in 4 variants:\n1️⃣ Classic Repair\n2️⃣ Berry Scent\n3️⃣ Manuka Honey\n4️⃣ Sensitive Formula",
+      "id": "10",
+      "desc_zh": "澳洲藥局銷售第一的潤唇膏品牌!\n入秋轉季最怕咀唇乾爆裂🥲 Dermal Therapy 專業修護潤唇膏，臨床驗證1日見效✨，即時舒緩乾裂、修護受損唇肌，回復柔軟滋潤💧\n👄 4款可選：\n1️⃣ 經典修護版\n2️⃣ 莓果香版\n3️⃣ 麥蘆卡蜂蜜版\n4️⃣ 敏感配方版\n\n",
+      "category": "preorder"
+    },
+    {
+      "desc_images_en": [],
+      "img": "/Archive/Untitled_design/weleda-hair-tonic.png",
+      "desc_images_zh": [],
+      "price_hkd": 175,
+      "title_en": "<Pre-order> WELEDA Revitalising Hair Tonic 100ml   ⏰ Order cut-off: Nov 6",
+      "title_zh": "<預購>  WELEDA防脫髮強韌髮絲精華 100ml   ⏰ 截單: 11月6日",
+      "desc_en": "Want healthier, shinier hair? ✨ Wake up your scalp with this natural revitalizing hair tonic 💪\nFrom a century-old German herbal brand, this tonic uses plant-based extracts to energize your scalp, strengthen hair roots, and boost hair volume ✨\n\n🌱 Key Ingredients: Rosemary essential oil, Wasabi extract, Horsetail herb extract\n✨ 100% natural & vegan, dermatologically tested\n✨ Lightweight, non-greasy texture – apply to scalp morning or night and gently massage (no rinse needed)",
+      "id": "11",
+      "desc_zh": "想令頭髮更健康、有光澤？✨用呢支天然活髮露幫頭皮「喚醒」生機💪\n德國百年草本品牌出品，以天然植物精華為頭皮注入能量，令髮根更強韌、髮絲更豐盈～用呢支天然活髮露幫頭皮「喚醒」生機💪✨\n\n🌱 主要成分: 迷迭香精油, 山葵萃取,  佛甲草精華 \n✨ 天然純素配方、通過皮膚學測試\n✨ 質地清爽不黏膩, 早/晚，塗抹於頭皮並輕輕按摩吸收 (不用清洗)\n",
+      "category": "preorder"
     },
     {
       "desc_images_en": [
