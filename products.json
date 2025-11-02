@@ -130,58 +130,40 @@
       "category": "preorder"
     },
     {
-      "desc_images_en": [
-        "/Archive/Untitled_design/as05-–-vance.png",
-        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
-      ],
-      "img": "/Archive/Untitled_design/as05-–-vance.png",
-      "desc_images_zh": [
-        "/Archive/Untitled_design/as05-–-vance.png",
-        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
-      ],
-      "price_hkd": 799,
-      "title_en": "<Pre-order> UGG Australian Shepherd sheepskin shoes (AS05)    ⏰ Order cut-off: Oct 25",
-      "title_zh": "<預購>  UGG Australian Shepherd羊毛鞋 (AS05)    ⏰ 截單: 10月25日",
-      "desc_en": "Black- size (EU): 35,36,40\nCHestnut  - size (EU): 35,36,38,39,40\n",
-      "id": "10",
-      "desc_zh": "黑色- size (EU): 35,36,40\n栗子啡色  - size (EU): 35,36,38,39,40\n",
-      "category": "archived"
-    },
-    {
-      "desc_images_en": [
-        "/Archive/Untitled_design/as06-–-coated-classic.png",
-        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
-      ],
-      "img": "/Archive/Untitled_design/as06-–-coated-classic.png",
-      "desc_images_zh": [
-        "/Archive/Untitled_design/as06-–-coated-classic.png",
-        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
-      ],
-      "price_hkd": 869,
-      "title_en": "<Pre-order> UGG Australian Shepherd sheepskin shoes (AS06)    ⏰ Order cut-off: Oct 25",
-      "title_zh": "<預購>  UGG Australian Shepherd羊毛鞋 (AS06)    ⏰ 截單: 10月25日",
-      "desc_en": "Milk - size (EU): 35,36,38,39,40\nBlack / Pink / Chestnut  - size (EU): 35,36,37,38,39,40\n",
-      "id": "11",
-      "desc_zh": "奶油色- size (EU): 35,36,38,39,40\n黑色 / 粉紅色 / 栗子啡色  - size (EU): 35,36,37,38,39,40\n",
-      "category": "archived"
-    },
-    {
-      "desc_images_en": [
-        "/Archive/Untitled_design/as07-cecil-slipper.png",
-        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
-      ],
-      "img": "/Archive/Untitled_design/as07-cecil-slipper.png",
-      "desc_images_zh": [
-        "/Archive/Untitled_design/as07-cecil-slipper.png",
-        "/Archive/Untitled_design/9749f869-80ce-41e8-8bd3-3a59d336e44d.jpg"
-      ],
-      "price_hkd": 699,
-      "title_en": "<Pre-order> UGG Australian Shepherd sheepskin shoes (AS07)    ⏰ Order cut-off: Oct 25",
-      "title_zh": "<預購>  UGG Australian Shepherd羊毛鞋 (AS07)    ⏰ 截單: 10月25日",
-      "desc_en": "Brown - size (EU): 35\nCream - size (EU): 35,36,37,38,39,40\n",
+      "desc_images_en": [],
+      "img": "/Archive/Untitled_design/red-kril-oil.png",
+      "desc_images_zh": [],
+      "price_hkd": 160,
+      "title_en": "<Pre-order> 💊 Bioglan Red Krill Oil 1000mg (60 Capsules)    ⏰ Order cut-off: Nov 8",
+      "title_zh": "<預購>  Bioglan 紅磷蝦油1000mg (60粒裝)    ⏰ 截單: 11月8日",
+      "desc_en": "Want to protect your joints, heart, and brain? 💪 This popular Australian 🇦🇺 Red Krill Oil is made for you!🔥\nPacked with highly absorbable Omega-3 fatty acids (DHA + EPA) to keep your body in top shape:\n✨ Relieves mild joint pain and inflammation\n✨ Supports heart health 💖\n✨ Improves brain and eye function 🧠👀\nMade in Australia 🇦🇺 — 60 soft capsules per bottle, enough for 1–2 months of daily care!",
       "id": "12",
-      "desc_zh": "啡色 - size (EU): 35\n米白色 - size (EU): 35,36,37,38,39,40\n",
-      "category": "archived"
+      "desc_zh": "想保護關節、護心又護腦？呢款澳洲人氣🔥紅磷蝦油就啱晒你！\n含有高效吸收嘅Omega-3脂肪酸（DHA + EPA）\n✨ 舒緩輕微關節痛、關節炎症狀\n✨ 支持心臟健康 💖\n✨ 改善腦部同視力健康 🧠👀\n澳洲製造🇦🇺 每樽 60粒 軟膠囊裝夠食1-2個月\n\n",
+      "category": "preorder"
+    },
+    {
+      "desc_images_en": [],
+      "img": "/Archive/Untitled_design/cereva-hydrate.png",
+      "desc_images_zh": [],
+      "price_hkd": 190,
+      "title_en": "<Pre-order> CeraVe Hydrating Hyaluronic Acid Serum 30ml    ⏰ Order cut-off: Nov 8",
+      "title_zh": "<預購>  CeraVe 透明質酸保濕精華 30ml    ⏰ 截單: 11月8日",
+      "desc_en": "Developed by dermatologists, this refreshing gel-cream formula ✨\nis packed with 3 essential ceramides + high-strength hyaluronic acid + vitamin B5 to deeply hydrate and lock in moisture 💦 while repairing the skin barrier and improving dry lines!\nLeaves your skin instantly soft and smooth 💫 — fragrance-free, non-sticky, and perfect even for sensitive skin 💚",
+      "id": "13",
+      "desc_zh": "由皮膚科醫生研發，清爽凝膠霜質地✨\n蘊含 3種神經醯胺 + 高濃度透明質酸 + 維他命B5，深層補水鎖水💦，同時修復肌膚屏障，改善乾紋！\n用後肌膚即時變得柔軟光滑💫 無香料、唔黏笠，敏感肌都啱用💚\n",
+      "category": "preorder"
+    },
+    {
+      "desc_images_en": [],
+      "img": "/Archive/Untitled_design/emu-oil.png",
+      "desc_images_zh": [],
+      "price_hkd": 190,
+      "title_en": "<Pre-order> Emu Oil Liniment 50ml    ⏰ Order cut-off: Nov 8",
+      "title_zh": "<預購>  鴯鶓油活絡舒緩膏 50ml     ⏰ 截單: 11月8日",
+      "desc_en": "\nSore muscles after a workout? Pulled or twisted something? This one really works! 🔥\nIt penetrates deeply to relieve aches and tension fast — you’ll feel the difference right away! 💪\n\n✨ Enriched with Emu Oil, Macadamia Oil, Arnica, Wheat Germ Oil + 5 essential oils\n💨 Fast-absorbing, fast-acting, fast pain relief!\n💚 Steroid-free, gentle and non-heating — safe even for sensitive skin!\n👉 Perfect for muscle pain, bruises, sprains, and joint discomfort",
+      "id": "14",
+      "desc_zh": "運動後肌肉痛？拉傷扭親？呢支真係好勁！🔥\n深層滲透紓緩痠痛，即刻鬆一鬆～\n✨ 含鴯鶓油＋夏威夷果油＋山金車＋小麥胚芽油＋5種精油\n💨 快吸收、快見效、快止痛！\n💚 無類固醇、溫和唔辣膚，敏感肌都用得！\n👉 適合：肌肉痛、瘀傷、扭傷、關節痛\n\n",
+      "category": "preorder"
     },
     {
       "desc_images_en": [
