@@ -900,6 +900,16 @@
       "category": "instock"
     },
     {
+      "category": "instock",
+      "id": "1007",
+      "title_zh": "CeraQuin薰衣草護手霜 (50ml)",
+      "price_hkd": 49,
+      "title_en": "CeraQuin Reparative Hand Cream Lavender (50ml)",
+      "img": "/Archive/Untitled_design/whatsapp-image-2025-10-14-at-15.25.47.jpeg",
+      "desc_zh": "秋天快到 🍂，雙手容易乾？呢支護手霜係澳洲新出既品牌，含 5 種精華神經醯胺，幫助修復皮膚保護屏障💧質地輕盈易吸收，不油膩✨加薰衣草淡香，大人小朋友都適用，細細支 50ml，隨身帶出街/返工都方便👜 \n",
+      "desc_en": "🍂 Autumn is coming – dry hands?\nTry this new Australian hand cream with 5 types of ceramide-rich serums to help repair and protect your skin barrier 💧\nLightweight, fast-absorbing, and non-greasy ✨\nInfused with a gentle lavender scent, suitable for both adults and kids.\nCompact 50ml size – perfect to carry in your bag for work or on the go 👜"
+    },
+    {
       "desc_images_en": [],
       "img": "Archive/Untitled_design/11.png",
       "desc_images_zh": [],
@@ -912,16 +922,6 @@
       "category": "instock"
     },
     {
-      "category": "instock",
-      "id": "1007",
-      "title_zh": "CeraQuin薰衣草護手霜 (50ml)",
-      "price_hkd": 49,
-      "title_en": "CeraQuin Reparative Hand Cream Lavender (50ml)",
-      "img": "/Archive/Untitled_design/whatsapp-image-2025-10-14-at-15.25.47.jpeg",
-      "desc_zh": "秋天快到 🍂，雙手容易乾？呢支護手霜係澳洲新出既品牌，含 5 種精華神經醯胺，幫助修復皮膚保護屏障💧質地輕盈易吸收，不油膩✨加薰衣草淡香，大人小朋友都適用，細細支 50ml，隨身帶出街/返工都方便👜 \n",
-      "desc_en": "🍂 Autumn is coming – dry hands?\nTry this new Australian hand cream with 5 types of ceramide-rich serums to help repair and protect your skin barrier 💧\nLightweight, fast-absorbing, and non-greasy ✨\nInfused with a gentle lavender scent, suitable for both adults and kids.\nCompact 50ml size – perfect to carry in your bag for work or on the go 👜"
-    },
-    {
       "desc_images_en": [],
       "img": "Archive/Untitled_design/12.png",
       "desc_images_zh": [],
@@ -929,7 +929,7 @@
       "title_en": "Dermal Therapy Tinted Lip Balm Peach Nude (8g)",
       "title_zh": "Dermal Therapy 有色潤唇膏– 蜜桃裸色(8g)",
       "desc_en": "Dermal Therapy is an Australian professional skincare brand dedicated to developing scientifically formulated products for dry skin, chapped lips, and related concerns. Its clinically tested products are trusted by healthcare professionals and deliver visible restorative results.\n\n💄 Sweet Peach Nude – naturally enhances lip color\n💧 Moisturizing formula nourishes lips, keeping them soft and hydrated\n✨ Glides on smoothly for a natural glossy finish",
-      "id": "1007",
+      "id": "10044",
       "desc_zh": "Dermal Therapy 是澳洲專業護膚品牌，專注研發針對乾燥肌膚、乾裂嘴唇等問題的科學配方。其產品經臨床驗證，深受醫療專業人員信賴，並能帶來可見的修護效果。\n\n💄 甜美蜜桃裸，自然修飾唇色\n💧 滋潤配方，呵護雙唇，保持柔軟水潤\n✨ 柔滑易塗，打造自然光澤唇妝",
       "category": "preorder"
     },
