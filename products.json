@@ -209,6 +209,16 @@
       "desc_en": "This is the ultimate can’t-stop-eating snack!\nPistachios roasted to a golden crunch, coated with a touch of Himalayan pink salt for a perfect sweet–salty balance.\nEach bite is super fragrant and crispy — like a premium version of peanut brittle!\n\nBig bag, super satisfying.\nIf you love nut snacks, this is a must-try! 💚"
     },
     {
+      "category": "preorder",
+      "id": "21",
+      "title_zh": "<預購>   紐西蘭人氣Whittaker’s迷你朱古力袋裝 (600g)    ⏰ 截單：11月23日",
+      "title_en": "<Pre-order> Whittaker’s Mini Chocolate Assortment    ⏰ Order cut-off：Nov 23",
+      "desc_en": "Bringing together 4 of New Zealand’s favourite flavours:\n🥥 Coconut ｜🥜 Peanut ｜🌰 Almond ｜🥛 Creamy Milk Chocolate\n\nEach piece is individually wrapped — perfect for sharing at home or in the office✨\nAround 40 pieces per bag, plenty to enjoy for days! 😍\nProudly made in New Zealand — truly delicious and highly recommended for all chocolate lovers! 💛",
+      "price_hkd": 158,
+      "desc_zh": "集合4大人氣口味：\n🥥 椰子｜🥜 花生｜🌰 杏仁｜🥛牛奶朱古力\n每粒獨立包裝，放喺屋企或者 Office 都方便拎嚟食✨\n約40粒，一袋滿滿有排食～😍\n紐西蘭製造，好味道真心推介，朱古力控必試！\n",
+      "img": "/Archive/Untitled_design/whittaker-s-mini-choc.png"
+    },
+    {
       "desc_images_en": [],
       "img": "/Archive/Untitled_design/boss.png",
       "desc_images_zh": [],
@@ -618,16 +628,6 @@
       "id": "65",
       "desc_zh": "髮尾超乾、毛躁？這支髮油超好用～輕輕一抹就吸收，不油膩💆‍♀️ \n💪 修護受損髮，抑制毛躁和飛散，秀髮柔順亮澤✨\n🍊 柑橘香，好聞又舒服\n✅ 無硫酸鹽、無防腐劑、無塑化劑，用得安心💛\n",
       "category": "preorder"
-    },
-    {
-      "category": "archived",
-      "id": "66",
-      "title_zh": "<預購>   紐西蘭人氣Whittaker’s迷你朱古力袋裝 (600g)    ⏰ 截單：10月26日",
-      "title_en": "<Pre-order> Whittaker’s Mini Chocolate Assortment    ⏰ Order cut-off：Oct 26",
-      "desc_en": "Bringing together 4 of New Zealand’s favourite flavours:\n🥥 Coconut ｜🥜 Peanut ｜🌰 Almond ｜🥛 Creamy Milk Chocolate\n\nEach piece is individually wrapped — perfect for sharing at home or in the office✨\nAround 40 pieces per bag, plenty to enjoy for days! 😍\nProudly made in New Zealand — truly delicious and highly recommended for all chocolate lovers! 💛",
-      "price_hkd": 158,
-      "desc_zh": "集合4大人氣口味：\n🥥 椰子｜🥜 花生｜🌰 杏仁｜🥛牛奶朱古力\n每粒獨立包裝，放喺屋企或者 Office 都方便拎嚟食✨\n約40粒，一袋滿滿有排食～😍\n紐西蘭製造，好味道真心推介，朱古力控必試！\n",
-      "img": "/Archive/Untitled_design/whittaker-s-mini-choc.png"
     },
     {
       "category": "archived",
