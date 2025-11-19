@@ -229,6 +229,46 @@
       "img": "/Archive/Untitled_design/macca-blind-box-tin.png"
     },
     {
+      "category": "preorder",
+      "id": "23",
+      "title_zh": "<預購>  🇦🇺 esmi 透明質酸保濕精華 30ml  ⏰ 截單：11月24日",
+      "title_en": "<Pre-order>  🇦🇺 esmi Hyaluronic Hydrating Serum 30ml ⏰ Order cut-off：Nov 24",
+      "price_hkd": 245,
+      "img": "/Archive/Untitled_design/esmi-blue.png",
+      "desc_zh": "臨床證實 2小時水潤度 +25%，真係俾皮膚飲大啖水咁爽！乾肌／敏感肌／缺水肌必備！\n\n🏆 榮獲多項美容大獎, 美容編輯＋用家一致強推！\n💙 3重透明質酸,鎖住相當於自己 1000倍水分\n💬 超過 2,200個五星好評，回購率勁高！\n",
+      "desc_en": "Clinically proven: boosts skin hydration by 25% in just 2 hours – like giving your skin a big gulp of water! Perfect for dry, sensitive, or dehydrated skin.\n\n🏆 Winner of multiple beauty awards, highly recommended by editors and users alike!\n💙 Triple-action hyaluronic acid locks in 1000x its weight in water\n💬 Over 2,200 five-star reviews with a high repurchase rate!"
+    },
+    {
+      "category": "preorder",
+      "id": "24",
+      "title_en": "<Pre-order>  🇦🇺 esmi Probiotic Skin Mylck 30ml  ⏰ Order cut-off：Nov 24",
+      "title_zh": "<預購>  🇦🇺esmi 益生菌修護乳液30ml  ⏰ 截單：11月24日",
+      "price_hkd": 245,
+      "img": "/Archive/Untitled_design/esmi-white.png",
+      "desc_zh": "首創以 100% 澳洲製益生菌 Lysate 打造嘅超溫和乳液，專為 敏感、受損、屏障薄弱肌 設計，質地輕盈但修護力超強！\n\n👩🏻‍⚕澳洲皮膚專用益生菌 Lysates配方\n🧫為皮膚建立健康微生態，強化自癒降紅、快速穩膚\n",
+      "desc_en": "A pioneering ultra-gentle lotion made with 100% Australian-made probiotic Lysates, specially designed for sensitive, damaged, and barrier-weakened skin. Lightweight yet deeply repairing!\n\n👩🏻‍⚕Australian skin-specific probiotic Lysates\n🧫Helps establish a healthy skin microbiome, strengthen self-repair, reduce redness, and calm the skin quickly"
+    },
+    {
+      "category": "preorder",
+      "id": "25",
+      "title_zh": "<預購>  🇦🇺esmi 薄荷綠抗紅精華 30ml  ⏰ 截單：11月24日",
+      "title_en": "<Pre-order>  🇦🇺 esmi Anti-Redness Minty Green Smoothie 30ml  ⏰ Order cut-off：Nov 24",
+      "price_hkd": 245,
+      "img": "/Archive/Untitled_design/esmi-green.png",
+      "desc_zh": "專為泛紅、敏感、爆痘後或醫美後肌膚設計，一支即刻鎮靜修復！\n\n主成分有Tasmannia Lanceloata +Arnica幫你抗炎、抗氧化，減紅降腫，加快修復\n\n",
+      "desc_en": "Specifically designed for redness-prone, sensitive, post-acne, or post-treatment skin—provides instant calming and repair!\n\nKey ingredients Tasmannia Lanceloata + Arnica help fight inflammation and oxidative stress, reduce redness and swelling, and speed up skin recovery."
+    },
+    {
+      "category": "preorder",
+      "id": "26",
+      "title_zh": "<預購>  🇦🇺 esmi 24K 黃金滋養精油 30ml  ⏰ 截單：11月24日",
+      "title_en": "<Pre-order>  🇦🇺 esmi 24K Gold Nourishing Oil 30ml  ⏰ Order cut-off：Nov 24",
+      "price_hkd": 245,
+      "img": "/Archive/Untitled_design/esmi-gold.png",
+      "desc_zh": "✨ 又係一枝得獎產品, 一滴閃耀黃金，提升肌膚彈性＋緊緻亮澤，細紋皺紋bye bye！\n\n💛 24K 黃金微片：回復年輕光采\n💛椰子油 + 荷荷巴油 + 牛油果油 + 玫瑰果油：深層滋潤、修護乾敏肌\n💛依蘭依蘭 + 天竺葵香氛：舒緩放鬆，按摩更享受\n💛質地輕盈不油笠，混合肌至乾肌都啱用，面部頸部都可擦～\n",
+      "desc_en": "✨ Another award-winning product! A single drop of shimmering gold boosts skin elasticity and firmness, leaving your complexion radiant and smooth—fine lines and wrinkles, goodbye!\n\n💛 24K Gold Flakes: restores youthful glow\n💛 Coconut, Jojoba, Avocado & Rosehip Oils: deeply moisturize and repair dry, sensitive skin\n💛 Ylang Ylang & Geranium: soothing aroma for a relaxing massage experience\n💛 Lightweight, non-greasy texture, suitable for combination to dry skin, can be applied on face and neck"
+    },
+    {
       "desc_images_en": [],
       "img": "/Archive/Untitled_design/boss.png",
       "desc_images_zh": [],
