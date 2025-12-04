@@ -4,26 +4,6 @@
     {
       "category": "preorder",
       "id": "1",
-      "title_zh": "【預購】Jurlique 天然香氛護手霜 125ml    ⏰ 截單：11月29日",
-      "title_en": "【Pre-order】Jurlique Handcream 125ml    ⏰ Order cut-off：Nov 29",
-      "price_hkd": 235,
-      "img": "/Archive/Untitled_design/jurlique-handcream.png",
-      "desc_zh": "Jurlique 皇牌熱賣，保濕度高又唔笠手，香味高級耐聞，用完雙手即刻柔軟細滑✨\n💖 玫瑰 Rose（Exp. 08/2026）\n🌼 茉莉 Jasmine（Exp. 07/2026）\n\n👜 125ml 大支裝，送禮自用都超體面\n\n🖤 Black Friday 超抵入手！香港售價 $420/125ml，而家真係平到唔使諗‼️\n",
-      "desc_en": "Jurlique’s iconic best-seller! Super moisturising, non-greasy, and beautifully scented. Leaves hands instantly soft, smooth, and luxurious to the touch ✨\n\n💖 Rose (Exp. 08/2026)\n🌼 Jasmine (Exp. 07/2026)\n\n👜 125ml full-size — perfect for gifting or treating yourself.\n\n🖤 Black Friday steal! HK retail is $420/125ml, but now it’s so much cheaper you won’t believe it!"
-    },
-    {
-      "category": "preorder",
-      "id": "2",
-      "title_zh": "【預購】Jurlique 水潤花植保濕噴霧 100ml x 2    ⏰ 截單：11月29日",
-      "title_en": "【Pre-order】Jurlique Hydrating Mist 100ml  x 2  ⏰ Order cut-off：Nov 29",
-      "price_hkd": 530,
-      "img": "/Archive/Untitled_design/jurlique-mist-spray.png",
-      "desc_zh": "✨ 3款人氣香氣任揀，保濕＋補水＋舒緩一次搞掂！\n1️⃣ 甜紫羅蘭 × 西柚保濕噴霧（Sweet Violet & Grapefruit）\n2️⃣ 薰衣草保濕噴霧（Lavender）\n3️⃣ 皇牌玫瑰花水平衡噴霧（Rosewater）\n\n🖤 Black Friday 超震撼優惠得到2日！\n香港售價 $350/100ml，依家平均$265一枝‼️\n",
-      "desc_en": "✨ Choose from 3 bestselling scents — hydrate, refresh & soothe all in one!\n1️⃣ Sweet Violet & Grapefruit Hydrating Mist\n2️⃣ Lavender Hydrating Mist\n3️⃣ Rosewater Balancing Mist (signature favourite!)\n\n🖤 Black Friday mega deal — only 2 days!\nHK price is $350/100ml, now averaging $267 each — seriously unbeatable!"
-    },
-    {
-      "category": "preorder",
-      "id": "3",
       "title_zh": "【預購】Lanocreme 羊脂面霜 100g   ⏰ 截單：12月4日",
       "title_en": "【Pre-order】Lanocreme Lanolin Face Cream   ⏰ Order cut-off：Dec 4",
       "price_hkd": 85,
@@ -38,13 +18,13 @@
       "title_en": "【Pre-order】Chantelle Sydney-Pink Advanced Bio Placenta Sheep Extract    ⏰ Order cut-off：Dec 4",
       "title_zh": "【預購】Chantelle Sydney羊胎素精華原液 (升級版)    ⏰ 截單：12月4日",
       "desc_en": "10mL x 6 / box\n\n💖 100% authentic Australia product\n💖 High-strength placenta extract for deep hydration and firmer skin\n💖 Supports cell repair and renewal for a more radiant, energised complexion\n💖 Helps fade scars and speeds up skin recovery\n💖 Enriched with grape seed & Vitamin E for powerful antioxidant protection, anti-aging support, and boosted collagen production\n\n🌿 Key Ingredients: Ovine Placenta Extract, Grape Seed Extract, Collagen\n\n🎀 Apply evenly morning and night after cleansing. One vial lasts about a week.\n💡 Reseal tightly and store in the refrigerator after opening.",
-      "id": "4",
+      "id": "2",
       "desc_zh": "10ml x 6枝 /盒\n\n💖 100% 澳洲正貨\n💖 高濃度羊胎盤素萃取物，深層滋潤 & 緊緻肌膚\n💖 促進細胞修復與再生，膚色更有活力\n💖 淡化疤痕，加速肌膚自我修復\n💖 葡萄籽 + 維他命E 強效抗氧化，延緩老化，提升膠原蛋白\n\n🎀 早晚潔面後均勻塗抹，一瓶約用一週\n💡 使用後請蓋緊並雪櫃保存\n",
       "category": "preorder"
     },
     {
       "category": "preorder",
-      "id": "5",
+      "id": "3",
       "title_en": "【Pre-order】Chantelle Sydney-Celestial Purple Facial Stem Cell Treatment Serum     ⏰ Order cut-off：Dec 4",
       "title_zh": "【預購】Chantelle Sydney 幹細胞修護精華     ⏰ 截單：12月4日",
       "price_hkd": 299,
@@ -54,7 +34,7 @@
     },
     {
       "category": "preorder",
-      "id": "5",
+      "id": "4",
       "price_hkd": 175,
       "title_zh": "【預購】CeraVe 抗衰老修護眼霜 15ml     ⏰ 截單：12月4日",
       "title_en": "【Pre-order】CeraVe Skin Renewing Eye Cream 15ml     ⏰ Order cut-off：Dec 4",
@@ -64,7 +44,7 @@
     },
     {
       "category": "preorder",
-      "id": "6",
+      "id": "5",
       "title_zh": "【預購】Go-To Face Hero 面部精油 30ml     ⏰ 截單：12月4日",
       "title_en": "【Pre-order】Go-To Face Hero Face Oil 30ml     ⏰ Order cut-off：Dec 4",
       "price_hkd": 275,
@@ -74,7 +54,7 @@
     },
     {
       "category": "preorder",
-      "id": "7",
+      "id": "6",
       "title_zh": "【預購】kit: Skinkind 面部精油 30ml   ⏰ 截單：12月4日",
       "title_en": "【Pre-order】kit: Skinkind Face Oil 30ml    ⏰ Order cut-off：Dec 4",
       "price_hkd": 255,
@@ -84,7 +64,7 @@
     },
     {
       "category": "preorder",
-      "id": "8",
+      "id": "7",
       "title_zh": "【預購】kit: 冰感急救面膜 75ml     ⏰ 截單：12月4日",
       "title_en": "【Pre-order】kit: Cold Therapy Facial Treatment 75ml     ⏰ Order cut-off：Dec 4",
       "price_hkd": 255,
@@ -94,7 +74,7 @@
     },
     {
       "category": "preorder",
-      "id": "9",
+      "id": "8",
       "title_zh": "【預購】Wagner CoQ10 膠囊（100粒）     ⏰ 截單：12月8日",
       "title_en": "【Pre-order】Wagner Coq10 150mg (100 Capsules)     ⏰ Order cut-off：Dec 8",
       "price_hkd": 220,
@@ -104,7 +84,7 @@
     },
     {
       "category": "preorder",
-      "id": "10",
+      "id": "9",
       "title_zh": "【預購】Wagner 高效蔓越莓膠囊 （60粒）     ⏰ 截單：12月8日",
       "title_en": "【Pre-order】Wagner Cranberry Ultra Strength  (60 Capsules)    ⏰ Order cut-off：Dec 8",
       "price_hkd": 145,
@@ -114,7 +94,7 @@
     },
     {
       "category": "preorder",
-      "id": "11",
+      "id": "10",
       "title_zh": "【預購】Wagner Turmeric 3333薑黃保健膠囊（100粒）     ⏰ 截單：12月8日",
       "title_en": "【Pre-order】Wagner Turmeric 3333 + (100 Capsules)   ⏰ Order cut-off：Dec 8",
       "price_hkd": 135,
@@ -122,7 +102,7 @@
     },
     {
       "category": "preorder",
-      "id": "12",
+      "id": "11",
       "title_zh": "【預購】Wagner 奶薊膠囊 (60粒)   ⏰ 截單：12月8日",
       "title_en": "【Pre-order】Wagner Milk Thistle (60 Capsules)    ⏰ Order cut-off：Dec 8",
       "price_hkd": 145,
@@ -132,7 +112,7 @@
     },
     {
       "category": "preorder",
-      "id": "13",
+      "id": "12",
       "title_zh": "【預購】🇦🇺 Freshwater Farm 玫瑰純露水潤洗護髮系列   ⏰ 截單：12月8日",
       "title_en": "【Pre-order】🇦🇺 Freshwater Farm Rosewater Hydrating Hair Care Series   ⏰ Order cut-off：Dec 8",
       "desc_zh": "\n🌹呢個玫瑰純露系列真係好用又好香！\n\n💗 1) 玫瑰純露潔淨洗髮皂 100g — 💰65\n🥥 Argan + Coconut Oil 保濕頭皮髮絲\n✔ 一塊可用 最多約 100 次\n——————————————————\n💗 2) 玻尿酸玫瑰純露洗髮露 500ml — 💰105\n💧 玻尿酸極致鎖水\n✨ Provitamin B5 + Vitamin E 強韌亮澤\n✔ 無硫酸鹽 SLS/SLES Free｜無矽｜無 Paraben\n\n——————————————————\n💗 3) 玻尿酸玫瑰純露深層髮膜 240ml — 💰105\n💦 高效玻尿酸 + Shea Butter 深層注水\n✨ 令頭髮強韌、柔滑、易打理\n",
@@ -142,7 +122,7 @@
     },
     {
       "category": "preorder",
-      "id": "14",
+      "id": "13",
       "title_zh": "【預購】🇦🇺 Life-Space 兒童每日益生菌軟糖 (50粒)   ⏰ 截單：12月8日",
       "title_en": "【Pre-order】🇦🇺 Life-Space Children's Daily Probiotic Gummies (50 Pastilles)   ⏰ Order cut-off：Dec 8",
       "price_hkd": 185,
@@ -152,7 +132,7 @@
     },
     {
       "category": "preorder",
-      "id": "15",
+      "id": "14",
       "title_zh": "【預購】🇦🇺  Barnes Naturals 高濃度蘋果醋精華膠囊 (120粒）⏰ 截單：12月8日",
       "title_en": "【Pre-order】🇦🇺 Barnes Naturals Apple Cider Vinegar (120 Capsules)   ⏰ Order cut-off：Dec 8",
       "price_hkd": 155,
@@ -162,7 +142,7 @@
     },
     {
       "category": "preorder",
-      "id": "16",
+      "id": "15",
       "title_zh": "【預購】🇦🇺  Barnes Naturals 蘋果醋薑黃精華膠囊 (120粒）⏰ 截單：12月8日",
       "title_en": "【Pre-order】🇦🇺  Barnes Naturals Apple Cider Vinegar with The Mother Turmeric Boost  (120 Capsules)   ⏰ Order cut-off：Dec 8",
       "price_hkd": 165,
@@ -172,7 +152,7 @@
     },
     {
       "category": "preorder",
-      "id": "17",
+      "id": "16",
       "title_zh": "【預購】Bloom & Blossom Wonder Worker 多效萬用膏 50ml   ⏰ 截單：12月8日",
       "title_en": "【Pre-order】Bloom & Blossom Wonder Worker Multi- Tasking Balm 50ml   ⏰ Order cut-off：Dec 8",
       "price_hkd": 115,
@@ -182,7 +162,7 @@
     },
     {
       "category": "preorder",
-      "id": "18",
+      "id": "17",
       "title_zh": "【預購】Chupa Chups 身體噴霧迷你套裝（5支 × 75ml）   ⏰ 截單：12月8日",
       "title_en": "【Pre-order】Chupa Chups Mini Mist Set (5 x 75ml)   ⏰ Order cut-off：Dec 8",
       "price_hkd": 145,
@@ -192,7 +172,7 @@
     },
     {
       "category": "preorder",
-      "id": "19",
+      "id": "18",
       "title_zh": "【預購】Chupa Chups 面膜系列（8ml)   ⏰ 截單：12月8日",
       "title_en": "【Pre-order】Chupa Chups Face Mask Series (8ml)   ⏰ Order cut-off：Dec 8",
       "desc_zh": "🍓 士多啤梨奶油泡泡面膜（透明質酸）\n綿密泡泡深層補水，肌膚更滑更水嫩\n\n🍉 西瓜啫喱面膜（維他命E）\n冰涼啫喱鎖水＋強化皮膚屏障\n\n🍊 橙味撕拉式面膜（去角質）\n天然橙皮輕柔去角質，改善毛孔及膚色\n\n🥤 可樂泡泡面膜（咖啡因）\n可樂味泡泡好玩又醒膚，咖啡因助抗老、提升緊緻\n",
@@ -202,13 +182,57 @@
     },
     {
       "category": "preorder",
-      "id": "20",
+      "id": "19",
       "title_zh": "【預購】Chupa Chups雙重護膚套裝 (300g x 2)  ⏰ 截單：12月8日",
       "title_en": "【Pre-order】Chupa Chups Buff & Butter Duo Set (300g x 2)   ⏰ Order cut-off：Dec 8",
       "desc_zh": "磨砂去角質＋潤膚乳霜滋養，肌膚即刻柔滑嫩白!!\n\n✨Ripe Raspberry融合覆盆子、花香和焦糖的清新氣息\n✨Choco Vanilla濃郁朱古力＋雲尼命拿香氣\n💖 香甜護膚一次完成，自己用或送禮都抵玩～\n",
       "price_hkd": 165,
       "img": "/Archive/Untitled_design/cc-set.png",
       "desc_en": "Exfoliating scrub + nourishing body butter for instantly smooth, soft, and radiant skin!\n\n✨ Ripe Raspberry – a fresh blend of raspberry, floral, and caramel notes\n✨ Choco Vanilla – rich chocolate and creamy vanilla scent\n💖 Sweet skincare all in one—perfect for yourself or as a gift!"
+    },
+    {
+      "category": "preorder",
+      "id": "20",
+      "title_zh": "【預購】] 🇦🇺超市爆款軟糖 🇦🇺  ⏰ 截單：12月8日",
+      "title_en": "【Pre-order】🇦🇺 Australian Supermarket Best-Seller Lollies 🇦🇺  ⏰ Order cut-off：Dec 8",
+      "price_hkd": 55,
+      "desc_zh": "超有咬口！酸酸甜甜，超好食～😋 多款水果口味，一試就停唔到！夾心款入口口感似QQ糖，咬開即刻爆汁，入面真係水果果汁～🤤朋友都係買黎做手信送香港朋友！特別揀左3隻人氣款: \n\n1) 雜果味軟糖 220g\n2)香橙＋熱情果味夾心 150g\n3) 士多啤梨＋紅桑子味夾心 150g\n\n✅ 不添加人造色素或香料\n✅ 唔會太甜，連「少糖奶茶派」都可以接受\n",
+      "desc_en": "Super chewy, sweet & tangy – so addictive 😋\nSo many fruity flavours, you won’t stop at just one!\nThe juicy-filled version has a QQ-gummy texture, and when you bite in — it bursts with real fruit juice 🤤\nMany customers buy these as souvenirs for friends in Hong Kong too!\n\n🔥 3 Popular Flavours Selected:\n\nMixed Fruit Gummies 220g\n\nOrange & Passionfruit Juicy-Filled 150g\n\nStrawberry & Raspberry Juicy-Filled 150g\n\n✅ No artificial colours or flavours\n✅ Not overly sweet – even “less-sugar milk tea” lovers will enjoy it!",
+      "img": "/Archive/Untitled_design/fruti-lollies.png"
+    },
+    {
+      "category": "preorder",
+      "id": "21",
+      "title_zh": "【預購】Violet Crumble 脆脆蜂蜜拖肥朱古力系列  ⏰ 截單：12月8日",
+      "title_en": "【Pre-order】Violet Crumble Chocolate & Honeycomb Toffee Series   ⏰ Order cut-off：Dec 8",
+      "price_hkd": 25,
+      "desc_zh": "外層香濃朱古力＋內層超鬆脆蜂巢太妃糖，朱古力控必試～😋\n\n✨ 原味150g\n🌿 薄荷味130g\n",
+      "img": "/Archive/Untitled_design/crunky-chocolate.png",
+      "desc_en": "Rich chocolate on the outside with super light & crunchy honeycomb toffee inside – a must-try for all chocolate lovers 😋\n\n✨ Original Flavour 150g\n🌿 Mint Flavour 130g\n\nCrispy, chocolatey, and seriously addictive!"
+    },
+    {
+      "category": "preorder",
+      "id": "22",
+      "title_zh": "【預購】Byron Bay迷你曲奇粒 (100g)  ⏰ 截單：12月8日",
+      "title_en": "【Pre-order】Byron Bay Mini Cookie Bites (100g)   ⏰ Order cut-off：Dec 8",
+      "price_hkd": 50,
+      "desc_zh": "✨ 用澳洲夏威夷果仁製作\n✨ 口感香濃・鬆化・酥脆, 配咖啡／奶茶一流☕\n\n🧈 夏威夷果仁＋牛油\n🤍 白朱古力＋夏威夷果仁\n",
+      "desc_en": "✨ Made with premium Australian macadamia nuts\n✨ Rich, buttery, crumbly & crunchy – perfect with coffee or milk tea ☕\n\n🧈 Macadamia Butter Shortbread\n🤍 White Chocolate & Macadamia\n\nSmall bites, big flavour – so addictive! 😋",
+      "img": "/Archive/Untitled_design/cookies.png"
+    },
+    {
+      "category": "archived",
+      "id": "23",
+      "title_zh": "【預購】Chupa Chups雙重護膚套裝 (300g x 2)  ⏰ 截單：12月8日",
+      "title_en": "【Pre-order】Chupa Chups Buff & Butter Duo Set (300g x 2)   ⏰ Order cut-off：Dec 8",
+      "price_hkd": 0
+    },
+    {
+      "category": "archived",
+      "id": "24",
+      "title_zh": "【預購】Chupa Chups雙重護膚套裝 (300g x 2)  ⏰ 截單：12月8日",
+      "title_en": "【Pre-order】Chupa Chups Buff & Butter Duo Set (300g x 2)   ⏰ Order cut-off：Dec 8",
+      "price_hkd": 0
     },
     {
       "desc_images_en": [],
