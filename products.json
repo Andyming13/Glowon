@@ -223,16 +223,32 @@
     {
       "category": "archived",
       "id": "23",
-      "title_zh": "【預購】Chupa Chups雙重護膚套裝 (300g x 2)  ⏰ 截單：12月8日",
-      "title_en": "【Pre-order】Chupa Chups Buff & Butter Duo Set (300g x 2)   ⏰ Order cut-off：Dec 8",
-      "price_hkd": 0
+      "title_zh": "【預購】Bloom & Blossom 助眠香薰枕頭噴霧 75ml   ⏰ 截單：12月11日",
+      "title_en": "【Pre-order】Bloom & Blossom All Night Long Calming Sleep Spray 75ml   ⏰ Order cut-off：Dec 11",
+      "price_hkd": 118,
+      "img": "/Archive/Untitled_design/bloom-blossom.png",
+      "desc_zh": "睡前輕輕一噴～淡淡花香＋天然植物香氣幫你即刻進入「準備熄機模式」💤\n\n✨ 乳香＋椴樹花＋玫瑰花水\n✨ 99% 天然來源成分\n✨ 幫助放鬆緊張情緒、舒緩壓力\n✨ 睡前噴落枕頭、床單或睡衣上\n",
+      "desc_en": "Spray lightly before bed 🌙— the gentle floral and natural plant scents help you instantly switch to “sleep mode” 💤\n\n✨ Frankincense + Linden Blossom + Rose Flower Water\n✨ 99% naturally derived\n✨ Helps relax a tense mind and ease stress\n✨ Spray on pillow, bedsheets, or pajamas before bedtime"
     },
     {
       "category": "archived",
       "id": "24",
-      "title_zh": "【預購】Chupa Chups雙重護膚套裝 (300g x 2)  ⏰ 截單：12月8日",
-      "title_en": "【Pre-order】Chupa Chups Buff & Butter Duo Set (300g x 2)   ⏰ Order cut-off：Dec 8",
-      "price_hkd": 0
+      "title_zh": "【預購】HASK 摩洛哥堅果油修護髮霜 60ml   ⏰ 截單：12月11日",
+      "title_en": "【Pre-order】Hask Argan Oil Miracle Split Ends Damage Repair Cream 60ml  ⏰ Order cut-off：Dec 11",
+      "price_hkd": 45,
+      "img": "/Archive/Untitled_design/hask-hair-.png",
+      "desc_zh": "專攻 開叉・毛躁・斷裂爛髮！\n🌿 摩洛哥堅果油 + 毛鱗片修護科技\n✔ 修護分叉髮梢\n✔ 深層修復受損髮絲\n🍊 清新柑橘香\n\n細支方便帶，出街，返工、旅行 都得！\n",
+      "desc_en": "Targets split ends, frizz & damaged hair! 💇‍♀️\n🌿 Argan Oil + Cuticle Smoothing Technology\n✔ Repairs split ends\n✔ Deeply restores damaged strands\n🍊 Refreshing citrus scent\n\nCompact size, perfect for on-the-go—work, travel, or everyday use!"
+    },
+    {
+      "category": "preorder",
+      "id": "25",
+      "title_zh": "【預購】Double D 澳洲麥蘆卡蜂蜜潤喉糖 (16粒裝) 🇦🇺  ⏰ 截單：12月11日",
+      "title_en": "【Pre-order】Double D Manuka Honey Drops (16 pcs)   ⏰ Order cut-off：Dec 11",
+      "price_hkd": 55,
+      "img": "/Archive/Untitled_design/doubled-honey-drops.png",
+      "desc_zh": "MGO500+ 澳洲麥蘆卡蜂蜜,全天然、無人工添加、無麩質，有效 潤喉舒緩\n\n🍋 檸檬薑：蜂蜜＋檸檬＋薑，一食即刻順喉\n💜 黑接骨木莓：潤喉同時加強防護力\n🌿 尤加利：清涼醒神，呼吸即刻暢順\n",
+      "desc_en": "Made with MGO500+ Australian Manuka Honey, all-natural, no artificial additives, gluten-free, for effective throat soothing and relief.\n\n🍋 Lemon & Ginger – Honey + lemon + ginger, instantly soothing\n💜 Black Elderberry – Soothes throat while boosting immunity\n🌿 Eucalyptus – Refreshing and cooling, clears your airways immediately"
     },
     {
       "desc_images_en": [],
