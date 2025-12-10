@@ -311,6 +311,56 @@
       "desc_en": "A portable fragrance that energizes, relaxes, and helps you sleep~\n\n⚡ Energy (Energizing)\nSweet Orange + Mandarin | Cedarwood + Verbena\n👉 Perfect for beating the 3pm slump—one swipe and you feel instantly awake!\n\n💤 Unwind (Relaxing & Sleep Aid)\nLavender + Eucalyptus | Sandalwood + Vetiver\n👉 Use at night to calm your mind and help you fall asleep\n\nReal user feedback:\nI have both, but I love Energy most for its bright sweet orange scent, while Unwind has a more woody aroma."
     },
     {
+      "category": "preorder",
+      "id": "32",
+      "title_zh": "【預購】 Nature’s Own 葡萄糖胺 + 軟骨素 (180粒)  ⏰ 截單: 12月15日",
+      "title_en": "【Pre-order】 Nature's Own Glucosamine Sulfate & Chondroitin Advanced 180 Tablets  ⏰ Order cut-off: Dec 15",
+      "price_hkd": 250,
+      "img": "/Archive/Untitled_design/natures-own-glucosamine-sulfate-chondroitin-advanced.png",
+      "desc_zh": "關節痠痛、唔靈活？呢款澳洲高評價熱賣配方，三重功效照顧你嘅關節！\n\n✔ 減輕輕微關節痛\n✔ 保護軟骨、減少損傷\n✔膠原形成，維持關節彈性\n✅成人每日3 粒補充葡萄糖胺 + 軟骨素 + 鋅 + 維他命C\n✅ 澳洲製造，無麩質、乳糖、糖分及人工添加\n\n💎 點解揀呢隻補充劑？\n•\t每日穩定提供1500mg 葡萄糖胺 + 800mg 軟骨素，跟足臨床建議\n•\t澳洲製造 + TGA監管，市面參差，揀澳洲大牌最放心\n",
+      "desc_en": "Joint stiffness and discomfort holding you back?\nThis top-rated Australian formula delivers triple-action support for your joints!\n\n✔ Helps relieve mild joint pain\n✔ Protects cartilage and reduces wear\n✔ Supports collagen formation to maintain joint flexibility\n\n✅ Adults take 3 tablets daily for Glucosamine + Chondroitin + Zinc + Vitamin C\n✅ Made in Australia; gluten-free, lactose-free, sugar-free & no artificial additives\n\n💎 Why choose this supplement?\n• Provides a clinically recommended dose: 1500 mg Glucosamine + 800 mg Chondroitin daily\n• Made in Australia under strict TGA regulation — reliable quality you can trust compared to many uneven products on the market"
+    },
+    {
+      "category": "preorder",
+      "id": "33",
+      "title_zh": "【預購】Carusos 超級鎂霜 100g  ⏰ 截單: 12月15日",
+      "title_en": "【Pre-order】Carusos Super Magnesium Cream 100g  ⏰ Order cut-off: Dec 15",
+      "price_hkd": 140,
+      "img": "/Archive/Untitled_design/carusos-super-magnesium-cream-100g.png",
+      "desc_zh": "澳洲高評價舒緩膏，肌肉酸痛／撞瘀好幫手！\n\n🌿 鎂 + 山金車 (Arnica) 雙效舒緩\n✔ 放鬆緊繃肌肉、減輕酸痛\n✔ 舒緩輕微關節痛\n✔ 幫助減淡撞瘀帶來的不適\n🧴 易推不黏、低香味，運動後／肩頸痛搽一搽即刻舒服！\n",
+      "desc_en": "Australia’s top-rated soothing balm — your go-to for muscle soreness and bruising!\n\n🌿 Dual-action formula with Magnesium + Arnica\n✔ Relaxes tight muscles and eases soreness\n✔ Helps relieve mild joint discomfort\n✔ Soothes discomfort from minor bruising\n🧴 Smooth, non-sticky, and low-scent — perfect for post-workout use or quick relief for neck and shoulder tension!"
+    },
+    {
+      "category": "preorder",
+      "id": "34",
+      "title_zh": "【預購】 🍉 Piksters西瓜味牙線棒 (20支裝)  ⏰ 截單: 12月15日",
+      "title_en": "【Pre-order】 🍉 Piksters SupaGRIP Twin Floss Picks Watermelon Flavour (20 pack)  ⏰ Order cut-off: Dec 15",
+      "price_hkd": 13,
+      "desc_zh": "雙線設計，一次過清走牙縫殘渣！\n細小鋁箔包裝，方便帶出街、旅行必備 🦷✨\n\n",
+      "desc_en": "Dual-line design removes debris between teeth in just one go!\nCompact foil packaging makes it easy to carry — perfect for on-the-go use or travel 🦷✨",
+      "img": "/Archive/Untitled_design/watermelon-floss.png"
+    },
+    {
+      "category": "preorder",
+      "id": "35",
+      "title_zh": "【預購】 🥭 Sukin熱帶芒果香氛沐浴露 1L  ⏰ 截單: 12月15日",
+      "title_en": "【Pre-order】 🥭 Sukin Botanical Body Wash Mango Paradise 1L  ⏰ Order cut-off: Dec 15",
+      "price_hkd": 145,
+      "img": "/Archive/Untitled_design/sukin-mango.png",
+      "desc_zh": "一洗即享熱帶芒果香，身心即刻放鬆～\n\n🌿 天然植物配方：芒果精華 + Kakadu Plum + 澳洲木槿花+蘆薈\n🌿無皂配方,唔會引起乾燥、瘙癢或刺激\n💛 大容量 1L，高CP值，日日用都唔心痛！\n",
+      "desc_en": "Enjoy a tropical mango scent with every wash — instantly relaxing for body and mind!\n🌿 Natural botanical blend: Mango Extract + Kakadu Plum + Australian Hibiscus + Aloe Vera\n🌿 Soap-free formula — gentle on skin without causing dryness, itchiness, or irritation\n💛 Large 1L bottle with great value — perfect for everyday use without the guilt!"
+    },
+    {
+      "category": "preorder",
+      "id": "36",
+      "title_zh": "【預購】 My Soda 平衡頭皮洗髮水 350ml  ⏰ 截單: 12月15日",
+      "title_en": "【Pre-order】 My Soda Balance Oil Control Shampoo 350ml    ⏰ Order cut-off: Dec 15",
+      "price_hkd": 65,
+      "img": "/Archive/Untitled_design/my-soda.png",
+      "desc_zh": "\n香港濕熱天氣，想頭髮清爽輕盈保持一整天？\n呢支澳洲熱賣洗髮水用溫和植物系配方，輕輕一洗就令頭皮回復平衡～✨\n\n🌿 維他命B3 平衡油脂、強韌髮絲\n🫧 高嶺土 深層潔淨\n💧 蘆薈成份保濕舒緩，洗完頭皮超清爽\n\n",
+      "desc_en": "Hong Kong’s humid weather got you wanting fresh, light hair that stays clean all day?\nThis best-selling Australian shampoo uses a gentle, plant-based formula to restore scalp balance with just one wash ✨\n\n🌿 Vitamin B3 – balances oil and strengthens hair\n🫧 Kaolin clay – deep cleanses\n💧 Aloe vera – moisturizes and soothes, leaving your scalp super refreshed"
+    },
+    {
       "desc_images_en": [],
       "img": "Archive/Untitled_design/16.png",
       "desc_images_zh": [],
@@ -1311,16 +1361,6 @@
       "id": "1039",
       "desc_zh": "澳洲超市必買零食清單之一！超好味！香港朋友仔食完都話追住食停唔到口😋酸忌廉洋葱味唔太鹹，用全穀物烘焙製成，非油炸比普通薯片更健康💚",
       "category": "preorder"
-    },
-    {
-      "category": "archived",
-      "id": "50",
-      "title_zh": "<預購>  My Soda 平衡頭皮洗髮水 350ml  ⏰ 截單: 11月10日",
-      "title_en": "<Pre-order>  My Soda Balance Oil Control Shampoo 350ml    ⏰ Order cut-off: Nov 10",
-      "price_hkd": 65,
-      "img": "/Archive/Untitled_design/my-soda.png",
-      "desc_zh": "\n香港濕熱天氣，想頭髮清爽輕盈保持一整天？\n呢支澳洲熱賣洗髮水用溫和植物系配方，輕輕一洗就令頭皮回復平衡～✨\n\n🌿 維他命B3 平衡油脂、強韌髮絲\n🫧 高嶺土 深層潔淨\n💧 蘆薈成份保濕舒緩，洗完頭皮超清爽\n\n",
-      "desc_en": "Hong Kong’s humid weather got you wanting fresh, light hair that stays clean all day?\nThis best-selling Australian shampoo uses a gentle, plant-based formula to restore scalp balance with just one wash ✨\n\n🌿 Vitamin B3 – balances oil and strengthens hair\n🫧 Kaolin clay – deep cleanses\n💧 Aloe vera – moisturizes and soothes, leaving your scalp super refreshed"
     }
   ]
 }
